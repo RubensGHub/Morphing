@@ -1,5 +1,7 @@
-package src;
 
 public class Adfgdsfg {
+    public static void main()
+    {
 
+    }
 }
