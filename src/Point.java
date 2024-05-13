@@ -1,21 +1,33 @@
 public class Point {
-    
-    private double x;
-    private double y;
+    private Couple<Integer, Integer> point;
 
-    public double getX() {
-        return x;
+    public Point(int x, int y) {
+        point = new Couple<>(x, y);
     }
 
-    public double getY() {
-        return y;
+    public Couple<Integer, Integer> getPoint() {
+        return point;
     }
 
-    public void setX(double x) {
-        this.x = x;
+    public void setPoint(Couple<Integer, Integer> point) {
+        this.point = point;
     }
 
-    public void setY(double y) {
-        this.y = y;
+    public int getX() {
+        return point.getY();
     }
+
+    public int getY() {
+        return point.getY();
+    }
+
+    public void setX(int x) {
+        point.setX(x);
+    }
+
+    public void setY(int y) {
+        point.setY(y);
+    }
+
+
 }
