@@ -78,4 +78,9 @@ public class ImageG {
         return image;
     }
 
+
+    public String getFormat() {
+        return this.format;
+    }
+
 }

@@ -6,28 +6,18 @@ public class Point {
     }
 
     public Couple<Integer, Integer> getPoint() {
-        return point;
+        return this.point;
     }
 
     public void setPoint(Couple<Integer, Integer> point) {
         this.point = point;
     }
 
-    public int getX() {
-        return point.getY();
+    public Point nextPoint(Point p, int t)
+    {
+        int x = this.getPoint().getX() * (1-t) + p.getPoint().getX() * t;
+        int y = this.getPoint().getY() * (1-t) + p.getPoint().getY() * t;
+
+        return new Point(x, y);
     }
-
-    public int getY() {
-        return point.getY();
-    }
-
-    public void setX(int x) {
-        point.setX(x);
-    }
-
-    public void setY(int y) {
-        point.setY(y);
-    }
-
-
 }
