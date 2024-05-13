@@ -82,8 +82,62 @@ public class MorphingApp {
     }
 
 
-    public void wrap(ImageT img)
-    {
+    public void wrap(ImageT imgSrc, ImageT imgDest){
+        double a = 0.5f;
+        double b = 0.5f;
+        double length;
+        for (int x = 0 ; x < imgDest.getWidth() ; x++)
+        {
+            for (int y = 0 ; y < imgDest.getHeight() ; y++)
+            {
+                int dsum = 0;
+                int weightsum = 0;
+                double dist = imgDest.getWidth() * imgDest.getHeight();
+
+                for (int k = 0 ; k < this.getNbLines() ; k++){
+
+                    length = imgDest.getLine(k).length();
+                    double u, v;
+                    Line l = imgDest.getLine(k);
+                    Point p = l.getVector().getX();
+                    Point q = l.getVector().getY();
+                    u = l.hauteur(new Point(x, y));
+                    v = l.dist(new Point(x, y));
+
+                    Line l2 = imgSrc.getLine(k);
+                    Point p2 = l2.getVector().getX();
+                    Point q2 = l2.getVector().getY();
+                    Point transPoint = new Point((int) v * l2.perdendicular().getX(), (int) v * l2.perdendicular().getY());
+                    Point xP = new Point((int) (p2.getPoint().getX() + u * (q2.getPoint().getX() - p2.getPoint().getX())) + transPoint.getPoint().getX(), (int) (p2.getPoint().getY() + u * (q2.getPoint().getY() - p2.getPoint().getY())) + transPoint.getPoint().getY());
+
+                    // Calcul de la distance
+                    double d = Math.sqrt(Math.pow(x - xP.getPoint().getX(), 2) + Math.pow(y - xP.getPoint().getY(), 2));
+                    
+                    // Calcul de la distance minimale
+                    if(v < dist){
+                        dist = v;
+                    }
+            
+                    // Calcul du poids
+                    double weight = Math.pow(length / (d + a),b);
+
+                    // Calcul de la somme des distances et des poids
+                    dsum += d * weight;
+                    weightsum += weight;
+                }
+
+                // Calcul de la nouvelle position du pixel
+                int xnew = (int) (x + dsum / weightsum);
+                int ynew = (int) (y + dsum / weightsum);
+
+                // Vérification des bornes
+                if (xnew >= 0 && xnew < imgSrc.getWidth() && ynew >= 0 && ynew < imgSrc.getHeight())
+                {
+                    int pix = imgSrc.getImage().getRGB(xnew, ynew);
+                    imgDest.getImage().setRGB(x, y, pix);
+                }
+            }
+        }
 
     }
 
