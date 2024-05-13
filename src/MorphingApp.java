@@ -47,24 +47,33 @@ public class MorphingApp {
         this.nbLines = nbLines;
     }
 
-
+    /**
+     * Constructeur par défaut
+     */
     public MorphingApp() {
-
+        this.imgSrc = null;
+        this.imgDest = null;
+        this.frames = null;
+        this.nbFrames = 0;
+        this.nbLines = 0;
     }
 
-
-
-    public ImageT newFrame(int t)
-    {
+    /**
+     * Créer une image intermédiaire à partir de l'image de départ et de l'image d'arrivée
+     * @param t : ordre de l'image intermédiaire
+     * @return ImageT
+     */
+    public ImageT newFrame(int t){
         ImageT frame = new ImageT(imgSrc.getWidth(), imgSrc.getHeight(), imgSrc.getFormat());
 
         for (int i = 0 ; i < this.getNbLines() ; i++)
         {
-            Line vect = imgSrc.getLine(i);
+            Line v1 = imgSrc.getLine(i);
+            Line v2 = imgDest.getLine(i);
 
             // Calcul des nouveaux points pour définir les nouvelles lignes de contrainte
-            Point p = vect.getLine().getX().nextPoint(vect.getLine().getX(), t);
-            Point q = vect.getLine().getY().nextPoint(vect.getLine().getY(), t);
+            Point p = v1.getVector().getX().nextPoint(v2.getVector().getX(), t);
+            Point q = v1.getVector().getY().nextPoint(v2.getVector().getY(), t);
 
             frame.addLine(new Line(p, q));
         } 
