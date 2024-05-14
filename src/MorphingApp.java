@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.IOException;
 
 public class MorphingApp {
 
@@ -81,7 +83,13 @@ public class MorphingApp {
         return frame;
     }
 
-
+    
+    /**
+     * Calcul de la transformation de l'image de départ vers l'image d'arrivée
+     * @param imgSrc : image de départ
+     * @param imgDest : image d'arrivée
+     * @return ImageT
+     */
     public void wrap(ImageT imgSrc, ImageT imgDest){
         double a = 0.5f;
         double b = 0.5f;
@@ -166,42 +174,38 @@ public class MorphingApp {
 
 
     /**
-     * Beier--Neely Field Warping AlgorithmNeely Field Warping Algor
+     * Calcul de la transformation de l'image de départ vers l'image d'arrivée
+     * @param imgSrc : image de départ
+     * @param imgDest : image d'arrivée
+     * @return ImageT
      */
-    public void generate()
-    {
-        for (int f = 0 ; f < this.getNbFrames() ; f++)
-        {
+    public void calculate(){
+        for (int f = 0 ; f < this.getNbFrames() ; f++){
             int t = f/this.getNbFrames();
-
-            ImageT img = newFrame(t);
-        }
-
-
-
-
-
-
-        // Pour chaque pixel de notre image de départ
-        for (int x = 0 ; x < imgSrc.getWidth() ; x++)
-        {
-            for (int y = 0 ; y < imgSrc.getHeight() ; y++)
-            {
-                int pix = imgSrc.getImage().getRGB(x, y);
-                int dsum = 0;
-                int weightsum = 0;
-
-                // Pour chaque vecteur
-                for (int v = 0 ; v < this.getNbLines() ; v++)
-                {
-                    // a finir ...
-                }
-
-            }
+            ImageT wrapSrc = newFrame(t);
+            ImageT wrapDest = newFrame(t);
+            wrap(imgSrc, wrapSrc);
+            wrap(imgDest, wrapDest);
+            frames[f] = interpolateColor(t, wrapSrc, wrapDest);
         }
     }
 
+    /**
+     * Sauvegarde des images intermédiaires
+     * @param path : chemin de sauvegarde
+     */
+    public void saveFrames(String path){
+        for (int i = 0 ; i < this.getNbFrames() ; i++){
+            frames[i].save(path + "/frame" + i + ".png");
+        }
+    }
 
+    /**
+     * Génération du gif
+     */
+    public void generateGif(){
+        
+    }
 
 
 }
