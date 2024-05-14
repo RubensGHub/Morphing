@@ -1,20 +1,40 @@
 public class Line 
 {
     private Couple<Point, Point> line;
+    private Couple<Point,Point> vector;
 
-    public Line(Point p1, Point p2) 
+    public Line(Couple<Point,Point> vector) 
     {
-        line = new Couple<>(p1, p2);
+        this.vector = vector;
     }
 
-    public Point getBase() 
+    public Line(Point start, Point end) 
     {
-        return line.getX();
+        this.vector = new Couple<Point,Point>(start, end);
     }
 
-    public Point getHead() 
-    {
-        return line.getY();
+    public Couple<Point,Point> getVector() {
+        return this.vector;
+    }
+
+    public void setVector(Couple<Point,Point> vector) {
+        this.vector = vector;
+    }
+
+    public Point getStart() {
+        return this.vector.getX();
+    }
+
+    public Point getEnd() {
+        return this.vector.getY();
+    }
+
+    public void setStart(Point start) {
+        this.vector.setX(start);
+    }
+
+    public void setEnd(Point end) {
+        this.vector.setY(end);
     }
 
     public void setBase(Point p) 
@@ -29,13 +49,13 @@ public class Line
 
     public double getLength()
     {
-        return Math.sqrt(Math.pow(this.getHead().getX()-this.getBase().getX(),2)+Math.pow(this.getHead().getY()-this.getBase().getY(),2));
+        return Math.sqrt(Math.pow(this.getEnd().getX()-this.getStart().getX(),2)+Math.pow(this.getEnd().getY()-this.getStart().getY(),2));
     }
 
     public double dist(Point p)
     {
-        Point p1 = new Point(p.getX()-this.getBase().getX(), p.getY()-this.getBase().getY());
-        Point p2 = new Point(this.getHead().getX()-this.getBase().getX(), this.getHead().getY()-this.getBase().getY());
+        Point p1 = new Point(p.getX()-this.getStart().getX(), p.getY()-this.getStart().getY());
+        Point p2 = new Point(this.getEnd().getX()-this.getStart().getX(), this.getEnd().getY()-this.getStart().getY());
         Point p3 = perpendicular(p2);
         double numerator = produitScalaire(p1, p3);
         double denominateur = norme(p3);
@@ -51,10 +71,10 @@ public class Line
 
     public double hauteur(Point p)
     {
-        Point p1 = new Point(p.getX()-this.getBase().getX(), p.getY()-this.getBase().getY());
-        Point p2 = new Point(this.getHead().getX()-this.getBase().getX(), this.getHead().getY()-this.getBase().getY());
+        Point p1 = new Point(p.getX()-this.getStart().getX(), p.getY()-this.getStart().getY());
+        Point p2 = new Point(this.getEnd().getX()-this.getStart().getX(), this.getEnd().getY()-this.getStart().getY());
         double numerator = produitScalaire(p1, p2);
-        Point p3 = new Point(this.getHead().getX()-this.getBase().getX(), this.getHead().getY()-this.getBase().getY());
+        Point p3 = new Point(this.getEnd().getX()-this.getStart().getX(), this.getEnd().getY()-this.getStart().getY());
         double denominateur = Math.pow(norme(p3),2);
         if (denominateur == 0)
         {
@@ -81,11 +101,4 @@ public class Line
         return Math.sqrt(Math.pow(p.getX(),2)+Math.pow(p.getY(),2));
     }
     
-}
-
-
-
-    
-
-
 }
