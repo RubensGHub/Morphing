@@ -9,6 +9,14 @@ public class Point {
         return this.point;
     }
 
+    public int getX() {
+        return point.getX();
+    }
+
+    public int getY() {
+        return point.getY();
+    }
+
     public void setPoint(Couple<Integer, Integer> point) {
         this.point = point;
     }
