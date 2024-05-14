@@ -52,53 +52,67 @@ public class Line
         return Math.sqrt(Math.pow(this.getEnd().getX()-this.getStart().getX(),2)+Math.pow(this.getEnd().getY()-this.getStart().getY(),2));
     }
 
-    public double dist(Point p)
-    {
-        Point p1 = new Point(p.getX()-this.getStart().getX(), p.getY()-this.getStart().getY());
-        Point p2 = new Point(this.getEnd().getX()-this.getStart().getX(), this.getEnd().getY()-this.getStart().getY());
-        Point p3 = perpendicular(p2);
-        double numerator = produitScalaire(p1, p3);
-        double denominateur = norme(p3);
-        if (denominateur == 0)
-        {
-            return 0;
-        }
-        else
-        {
-            return Math.abs(numerator/denominateur);
-        }
-    }
-
-    public double hauteur(Point p)
-    {
-        Point p1 = new Point(p.getX()-this.getStart().getX(), p.getY()-this.getStart().getY());
-        Point p2 = new Point(this.getEnd().getX()-this.getStart().getX(), this.getEnd().getY()-this.getStart().getY());
-        double numerator = produitScalaire(p1, p2);
-        Point p3 = new Point(this.getEnd().getX()-this.getStart().getX(), this.getEnd().getY()-this.getStart().getY());
-        double denominateur = Math.pow(norme(p3),2);
-        if (denominateur == 0)
-        {
-            return 0;
-        }
-        else
-        {
-            return Math.abs(numerator/denominateur);
+    public double dist(Point p) {
+        Point p1 = new Point(p.getX() - this.getStart().getX(), p.getY() - this.getStart().getY());
+        Line perpendicularLine = this.perpendicular();
+        Point p2 = new Point(perpendicularLine.getEnd().getX() - perpendicularLine.getStart().getX(), 
+                             perpendicularLine.getEnd().getY() - perpendicularLine.getStart().getY());
+        Line l1 = new Line(p1, new Point(p2.getX(), p2.getY()));
+        double numerator = this.produitScalaire(l1);
+        double denominator = this.norme();
+        
+        if (denominator == 0) {
+            return Double.POSITIVE_INFINITY;
+        } else {
+            return Math.abs(numerator / denominator);
         }
     }
+    
+    public double hauteur(Point p) {
+        Point p1 = new Point(p.getX() - this.getStart().getX(), p.getY() - this.getStart().getY());
+        Point p2 = new Point(this.getEnd().getX() - this.getStart().getX(), this.getEnd().getY() - this.getStart().getY());
+        Line l1 = new Line(p1, p2);
+        double numerator = this.produitScalaire(l1);
+        double denominator = Math.pow(this.norme(), 2);
+        
+        if (denominator == 0) {
+            return Double.POSITIVE_INFINITY;
+        } else {
+            return Math.abs(numerator / denominator);
+        }
+    }
+    
 
-    public Point perpendicular(Point p)
+    public Line perpendicular() 
     {
-        return new Point(-p.getY(), p.getX()); 
+        Point start = this.getStart();
+        Point end = this.getEnd();
+        int dx = end.getY() - start.getY();
+        int dy = start.getX() - end.getX();
+        Point newEnd = new Point(start.getX() + dx, start.getY() + dy);
+        return new Line(start, newEnd);
     }
 
-    public double produitScalaire(Point p1, Point p2)
+    public double produitScalaire(Line l) 
     {
-        return p1.getX()*p2.getX()+p1.getY()*p2.getY();
+        Point start1 = this.getStart();
+        Point end1 = this.getEnd();
+        Point start2 = l.getStart();
+        Point end2 = l.getEnd();
+
+        int x1 = end1.getX() - start1.getX();
+        int y1 = end1.getY() - start1.getY();
+        int x2 = end2.getX() - start2.getX();
+        int y2 = end2.getY() - start2.getY();
+
+        return x1 * x2 + y1 * y2;
     }
 
-    public double norme(Point p)
+    public double norme() 
     {
-        return Math.sqrt(Math.pow(p.getX(),2)+Math.pow(p.getY(),2));
+        Point start = this.getStart();
+        Point end = this.getEnd();
+        return Math.sqrt(Math.pow(end.getX() - start.getX(), 2) + Math.pow(end.getY() - start.getY(), 2));
     }
     
 }
