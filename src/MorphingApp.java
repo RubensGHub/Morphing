@@ -104,7 +104,7 @@ public class MorphingApp {
 
                 for (int k = 0 ; k < this.getNbLines() ; k++){
 
-                    length = imgDest.getLine(k).length();
+                    length = imgDest.getLine(k).getLength();
                     double u, v;
                     Line l = imgDest.getLine(k);
                     Point p = l.getVector().getX();
@@ -115,7 +115,7 @@ public class MorphingApp {
                     Line l2 = imgSrc.getLine(k);
                     Point p2 = l2.getVector().getX();
                     Point q2 = l2.getVector().getY();
-                    Point transPoint = new Point((int) v * l2.perdendicular().getX(), (int) v * l2.perdendicular().getY());
+                    Point transPoint = new Point((int) v * l2.perpendicular().getX(), (int) v * l2.perpendicular().getY());
                     Point xP = new Point((int) (p2.getPoint().getX() + u * (q2.getPoint().getX() - p2.getPoint().getX())) + transPoint.getPoint().getX(), (int) (p2.getPoint().getY() + u * (q2.getPoint().getY() - p2.getPoint().getY())) + transPoint.getPoint().getY());
 
                     // Calcul de la distance
