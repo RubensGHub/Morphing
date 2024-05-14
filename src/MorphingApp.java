@@ -138,6 +138,28 @@ public class MorphingApp {
                 }
             }
         }
+    }
+
+    /**
+     * Interpolation de couleur
+     * @param k : ordre de l'image intermédiaire (entre 0 et 1)
+     * @param wrapSrc : image de départ
+     * @param wrapDest : image d'arrivée
+     * @return ImageT
+     */
+    public ImageT interpolateColor(int k, ImageT wrapSrc, ImageT wrapDest){
+        ImageT img = new ImageT(wrapSrc.getWidth(), wrapSrc.getHeight(), wrapSrc.getFormat());
+        for (int x = 0 ; x < wrapSrc.getWidth() ; x++)
+        {
+            for (int y = 0 ; y < wrapSrc.getHeight() ; y++)
+            {
+                int pixSrc = wrapSrc.getImage().getRGB(x, y);
+                int pixDest = wrapDest.getImage().getRGB(x, y);
+                int pix = (int) (pixSrc * (1 - k) + pixDest * k);
+                img.getImage().setRGB(x, y, pix);
+            }
+        }
+        return img;
 
     }
 
