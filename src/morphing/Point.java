@@ -11,26 +11,28 @@ public class Point {
         return this.point;
     }
 
-    public int getX() {
-        return point.getX();
-    }
-
-    public int getY() {
-        return point.getY();
-    }
-
-    public void setX(int x) {
-        this.point.setX(x);
-    }
-
-    public void setY(int y) {
-        this.point.setY(y);
-    }
-
-    
-
     public void setPoint(Couple<Integer, Integer> point) {
         this.point = point;
+    }
+
+    public void setPoint(int x, int y) {
+        this.point = new Couple<>(x, y);
+    }
+
+    public Point div(int d) {
+        return new Point(this.point.getX() / d, this.point.getY() / d);
+    }
+
+    public Point add(Point p) {
+        return new Point(this.point.getX() + p.getPoint().getX(), this.point.getY() + p.getPoint().getY());
+    }
+
+    public Point sub(Point p) {
+        return new Point(this.point.getX() - p.getPoint().getX(), this.point.getY() - p.getPoint().getY());
+    }
+
+    public Point mul(int d) {
+        return new Point(this.point.getX() * d, this.point.getY() * d);
     }
 
     public Point nextPoint(Point p, int t)

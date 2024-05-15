@@ -1,120 +1,103 @@
 package morphing;
 
-public class Line 
-{
-    private Couple<Point, Point> line;
-    private Couple<Point,Point> vector;
+public class Line {
+    private Couple<Point,Point> line;
+    private Couple<Double,Double> vector;
 
-    public Line(Couple<Point,Point> vector) 
-    {
-        this.vector = vector;
+    public Line(Couple<Point,Point> line) {
+        this.line = line;
+        double x = line.getY().getPoint().getX()-line.getX().getPoint().getX();
+        double y = line.getX().getPoint().getY()-line.getX().getPoint().getY();
+        vector = new Couple<Double,Double>(x, y);
     }
 
-    public Line(Point start, Point end) 
-    {
-        this.vector = new Couple<Point,Point>(start, end);
+    public Line(Point start, Point end) {
+        this.line = new Couple<Point,Point>(start, end);
+        double x = end.getPoint().getX()-start.getPoint().getX();
+        double y = end.getPoint().getY()-start.getPoint().getY();
+        vector = new Couple<Double,Double>(x, y);
     }
 
-    public Couple<Point,Point> getVector() {
-        return this.vector;
+    public Couple<Point,Point> getLine() {
+        return this.line;
     }
 
-    public void setVector(Couple<Point,Point> vector) {
-        this.vector = vector;
+    public void setLine(Couple<Point,Point> line) {
+        this.line = line;
     }
 
     public Point getStart() {
-        return this.vector.getX();
+        return this.line.getX();
     }
 
     public Point getEnd() {
-        return this.vector.getY();
+        return this.line.getY();
     }
 
     public void setStart(Point start) {
-        this.vector.setX(start);
+        this.line.setX(start);
     }
 
     public void setEnd(Point end) {
-        this.vector.setY(end);
+        this.line.setY(end);
     }
 
-    public void setBase(Point p) 
-    {
-        line.setX(p);
+    public Couple<Double,Double> getVector() {
+        return this.vector;
     }
 
-    public void setHead(Point p) 
-    {
-        line.setY(p);
+    public double norme() {
+        return Math.sqrt(Math.pow(this.vector.getX(), 2) + Math.pow(this.vector.getY(), 2));
     }
 
-    public double getLength()
-    {
-        return Math.sqrt(Math.pow(this.getEnd().getX()-this.getStart().getX(),2)+Math.pow(this.getEnd().getY()-this.getStart().getY(),2));
+    public Couple<Double,Double> vectorNormal(){
+        // Rotation du vecteur de pi/2
+        double x = -this.vector.getY();
+        double y = this.vector.getX();
+        return new Couple<Double,Double>(x, y);
+    }
+    public double scalaire(Line y){
+        return this.vector.getX()*y.getVector().getX()+this.vector.getY()*y.getVector().getY();
     }
 
-    public double dist(Point p) {
-        Point p1 = new Point(p.getX() - this.getStart().getX(), p.getY() - this.getStart().getY());
-        Line perpendicularLine = this.perpendicular();
-        Point p2 = new Point(perpendicularLine.getEnd().getX() - perpendicularLine.getStart().getX(), 
-                             perpendicularLine.getEnd().getY() - perpendicularLine.getStart().getY());
-        Line l1 = new Line(p1, new Point(p2.getX(), p2.getY()));
-        double numerator = this.produitScalaire(l1);
-        double denominator = this.norme();
-        
-        if (denominator == 0) {
-            return Double.POSITIVE_INFINITY;
-        } else {
-            return Math.abs(numerator / denominator);
-        }
+    public Couple<Double,Double> vectorNormalUnitaire(){
+        // Rotation du vecteur de pi/2
+        double x = -this.vector.getY();
+        double y = this.vector.getX();
+        double norme = Math.sqrt(x*x+y*y);
+        return new Couple<Double,Double>(x/norme, y/norme);
     }
-    
-    public double hauteur(Point p) {
-        Point p1 = new Point(p.getX() - this.getStart().getX(), p.getY() - this.getStart().getY());
-        Point p2 = new Point(this.getEnd().getX() - this.getStart().getX(), this.getEnd().getY() - this.getStart().getY());
-        Line l1 = new Line(p1, p2);
-        double numerator = this.produitScalaire(l1);
-        double denominator = Math.pow(this.norme(), 2);
-        
-        if (denominator == 0) {
-            return Double.POSITIVE_INFINITY;
-        } else {
-            return Math.abs(numerator / denominator);
-        }
-    }
+
     
 
-    public Line perpendicular() 
-    {
-        Point start = this.getStart();
-        Point end = this.getEnd();
-        int dx = end.getY() - start.getY();
-        int dy = start.getX() - end.getX();
-        Point newEnd = new Point(start.getX() + dx, start.getY() + dy);
-        return new Line(start, newEnd);
+    public double hauteurRelative(Point x){
+
+        // Calcul de [PX] et [PQ]
+        Couple<Double,Double> s1 = new Couple<Double,Double>((double)x.getPoint().getX()-this.getStart().getPoint().getX(), (double)x.getPoint().getY()-this.getStart().getPoint().getY());
+        Couple<Double,Double> s2 = getVector();
+
+        // Numerateur
+        Double num = s1.getX()*s2.getX()+s1.getY()*s2.getY();
+
+        // Dénominateur
+        Double den = this.norme() * this.norme();
+
+        return num/den;
+
     }
 
-    public double produitScalaire(Line l) 
-    {
-        Point start1 = this.getStart();
-        Point end1 = this.getEnd();
-        Point start2 = l.getStart();
-        Point end2 = l.getEnd();
+    public double dist(Point x){
+        // Calcul de [XP] et perpendiculaire
+        Couple<Double,Double> s1 = new Couple<Double,Double>((double)x.getPoint().getX()-this.getStart().getPoint().getX(), (double)x.getPoint().getY()-this.getStart().getPoint().getY());
+        Couple<Double,Double> s2 = this.vectorNormal();
 
-        int x1 = end1.getX() - start1.getX();
-        int y1 = end1.getY() - start1.getY();
-        int x2 = end2.getX() - start2.getX();
-        int y2 = end2.getY() - start2.getY();
+        // Numerateur
+        double num = s1.getX()*s2.getX()+s1.getY()*s2.getY();
 
-        return x1 * x2 + y1 * y2;
+        // Dénominateur
+        double den = this.norme();
+
+        return num/den;
     }
 
-    public double norme() 
-    {
-        Point start = this.getStart();
-        Point end = this.getEnd();
-        return Math.sqrt(Math.pow(end.getX() - start.getX(), 2) + Math.pow(end.getY() - start.getY(), 2));
-    }
-    
 }
