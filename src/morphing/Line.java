@@ -1,3 +1,5 @@
+package morphing;
+
 public class Line 
 {
     private Couple<Point, Point> line;

@@ -1,3 +1,5 @@
+package morphing;
+
 /*
  * Couple class
  * @param <X> type du premier élément

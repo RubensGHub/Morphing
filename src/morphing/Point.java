@@ -1,3 +1,5 @@
+package morphing;
+
 public class Point {
     private Couple<Integer, Integer> point;
 

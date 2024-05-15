@@ -1,3 +1,5 @@
+package morphing;
+
 import java.util.ArrayList;
 
 public class ImageT extends ImageG{
