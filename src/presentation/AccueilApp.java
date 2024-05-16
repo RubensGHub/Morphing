@@ -11,6 +11,9 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class AccueilApp extends Application {
+	
+	private MainApp secondScreen;
+	
     @Override
     public void start(Stage primaryStage) throws Exception {
         Button boutonStart = new Button("Start");
@@ -48,10 +51,11 @@ public class AccueilApp extends Application {
     }
 
     private void afficherSecondEcran(Stage primaryStage) {
-        Stage secondStage = new Stage();
-        MainApp secondScreen = new MainApp();
+    	if (secondScreen == null) {
+            secondScreen = new MainApp();
+        }
         try {
-            secondScreen.start(secondStage);
+            secondScreen.start(primaryStage);
         } catch (Exception e) {
             e.printStackTrace();
         }
