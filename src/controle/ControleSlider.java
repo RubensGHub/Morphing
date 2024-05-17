@@ -20,12 +20,12 @@ public class ControleSlider implements Observer, ChangeListener <Number>{
 
 	@Override
 	public void update(Observable o, Object arg) {
-        valeurSlider.setText("Images sélectionnées : " + String.valueOf((int) slider.getValue()));
+        valeurSlider.setText("Nombre d'images intermédiaires : " + String.valueOf((int) slider.getValue()));
 	}
 
 	@Override
 	public void changed(ObservableValue<? extends Number> observable, Number value1, Number value2) {
-          valeurSlider.setText("Images sélectionnées : " + value2.intValue());
+          valeurSlider.setText("Nombre d'images intermédiaires : " + value2.intValue());
        	
 	}
 }

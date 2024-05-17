@@ -1,16 +1,25 @@
 package presentation;
 
 import morphing.*;
+import controle.*;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.util.HashSet;
 
-import controle.ControleSlider;
+import javax.imageio.ImageIO;
+
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.canvas.*;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -18,14 +27,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.scene.control.Slider;
-import javafx.scene.control.Label;
 //import javafx.scene.input.MouseEvent;
 //import javafx.scene.shape.Circle;
 
 @Deprecated
 public class MainApp extends Application {
 
+    private int wImgMax = 550;
+    private int hImgMax = 550;
     private ImageView ivStart = new ImageView();
     private ImageView ivEnd = new ImageView();
 
@@ -59,10 +68,6 @@ public class MainApp extends Application {
 
         MorphingApp app = new MorphingApp();
 
-        // DIMENSIONS PAR DEFAUT DES ZONES IMAGE
-        int wImg = 550;
-        int hImg = 550;
-
         // CREATION IMAGEVIEW (initialement : null)
         this.setIvStart(app.getImgSrc());
         this.setIvEnd(app.getImgDest());
@@ -72,8 +77,8 @@ public class MainApp extends Application {
         Label valSlider = newLabelSlider(slider, "Nombre d'images intermédiaires");
 
         // CADRE IMAGES
-        Rectangle cadreStart = newRectangle(wImg, hImg, Color.BLACK);
-        Rectangle cadreEnd = newRectangle(wImg, hImg, Color.BLACK);
+        Rectangle cadreStart = newRectangle(wImgMax, hImgMax, Color.BLACK);
+        Rectangle cadreEnd = newRectangle(wImgMax, hImgMax, Color.BLACK);
 
         // BOUTONS
         Button buttonAddImgStart = newButton("Ajouter");
@@ -87,14 +92,14 @@ public class MainApp extends Application {
         StackPane zoneImgLeft = new StackPane();
         zoneImgLeft.getChildren().add(cadreStart);
         zoneImgLeft.getChildren().add(ivStart);
-        Canvas canvasLeft = new Canvas(wImg, hImg);
+        Canvas canvasLeft = new Canvas(wImgMax, hImgMax);
         zoneImgLeft.getChildren().add(canvasLeft);
 
         // ZONE IMAGE RIGHT
         StackPane zoneImgRight = new StackPane();
-        zoneImgRight.getChildren().add(cadreStart);
-        zoneImgRight.getChildren().add(ivStart);
-        Canvas canvasRight = new Canvas(wImg, hImg);
+        zoneImgRight.getChildren().add(cadreEnd);
+        zoneImgRight.getChildren().add(ivEnd);
+        Canvas canvasRight = new Canvas(wImgMax, hImgMax);
         zoneImgRight.getChildren().add(canvasRight);
 
         // VBOX LEFT
@@ -142,8 +147,18 @@ public class MainApp extends Application {
         ControleSlider cs = new ControleSlider(slider, valSlider);
         slider.valueProperty().addListener(cs);
         app.addObserver(cs);
+        
 
-
+        buttonAddImgStart.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    selectImage(app, ivStart);
+                } catch (IOException e) {
+                    
+                }
+            }
+        });
 
 
 
@@ -172,30 +187,88 @@ public class MainApp extends Application {
     }
 
     private Button newButton(String texte) {
-        Button bouton = new Button(texte);/*
-        bouton.setMinWidth(170);
-        bouton.setPrefWidth(170);
-        bouton.setMaxWidth(200);*/
+        Button bouton = new Button(texte);
         return bouton;
     }
 
     private Rectangle newRectangle(int w, int h, Color color) {
-        Rectangle rectangle = new Rectangle(w, h);
+        int sizeBorder = 5;
+        Rectangle rectangle = new Rectangle(w+sizeBorder, h+sizeBorder);
         rectangle.setStroke(color);
         rectangle.setFill(null);
-        rectangle.setStrokeWidth(5);
+        rectangle.setStrokeWidth(sizeBorder);
         return rectangle;
     }
 
-    private void selectImage(ImageView imageView, boolean isFirstImage) {
+    private static String getExtension(File f)
+    {
+        int i = f.getName().lastIndexOf(".");
+        if (i > 0) {
+            return f.getName().substring(i+1);
+        }
+        
+        return null;
+    }
+
+    private void selectImage(MorphingApp app, ImageView imageView) throws IOException {
+        // Définition des extension acceptées
+        HashSet<String> ext = new HashSet<String>();
+        ext.add("jpg");
+        ext.add("jpeg");
+        ext.add("png");
+        ext.add("gif");
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choisir une image");
         File selectedFile = fileChooser.showOpenDialog(null);
+
+        // Il a bien choisi un fichier
         if (selectedFile != null) {
-            Image image = new Image(selectedFile.toURI().toString());
-            imageView.setImage(image);
-            imageView.setFitWidth(400);
-            imageView.setFitHeight(400);
+            // Extension valide
+            if (ext.contains(getExtension(selectedFile))) {
+
+                // File -> Image -> ImageView
+                Image image = new Image(selectedFile.toURI().toString());
+                imageView.setImage(image);
+
+                // File -> BufferedImage
+                BufferedImage bImg = ImageIO.read(selectedFile);
+                int w = bImg.getWidth();
+                int h = bImg.getHeight();
+
+                /*
+                 * Proportionnalité (produit en croix)
+                 * w -> wImgMax
+                 * h -> ?
+                 */
+                if (w > h)
+                {
+                    h = h * wImgMax / w;
+                    w = wImgMax;
+                }
+
+                /*
+                 * Proportionnalité (produit en croix)
+                 * w -> ?
+                 * h -> hImgMax
+                 */
+                else
+                {
+                    w = w * hImgMax / h;
+                    h = hImgMax;
+                }
+
+                imageView.setFitWidth(w);
+                imageView.setFitHeight(h);
+
+                // Ajouter l'image à notre App !
+                //ImageT imgT = new ImageT();
+                //app.setImgSrc(imgT);
+            }
+
+            else {
+                System.err.println("Seule les images sont acceptées.");
+            }
         }
     }
     
