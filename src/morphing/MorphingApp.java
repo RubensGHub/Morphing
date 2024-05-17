@@ -79,15 +79,15 @@ public class MorphingApp extends Observable {
      */
     public ImageT newFrame(int t){
         ImageT frame = new ImageT(imgSrc.getWidth(), imgSrc.getHeight(), imgSrc.getFormat());
-
+        double f = (double) t / this.getNbFrames();
         for (int i = 0 ; i < this.getNbLines() ; i++)
         {
             Line v1 = imgSrc.getLine(i);
             Line v2 = imgDest.getLine(i);
 
             // Calcul des nouveaux points pour définir les nouvelles lignes de contrainte
-            Point p = v1.getStart().nextPoint(v2.getStart(), t);
-            Point q = v1.getStart().nextPoint(v2.getStart(), t);
+            Point p = v1.getStart().nextPoint(v2.getStart(), f);
+            Point q = v1.getStart().nextPoint(v2.getStart(), f);
 
             frame.addLine(new Line(p, q));
         } 
@@ -175,13 +175,14 @@ public class MorphingApp extends Observable {
      */
     public ImageT interpolateColor(int k, ImageT wrapSrc, ImageT wrapDest){
         ImageT img = new ImageT(wrapSrc.getWidth(), wrapSrc.getHeight(), wrapSrc.getFormat());
+        double t = (double) k / this.getNbFrames();
         for (int x = 0 ; x < wrapSrc.getWidth() ; x++)
         {
             for (int y = 0 ; y < wrapSrc.getHeight() ; y++)
             {
                 int pixSrc = wrapSrc.getImage().getRGB(x, y);
                 int pixDest = wrapDest.getImage().getRGB(x, y);
-                int pix = (int) (pixSrc * (1 - k) + pixDest * k);
+                int pix = (int) (pixSrc * (1 - t) + pixDest * t);
                 img.getImage().setRGB(x, y, pix);
             }
         }
@@ -199,12 +200,11 @@ public class MorphingApp extends Observable {
      */
     public void calculate(){
         for (int f = 0 ; f <= this.getNbFrames() ; f++){
-            int t = f/this.getNbFrames();
-            ImageT wrapSrc = newFrame(t);
-            ImageT wrapDest = newFrame(t);
+            ImageT wrapSrc = newFrame(f);
+            ImageT wrapDest = newFrame(f);
             wrap(imgSrc, wrapSrc);
             wrap(imgDest, wrapDest);
-            frames[f] = interpolateColor(t, wrapSrc, wrapDest);
+            frames[f] = interpolateColor(f, wrapSrc, wrapDest);
         }
     }
 
