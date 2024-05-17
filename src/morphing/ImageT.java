@@ -1,9 +1,14 @@
 package morphing;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class ImageT extends ImageG{
     ArrayList<Line> lines;
+
+    public ImageT(BufferedImage bImg, int w, int h, String ext) {
+        super(bImg, w, h, ext);
+    }
 
     public ImageT(String path) {
         super(path);

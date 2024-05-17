@@ -227,11 +227,11 @@ public class MainApp extends Application {
             // Extension valide
             if (ext.contains(getExtension(selectedFile))) {
 
-                // File -> Image -> ImageView
+                // Création de ImageView pour affichage
                 Image image = new Image(selectedFile.toURI().toString());
                 imageView.setImage(image);
 
-                // File -> BufferedImage
+                // Création de BufferedImage pour récupérer taille et construire ImageT
                 BufferedImage bImg = ImageIO.read(selectedFile);
                 int w = bImg.getWidth();
                 int h = bImg.getHeight();
@@ -258,12 +258,13 @@ public class MainApp extends Application {
                     h = hImgMax;
                 }
 
+                // Affectation pour l'interface
                 imageView.setFitWidth(w);
                 imageView.setFitHeight(h);
 
-                // Ajouter l'image à notre App !
-                //ImageT imgT = new ImageT();
-                //app.setImgSrc(imgT);
+                // Ajout de l'image à notre App
+                ImageT imgT = new ImageT(bImg, w, h, getExtension(selectedFile));
+                app.setImgSrc(imgT);
             }
 
             else {

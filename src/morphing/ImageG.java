@@ -25,6 +25,13 @@ public class ImageG {
     private int height;
     private String format;
 
+    public ImageG(BufferedImage bImg, int w, int h, String ext) {
+        image = bImg;
+        width = w;
+        height = h;
+        format = ext;
+    }
+
     public ImageG(String path) {
         try {
             image = ImageIO.read(new File
