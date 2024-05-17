@@ -3,10 +3,13 @@ package presentation;
 import morphing.*;
 
 import java.io.File;
+
+import controle.ControleSlider;
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.canvas.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,6 +23,7 @@ import javafx.scene.control.Label;
 //import javafx.scene.input.MouseEvent;
 //import javafx.scene.shape.Circle;
 
+@Deprecated
 public class MainApp extends Application {
 
     private ImageView ivStart = new ImageView();
@@ -50,12 +54,14 @@ public class MainApp extends Application {
     }
 
 
-
-
     @Override
     public void start(Stage primaryStage) {
 
         MorphingApp app = new MorphingApp();
+
+        // DIMENSIONS PAR DEFAUT DES ZONES IMAGE
+        int wImg = 550;
+        int hImg = 550;
 
         // CREATION IMAGEVIEW (initialement : null)
         this.setIvStart(app.getImgSrc());
@@ -66,8 +72,8 @@ public class MainApp extends Application {
         Label valSlider = newLabelSlider(slider, "Nombre d'images intermédiaires");
 
         // CADRE IMAGES
-        Rectangle cadreStart = newRectangle(550, 550, Color.BLACK);
-        Rectangle cadreEnd = newRectangle(550, 550, Color.BLACK);
+        Rectangle cadreStart = newRectangle(wImg, hImg, Color.BLACK);
+        Rectangle cadreEnd = newRectangle(wImg, hImg, Color.BLACK);
 
         // BOUTONS
         Button buttonAddImgStart = newButton("Ajouter");
@@ -77,11 +83,24 @@ public class MainApp extends Application {
         Button buttonGen = newButton("Morphing");
         buttonGen.getStyleClass().add("bouton");
 
+        // ZONE IMAGE LEFT
+        StackPane zoneImgLeft = new StackPane();
+        zoneImgLeft.getChildren().add(cadreStart);
+        zoneImgLeft.getChildren().add(ivStart);
+        Canvas canvasLeft = new Canvas(wImg, hImg);
+        zoneImgLeft.getChildren().add(canvasLeft);
+
+        // ZONE IMAGE RIGHT
+        StackPane zoneImgRight = new StackPane();
+        zoneImgRight.getChildren().add(cadreStart);
+        zoneImgRight.getChildren().add(ivStart);
+        Canvas canvasRight = new Canvas(wImg, hImg);
+        zoneImgRight.getChildren().add(canvasRight);
+
         // VBOX LEFT
         VBox vBoxLeft = new VBox(10);
         vBoxLeft.getStyleClass().add("vb");
-        vBoxLeft.getChildren().add(ivStart);
-        vBoxLeft.getChildren().add(cadreStart);
+        vBoxLeft.getChildren().add(zoneImgLeft);
         vBoxLeft.getChildren().add(buttonAddImgStart);
         vBoxLeft.setAlignment(Pos.CENTER_LEFT);
 
@@ -96,8 +115,7 @@ public class MainApp extends Application {
         // VBOX RIGHT
         VBox vBoxRight = new VBox(10);
         vBoxRight.getStyleClass().add("vb");
-        vBoxRight.getChildren().add(ivEnd);
-        vBoxRight.getChildren().add(cadreEnd);
+        vBoxRight.getChildren().add(zoneImgRight);
         vBoxRight.getChildren().add(buttonAddImgEnd);
         vBoxRight.setAlignment(Pos.CENTER_RIGHT);
 
@@ -114,6 +132,28 @@ public class MainApp extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Application de Morphing");
         primaryStage.show();
+
+
+
+
+
+
+        // CONTROLEURS
+        ControleSlider cs = new ControleSlider(slider, valSlider);
+        slider.valueProperty().addListener(cs);
+        app.addObserver(cs);
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     private Slider newSlider()
@@ -128,10 +168,6 @@ public class MainApp extends Application {
     private Label newLabelSlider(Slider slider, String txt)
     {
         Label valSlider = new Label(txt + " : " + String.valueOf((int) slider.getValue()));
-        /*
-        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            valeurSlider.setText("Images sélectionnées : " + newValue.intValue());
-        });*/
         return valSlider;
     }
 

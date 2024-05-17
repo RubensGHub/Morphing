@@ -10,7 +10,10 @@ import com.squareup.gifencoder.ImageOptions;
 
 */
 
-public class MorphingApp {
+import java.util.Observable;
+
+@Deprecated
+public class MorphingApp extends Observable {
 
     private ImageT imgSrc;
     private ImageT imgDest;
@@ -71,12 +74,12 @@ public class MorphingApp {
 
     /**
      * Créer une image intermédiaire à partir de l'image de départ et de l'image d'arrivée
-     * @param k : ordre de l'image intermédiaire
+     * @param t : ordre de l'image intermédiaire
      * @return ImageT
      */
-    public ImageT newFrame(int k){
+    public ImageT newFrame(int t){
         ImageT frame = new ImageT(imgSrc.getWidth(), imgSrc.getHeight(), imgSrc.getFormat());
-        double t = k/this.getNbFrames();
+
         for (int i = 0 ; i < this.getNbLines() ; i++)
         {
             Line v1 = imgSrc.getLine(i);
@@ -84,7 +87,7 @@ public class MorphingApp {
 
             // Calcul des nouveaux points pour définir les nouvelles lignes de contrainte
             Point p = v1.getStart().nextPoint(v2.getStart(), t);
-            Point q = v1.getEnd().nextPoint(v2.getEnd(), t);
+            Point q = v1.getStart().nextPoint(v2.getStart(), t);
 
             frame.addLine(new Line(p, q));
         } 
@@ -93,7 +96,7 @@ public class MorphingApp {
     }
 
     
-    /*
+    /**
      * Calcul de la transformation de l'image de départ vers l'image d'arrivée
      * @param imgSrc : image de départ
      * @param imgDest : image d'arrivée
@@ -172,14 +175,13 @@ public class MorphingApp {
      */
     public ImageT interpolateColor(int k, ImageT wrapSrc, ImageT wrapDest){
         ImageT img = new ImageT(wrapSrc.getWidth(), wrapSrc.getHeight(), wrapSrc.getFormat());
-        double t = k/this.getNbFrames();
         for (int x = 0 ; x < wrapSrc.getWidth() ; x++)
         {
             for (int y = 0 ; y < wrapSrc.getHeight() ; y++)
             {
                 int pixSrc = wrapSrc.getImage().getRGB(x, y);
                 int pixDest = wrapDest.getImage().getRGB(x, y);
-                int pix = (int) (pixSrc * (1 - t) + pixDest * t);
+                int pix = (int) (pixSrc * (1 - k) + pixDest * k);
                 img.getImage().setRGB(x, y, pix);
             }
         }
@@ -197,11 +199,12 @@ public class MorphingApp {
      */
     public void calculate(){
         for (int f = 0 ; f <= this.getNbFrames() ; f++){
-            ImageT wrapSrc = newFrame(f);
-            ImageT wrapDest = newFrame(f);
+            int t = f/this.getNbFrames();
+            ImageT wrapSrc = newFrame(t);
+            ImageT wrapDest = newFrame(t);
             wrap(imgSrc, wrapSrc);
             wrap(imgDest, wrapDest);
-            frames[f] = interpolateColor(f, wrapSrc, wrapDest);
+            frames[f] = interpolateColor(t, wrapSrc, wrapDest);
         }
     }
 
