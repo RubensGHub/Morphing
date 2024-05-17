@@ -1,8 +1,10 @@
 package presentation;
 
+import morphing.*;
+
 import java.io.File;
 import javafx.application.Application;
-import javafx.geometry.Insets;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,119 +17,134 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Circle;
+//import javafx.scene.input.MouseEvent;
+//import javafx.scene.shape.Circle;
 
 public class MainApp extends Application {
-    
-    private ImageView imageDebut;
-    private ImageView imageFin;
-    private ImageView imageMorphing;
 
-    private Image image_base;
-    private Image nouvelle_image;
-    
-    private Circle point;
+    private ImageView ivStart = new ImageView();
+    private ImageView ivEnd = new ImageView();
+
+    public ImageView getIvStart() {
+        return this.ivStart;
+    }
+
+    public void setIvStart(ImageG img) {
+        if (img != null)
+        {
+            Image image = SwingFXUtils.toFXImage(img.getImage(), null);
+            ivStart.setImage(image);
+        }
+    }
+
+    public ImageView getIvEnd() {
+        return this.ivEnd;
+    }
+
+    public void setIvEnd(ImageG img) {
+        if (img != null)
+        {
+            Image image = SwingFXUtils.toFXImage(img.getImage(), null);
+            ivEnd.setImage(image);
+        }
+    }
+
+
+
 
     @Override
     public void start(Stage primaryStage) {
-        imageDebut = new ImageView();
-        imageDebut.setFitWidth(400);
-        imageDebut.setFitHeight(400); 
-        imageFin = new ImageView();
-        imageFin.setFitWidth(400); 
-        imageFin.setFitHeight(400);
-        imageMorphing = new ImageView();
-        imageMorphing.setFitWidth(400); 
-        imageMorphing.setFitHeight(400);
-        
-        Slider slider = new Slider();
-        slider.setMin(1); 
-        slider.setMax(50); 
-        slider.setValue(1);
-        Label valeurSlider = new Label("Images sélectionnées : " + String.valueOf((int) slider.getValue()));
-        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            valeurSlider.setText("Images sélectionnées : " + newValue.intValue());
-        });
 
-        
-        Rectangle rectangleGauche = creerRectangle(Color.BLACK);
-        Rectangle rectangleDroite = creerRectangle(Color.BLACK);
-        Rectangle rectangleMorphing = creerRectangle(Color.BLACK);
+        MorphingApp app = new MorphingApp();
 
-        Button bouton1 = creerBouton("Morphing");
-        Button bouton2 = creerBouton("Ajouter Point");
-        Button bouton3 = creerBouton("Retirer Point");
+        // CREATION IMAGEVIEW (initialement : null)
+        this.setIvStart(app.getImgSrc());
+        this.setIvEnd(app.getImgDest());
 
-        VBox vBoxBoutons = new VBox(10);
-        vBoxBoutons.getChildren().addAll(bouton1, bouton2, bouton3,slider,valeurSlider);
-        vBoxBoutons.setAlignment(Pos.CENTER);
+        // SLIDER
+        Slider slider = newSlider();
+        Label valSlider = newLabelSlider(slider, "Nombre d'images intermédiaires");
 
-        HBox hBoxBoutonsHaut = new HBox(950);
-        Button boutonHaut1 = creerBouton("Image de départ");
-        boutonHaut1.setOnAction(e -> selectImage(imageDebut, true));
-        Button boutonHaut2 = creerBouton("Image de fin");
-        boutonHaut2.setOnAction(e -> selectImage(imageFin, false));
-        hBoxBoutonsHaut.getChildren().addAll(boutonHaut1, boutonHaut2);
-        hBoxBoutonsHaut.setAlignment(Pos.TOP_CENTER);
-        hBoxBoutonsHaut.setPadding(new Insets(50));
+        // CADRE IMAGES
+        Rectangle cadreStart = newRectangle(550, 550, Color.BLACK);
+        Rectangle cadreEnd = newRectangle(550, 550, Color.BLACK);
 
-        StackPane stackPaneGauche = new StackPane();
-        stackPaneGauche.getChildren().addAll(rectangleGauche, imageDebut);
-        stackPaneGauche.setAlignment(Pos.CENTER);
+        // BOUTONS
+        Button buttonAddImgStart = newButton("Ajouter");
+        buttonAddImgStart.getStyleClass().add("bouton");
+        Button buttonAddImgEnd = newButton("Ajouter");
+        buttonAddImgEnd.getStyleClass().add("bouton");
+        Button buttonGen = newButton("Morphing");
+        buttonGen.getStyleClass().add("bouton");
 
-        StackPane stackPaneDroite = new StackPane();
-        stackPaneDroite.getChildren().addAll(rectangleDroite, imageFin);
-        stackPaneDroite.setAlignment(Pos.CENTER);
+        // VBOX LEFT
+        VBox vBoxLeft = new VBox(10);
+        vBoxLeft.getStyleClass().add("vb");
+        vBoxLeft.getChildren().add(ivStart);
+        vBoxLeft.getChildren().add(cadreStart);
+        vBoxLeft.getChildren().add(buttonAddImgStart);
+        vBoxLeft.setAlignment(Pos.CENTER_LEFT);
 
-        StackPane stackPaneMorphing = new StackPane();
-        stackPaneMorphing.getChildren().addAll(rectangleMorphing, imageMorphing);
-        stackPaneMorphing.setAlignment(Pos.CENTER);
+        // VBOX CENTER
+        VBox vBoxCenter = new VBox(10);
+        vBoxCenter.getStyleClass().add("vb");
+        vBoxCenter.getChildren().add(slider);
+        vBoxCenter.getChildren().add(valSlider);
+        vBoxCenter.getChildren().add(buttonGen);
+        vBoxCenter.setAlignment(Pos.CENTER);
 
-        HBox hBoxGauche = new HBox();
-        hBoxGauche.getChildren().add(stackPaneGauche);
-        hBoxGauche.setAlignment(Pos.CENTER);
-        HBox.setHgrow(hBoxGauche, Priority.ALWAYS);
+        // VBOX RIGHT
+        VBox vBoxRight = new VBox(10);
+        vBoxRight.getStyleClass().add("vb");
+        vBoxRight.getChildren().add(ivEnd);
+        vBoxRight.getChildren().add(cadreEnd);
+        vBoxRight.getChildren().add(buttonAddImgEnd);
+        vBoxRight.setAlignment(Pos.CENTER_RIGHT);
 
-        HBox hBoxDroite = new HBox();
-        hBoxDroite.getChildren().add(stackPaneDroite);
-        hBoxDroite.setAlignment(Pos.CENTER);
-        HBox.setHgrow(hBoxDroite, Priority.ALWAYS);
-
-        HBox hBox = new HBox(100);
-        hBox.getChildren().addAll(hBoxGauche, vBoxBoutons, hBoxDroite);
-        hBox.setAlignment(Pos.CENTER);
-
-        VBox vBox = new VBox(20);
-        vBox.getChildren().addAll(hBox, stackPaneMorphing);
-        vBox.setAlignment(Pos.CENTER);
-
+        // ROOT
         BorderPane root = new BorderPane();
-        root.setTop(hBoxBoutonsHaut);
-        root.setCenter(vBox);
-        BorderPane.setMargin(hBox, new Insets(50, 0, 0, 0));
+        root.setLeft(vBoxLeft);
+        root.setCenter(vBoxCenter);
+        root.setRight(vBoxRight);
 
-        BackgroundFill backgroundFill = new BackgroundFill(Color.LIGHTGRAY, CornerRadii.EMPTY, Insets.EMPTY);
-        Background background = new Background(backgroundFill);
-        root.setBackground(background);
+        // SCENE
         Scene scene = new Scene(root, 1500, 1500);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         
         primaryStage.setScene(scene);
         primaryStage.setTitle("Application de Morphing");
         primaryStage.show();
     }
 
-    private Button creerBouton(String texte) {
-        Button bouton = new Button(texte);
-        bouton.setStyle("-fx-background-color: #317AC1; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 20 10 20; -fx-border-radius: 5; -fx-background-radius: 5;");
+    private Slider newSlider()
+    {
+        Slider slider = new Slider();
+        slider.setMin(1); 
+        slider.setMax(50); 
+        slider.setValue(1);
+        return slider;
+    }
+
+    private Label newLabelSlider(Slider slider, String txt)
+    {
+        Label valSlider = new Label(txt + " : " + String.valueOf((int) slider.getValue()));
+        /*
+        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            valeurSlider.setText("Images sélectionnées : " + newValue.intValue());
+        });*/
+        return valSlider;
+    }
+
+    private Button newButton(String texte) {
+        Button bouton = new Button(texte);/*
         bouton.setMinWidth(170);
         bouton.setPrefWidth(170);
-        bouton.setMaxWidth(200);
+        bouton.setMaxWidth(200);*/
         return bouton;
     }
 
-    private Rectangle creerRectangle(Color color) {
-        Rectangle rectangle = new Rectangle(400, 400);
+    private Rectangle newRectangle(int w, int h, Color color) {
+        Rectangle rectangle = new Rectangle(w, h);
         rectangle.setStroke(color);
         rectangle.setFill(null);
         rectangle.setStrokeWidth(5);
@@ -143,11 +160,6 @@ public class MainApp extends Application {
             imageView.setImage(image);
             imageView.setFitWidth(400);
             imageView.setFitHeight(400);
-            if (isFirstImage) {
-                image_base = image;
-            } else {
-                nouvelle_image = image;
-            }
         }
     }
     
