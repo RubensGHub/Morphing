@@ -24,6 +24,29 @@
 
 /*** MainApp.java ***/
 
+
+#body
+{
+    -fx-background-color: linear-gradient(white, skyblue);
+}
+
+
+#header
+{
+    -fx-alignment: center;
+    -fx-padding: 30px;
+}
+
+#h1
+{
+    -fx-font-size: 50px;
+}
+
+#h2
+{
+    -fx-font-size: 30px;
+}
+
 /* Les 3 VBox (left, center, right) */
 .vb
 {
@@ -41,12 +64,12 @@
     -fx-font-size: 14px;
     -fx-padding: 10px 20px;
     -fx-border-radius: 5px;
-    -fx-cursror: pointer;
+    -fx-cursor: hand;
 }
 
 .bouton:hover
 {
-    -fx-background-color: linear-gradient(#89b2db, #ca8a8a);
+    -fx-background-color: linear-gradient(#72ace6, #d37676);
 }
 
 .bouton:pressed
@@ -55,3 +78,13 @@
     -fx-scale-y: 0.9;
     -fx-scale-z: 0.9;
 }
+
+
+
+#footer
+{
+    -fx-alignment: center;
+    -fx-padding: 30px;
+}
+
+

@@ -25,6 +25,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 //import javafx.scene.input.MouseEvent;
@@ -76,7 +77,7 @@ public class MainApp extends Application {
         Slider slider = newSlider();
         Label valSlider = newLabelSlider(slider, "Nombre d'images intermédiaires");
 
-        // CADRE IMAGES
+        // CADRES IMAGE
         Rectangle cadreStart = newRectangle(wImgMax, hImgMax, Color.BLACK);
         Rectangle cadreEnd = newRectangle(wImgMax, hImgMax, Color.BLACK);
 
@@ -107,7 +108,6 @@ public class MainApp extends Application {
         vBoxLeft.getStyleClass().add("vb");
         vBoxLeft.getChildren().add(zoneImgLeft);
         vBoxLeft.getChildren().add(buttonAddImgStart);
-        vBoxLeft.setAlignment(Pos.CENTER_LEFT);
 
         // VBOX CENTER
         VBox vBoxCenter = new VBox(10);
@@ -115,20 +115,39 @@ public class MainApp extends Application {
         vBoxCenter.getChildren().add(slider);
         vBoxCenter.getChildren().add(valSlider);
         vBoxCenter.getChildren().add(buttonGen);
-        vBoxCenter.setAlignment(Pos.CENTER);
 
         // VBOX RIGHT
         VBox vBoxRight = new VBox(10);
         vBoxRight.getStyleClass().add("vb");
         vBoxRight.getChildren().add(zoneImgRight);
         vBoxRight.getChildren().add(buttonAddImgEnd);
-        vBoxRight.setAlignment(Pos.CENTER_RIGHT);
+
+        // VBOX TOP
+        VBox vBoxTop = new VBox(10);
+        vBoxTop.setId("header");
+        Text title = new Text("Morphing");
+        title.setId("h1");
+        vBoxTop.getChildren().add(title);
+        Text subTitle = new Text("By CY Tech");
+        subTitle.setId("h2");
+        vBoxTop.getChildren().add(subTitle);
+
+        // VBOX TOP
+        VBox vBoxBottom = new VBox(10);
+        vBoxBottom.setId("footer");
+        Text credits = new Text("Authors : Romain, Ryan, Paul, Rubens, Alexandre");
+        vBoxBottom.getChildren().add(credits);
+        Text date = new Text("2024");
+        vBoxBottom.getChildren().add(date);
 
         // ROOT
         BorderPane root = new BorderPane();
+        root.setId("body");
         root.setLeft(vBoxLeft);
         root.setCenter(vBoxCenter);
         root.setRight(vBoxRight);
+        root.setTop(vBoxTop);
+        root.setBottom(vBoxBottom);
 
         // SCENE
         Scene scene = new Scene(root, 1500, 1500);
@@ -154,6 +173,17 @@ public class MainApp extends Application {
             public void handle(ActionEvent event) {
                 try {
                     selectImage(app, ivStart);
+                } catch (IOException e) {
+                    
+                }
+            }
+        });
+
+        buttonAddImgEnd.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    selectImage(app, ivEnd);
                 } catch (IOException e) {
                     
                 }
@@ -195,7 +225,7 @@ public class MainApp extends Application {
         int sizeBorder = 5;
         Rectangle rectangle = new Rectangle(w+sizeBorder, h+sizeBorder);
         rectangle.setStroke(color);
-        rectangle.setFill(null);
+        rectangle.setFill(Color.WHITE);
         rectangle.setStrokeWidth(sizeBorder);
         return rectangle;
     }
