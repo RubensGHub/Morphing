@@ -1,0 +1,131 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GENERAL  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%raccourcis généraux
+\newcommand {\ie}{\textit{i.e}. }
+\newcommand {\cf}{\textit{Cf.} }
+\newcommand {\resp}{resp.\! }
+
+
+%pour les belles fonctions (à mettre entre $ $  ou entre $$ $$ )
+\newcommand{\fonction}[5]{ 
+#1 =
+\left( \! \begin{tabular}{c@{ }c@{ }l} 
+$#2$  & $\longrightarrow$   & $#3$  \\
+$#4$  & $\longmapsto$       & $#5$ 
+\end{tabular} \! \right)
+}
+
+%le widebar (inutile si package mathabx
+\newcommand{\widebar}[1]{\overline{#1}}
+
+%symboles rapprochés
+\renewcommand {\=}{\!=\!}
+\renewcommand {\-}{\!-\!}
+\renewcommand {\:}{\!:\!}
+\newcommand {\+}{\!+\!}
+\newcommand {\iin}{\!\in\!}
+\newcommand {\inclus}{\!\subseteq\!}
+
+%symboles
+\newcommand{\bubullet}{-}
+\newcommand{\subbullet}{\circ}
+\newcommand{\parties}{\mathcal{P}}
+
+%produit scalaire
+\renewcommand{\.}{\!\cdot\!}
+
+%indicatrice
+\newcommand{\1}{\mathbb{I}}
+
+%cardinal
+\newcommand{\card}[1]{\left|#1\right|}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENSEMBLES DE NOMBRES & ESPACES DE VARIABLES  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%pour N,Z,R 
+\newcommand {\NN}{\mathbb{N}}
+\newcommand {\NNe}{\NN^*}
+\newcommand {\R}{\mathbb{R}}
+\newcommand {\Rp}{\R_+}
+\newcommand {\Rpe}{\R^*_+}
+\renewcommand {\Re}{\R^*}
+\newcommand {\Z}{\mathbb{Z}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LES NOUVEAUX OPERATEURS  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%optim
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+%analyse cvx
+\DeclareMathOperator*{\conv}{conv}
+\DeclareMathOperator*{\extr}{extr}
+\DeclareMathOperator*{\vect}{vect}
+\DeclareMathOperator*{\aff}{aff}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ICONES ET SYMBOLES HORS MATHS 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\flch}{\item[$\rightarrow$]}
+
+\newcommand{\attention}{\dbend}
+
+\newcommand{\alamain}{{\LARGE\ding{45}}}
+
+\newcommand{\surmachine}{
+\begin{tikzpicture}[scale=0.1]
+\draw[line width=1.2pt](-2,0) rectangle (2,3);
+\fill(-1,0)--(1,0)--(2,-1)--(-2,-1)--(-1,0);
+\end{tikzpicture}
+}
+
+\newcommand{\pasapas}{
+\begin{tikzpicture}[scale=0.1]
+\draw (0,0)--(0,1)--(1,1)--(1,2)--(2,2)--(2,3)--(3,3)--(3,4)--(4,4)--(5,4)--(5,0)--(0,0);
+\end{tikzpicture}
+}
+
+\newcommand{\afaire}{
+\begin{tikzpicture}[scale=0.1]
+\draw (0,0)rectangle(4,4);
+\end{tikzpicture}
+}
+
+\newcommand{\uneetoile}{{\LARGE$*$}\,}
+\newcommand{\deuxetoiles}{{\LARGE$*\,*$}\,}
+\newcommand{\troisetoiles}{{\LARGE$_*^*$}{\large$*$}\,}
+
+
+\newcommand{\couleur}[1]{\textcolor{turquoiseFonce!70!black}{#1}}
+\newcommand{\important}[1]{\textbf{\couleur{#1}}}
+
+\newtcolorbox{coder}{
+enhanced,
+boxrule=0pt,frame hidden,
+borderline west={4pt}{0pt}{briqueRouge},
+colback=black!3!white,
+sharp corners
+}
+\newtcolorbox{codeb}{
+enhanced,
+boxrule=0pt,frame hidden,
+borderline west={4pt}{0pt}{vertdEau},
+colback=black!3!white,
+sharp corners
+}
+
+\newcommand{\intervalle}[2]{[\![#1,#2]\!]}
+
+\renewcommand{\appendixpagename}{Annexes}
+\renewcommand{\appendixtocname}{Annexes}

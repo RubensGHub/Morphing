@@ -1,0 +1,113 @@
+\documentclass{rapportCS}
+\usepackage{lipsum}
+\title{Rapport CentraleSupelec - Template} %Titre du fichier
+
+%%%%%%%%%%%%%%%%%%%%%% LES PACKAGES
+\input{packages_MP2I.tex}
+
+%%%%%%%%%%%%%%%%%%%%%% MISE EN FORME
+\input{mise_en_forme_MP2I.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%% LA PALETTE DE COULEURS
+\input{palette_aef.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%% LES COMMANDES 
+\input{commandes_MP2I.tex}
+
+
+\begin{document}
+
+%----------- Informations du rapport ---------
+
+\logoentreprise{logos/logoGraphene.png}
+
+\titre{Morphing} % Titre du fichier
+
+\mention{Cursus ingénieur} % Nom de la Mention
+\trigrammemention{ING1} % Pour le bas de la page
+\master{Génie informatique} % Nom du master
+\filiere{Première année} % Nom de la filière
+
+\eleve{Ryan Bouchou}
+
+\dates{20 janvier 2024}
+
+% Informations tuteurs écoles
+%%\tuteurecole{
+%    Mention : \textsc{Prénom Nom} \\
+%    prenom.nom@centralesupelec.fr \\
+%    Filière : \textsc{Prénom Nom} \\ 
+%    prénom.nom@gmail.com 
+%} 
+
+%%\tuteurentreprise{
+%    \textsc{Prénom Nom} \\
+%    prénom.nom@entreprise.com 
+%}
+
+%----------- Initialisation -------------------
+        
+\fairemarges %Afficher les marges
+\fairepagedegarde %Créer la page de garde
+
+%----------- Résumé -------------------
+%\vspace*{\stretch{1}}
+%\begin{center}
+%	\begin{abstract}
+%        
+%    \end{abstract}
+%\end{center}
+%\vspace*{\stretch{1}}
+%\newpage
+
+%------------ Table des matières ----------------
+\newpage
+\bgroup
+\pagestyle{empty}
+\makenomenclature
+\pagestyle{fancy}
+\fancyheadoffset{0.5cm}
+\lhead{\includegraphics[scale=0.2]{logos/CSxParisSaclay.jpg}} %Affichage de l'image au top de la page
+\rhead{\nouppercase{\leftmark}}
+\cfoot{\textbf{\titre}}
+\rfoot{}
+\lfoot{\trigrammemention}
+\tabledematieres 
+\clearpage
+\egroup 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Corps du rapport       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{src/resume}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Liste des Algos     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\listofalgorithms
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Liste des figures   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\listoffigures
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           Annexe          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\appendix  % Début des annexes
+\appendixpage  % Page de titre pour les annexes
+\addappheadtotoc  % Ajouter la page des annexes à la table des matières
+\input{appendix.tex}  % Inclusion du fichier d'annexes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Bibliographie       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\bibliographystyle{plain}
+\bibliography{biblio.bib}
+\end{document}

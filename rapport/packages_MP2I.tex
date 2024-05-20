@@ -1,0 +1,84 @@
+%-------------------
+% gestion des pages
+%-------------------
+\usepackage{pdflscape} %pages horizontales dans le PDF
+\usepackage{calc} %pour pouvoir écrire \textwidth-1cm
+
+
+%-------------------
+% sommaire 
+%-------------------
+\usepackage{tocloft}%mise en forme de la toc
+\usepackage{titlesec}%mise en forme des titres de section
+\usepackage[nottoc, notlof, notlot]{tocbibind}
+
+
+%-------------------
+% langue et encodage
+%-------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[]{babel}
+%\usepackage[english]{babel}
+%\usepackage[french]{babel}
+
+
+%-------------------
+% symboles et mode maths
+%-------------------
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{textcomp,lmodern}%pour l'euro
+\usepackage{mathrsfs}%lettres style manuscrit italique
+
+
+%-------------------
+% code
+%-------------------
+\usepackage{minted}
+%%-- pour la commande qui évite l'italique
+%%-- voir https://github.com/gpoore/minted/issues/71
+%\usepackage{etoolbox}
+%\usepackage{newunicodechar}
+\usepackage[vlined, french, onelanguage]{algorithm2e}
+
+
+
+%-------------------
+% environnement, théorèmes et exercices
+%-------------------
+%\usepackage{thmbox}%pour les jolis thm
+
+
+%-------------------
+% tableaux
+%-------------------
+\usepackage{array,multirow}
+
+
+%-------------------
+% images
+%-------------------
+\usepackage{xcolor} %pour redefinir des couleurs
+\usepackage{caption}%les personaliser (les centrer par ex)
+\usepackage{graphicx} % pour includegraphics
+
+\usepackage{tikz} %graphiques et dessins
+\usetikzlibrary{shapes}%pr écrire \node[ellipse] par ex
+\usetikzlibrary{positioning} %pr écrire \node[below rigth = 3pt and 5pt]
+\usetikzlibrary{decorations.pathreplacing}%pr les accolades
+\usetikzlibrary{patterns}%pour les hachures
+
+
+
+
+
+%-------------------
+% divers
+%-------------------
+\usepackage{cancel}%pour barrer
+%-------------------
+\usepackage{lipsum}% for dummy text
+%-------------------
+\usepackage{appendix}%pour les annexes
+
+
