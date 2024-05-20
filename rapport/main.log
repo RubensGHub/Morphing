@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  20 MAY 2024 13:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  20 MAY 2024 14:00
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/cytech/Desktop/Morphing/rapport/main.tex
-(/home/cytech/Desktop/Morphing/rapport/main.tex
+**/home/cytech/Desktop/Morphing/Morphing/rapport/main.tex
+(/home/cytech/Desktop/Morphing/Morphing/rapport/main.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (./rapportCS.cls (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -829,7 +829,7 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \g__lipsum_par_int=\count378
 \l__lipsum_a_int=\count379
 \l__lipsum_b_int=\count380
- (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (./packages_MP2I.tex (/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (./packages.tex (/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
@@ -1049,7 +1049,7 @@ Package: appendix 2020/02/08 v1.2c extra appendix facilities
 \c@@pps=\count390
 \c@@ppsavesec=\count391
 \c@@ppsaveapp=\count392
-)) (./mise_en_forme_MP2I.tex) (./palette_aef.tex) (./commandes_MP2I.tex)
+)) (./mise_en_forme.tex) (./palette_aef.tex) (./commandes.tex)
 runsystem(which pygmentize && touch main.aex)...executed.
 
 runsystem(rm main.aex)...executed.
@@ -1271,12 +1271,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  43771 strings out of 478287
- 931199 string characters out of 5849289
- 1416070 words of memory out of 5000000
+ 931151 string characters out of 5849289
+ 1416040 words of memory out of 5000000
  61175 multiletter control sequences out of 15000+600000
  519935 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 125i,16n,120p,498b,870s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 125i,16n,120p,507b,870s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb>
 Output written on main.pdf (7 pages, 339291 bytes).
 PDF statistics:
