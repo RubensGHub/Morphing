@@ -11,21 +11,19 @@ import javax.imageio.ImageIO;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 import morphing.ImageT;
 import morphing.MorphingApp;
 
+@SuppressWarnings("deprecation")
 public class ControleBoutonEnd implements Observer, EventHandler<ActionEvent> {
 
 	protected MorphingApp app;
-    protected Button b;
     protected int wImgMax = 550;
 	protected int hImgMax = 550;
 	
-	public ControleBoutonEnd(MorphingApp app, Button b) {
+	public ControleBoutonEnd(MorphingApp app) {
         this.app = app;
-        this.b = b;
     }
 	
 	@Override
@@ -42,6 +40,7 @@ public class ControleBoutonEnd implements Observer, EventHandler<ActionEvent> {
         // TODO Auto-generated method stub
     }
     
+
     private static String getExtension(File f) {
         int i = f.getName().lastIndexOf(".");
         if (i > 0) {
@@ -49,8 +48,7 @@ public class ControleBoutonEnd implements Observer, EventHandler<ActionEvent> {
         }
         return null;
     }
-	
-	
+    
 	private void selectImage(MorphingApp app) throws IOException {
         // Définition des extensions acceptées
         HashSet<String> ext = new HashSet<String>();
@@ -81,13 +79,13 @@ public class ControleBoutonEnd implements Observer, EventHandler<ActionEvent> {
                     w = w * hImgMax / h;
                     h = hImgMax;
                 }
-
                 
-
                 // Ajout de l'image à notre App
                 ImageT imgT = new ImageT(bImg, w, h, getExtension(selectedFile));
                 app.setImgSrc(imgT);
-            } else {
+            }
+            
+            else {
                 System.err.println("Seules les images sont acceptées.");
             }
         }

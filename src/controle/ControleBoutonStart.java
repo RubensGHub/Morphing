@@ -10,23 +10,20 @@ import javax.imageio.ImageIO;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import morphing.ImageT;
 import morphing.MorphingApp;
 
+
+@SuppressWarnings("deprecation")
 public class ControleBoutonStart implements Observer, EventHandler<ActionEvent> {
     
     private MorphingApp app;
-    private Button b;
     protected int wImgMax = 550;
 	protected int hImgMax = 550;
 
-    public ControleBoutonStart(MorphingApp app, Button b) {
+    public ControleBoutonStart(MorphingApp app) {
         this.app = app;
-        this.b = b;
     }
 
     @Override
@@ -43,6 +40,7 @@ public class ControleBoutonStart implements Observer, EventHandler<ActionEvent> 
         // TODO Auto-generated method stub
     }
     
+
     private static String getExtension(File f) {
         int i = f.getName().lastIndexOf(".");
         if (i > 0) {
@@ -50,7 +48,6 @@ public class ControleBoutonStart implements Observer, EventHandler<ActionEvent> 
         }
         return null;
     }
-	
 	
 	private void selectImage(MorphingApp app) throws IOException {
         // Définition des extensions acceptées
@@ -67,8 +64,6 @@ public class ControleBoutonStart implements Observer, EventHandler<ActionEvent> 
         // Vérification de la sélection et de l'extension
         if (selectedFile != null) {
             if (ext.contains(getExtension(selectedFile))) {
-                
-
                 // Création de BufferedImage pour récupérer taille et construire ImageT
                 BufferedImage bImg = ImageIO.read(selectedFile);
                 int w = bImg.getWidth();
@@ -82,9 +77,7 @@ public class ControleBoutonStart implements Observer, EventHandler<ActionEvent> 
                     w = w * hImgMax / h;
                     h = hImgMax;
                 }
-
                 
-
                 // Ajout de l'image à notre App
                 ImageT imgT = new ImageT(bImg, w, h, getExtension(selectedFile));
                 app.setImgSrc(imgT);
