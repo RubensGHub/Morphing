@@ -1,4 +1,5 @@
 package morphing;
+
 /* Gif packages 
 
 import java.io.FileOutputStream;
@@ -51,6 +52,9 @@ public class MorphingApp extends Observable {
 
     public void setNbFrames(int nbFrames) {
         this.nbFrames = nbFrames;
+        // PAC
+        this.setChanged();
+        this.notifyObservers();
     }
 
     public int getNbLines() {

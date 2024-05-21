@@ -3,6 +3,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javafx.scene.control.Slider;
+import morphing.MorphingApp;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Label;
@@ -10,22 +11,23 @@ import javafx.scene.control.Label;
 @Deprecated
 public class ControleSlider implements Observer, ChangeListener <Number>{
     
+    private MorphingApp app;
     private Slider slider;
-    private Label valeurSlider;
+    private Label valSlider;
 
-    public ControleSlider(Slider slider, Label valeurSlider) {
+    public ControleSlider(MorphingApp app, Slider slider, Label valSlider) {
+        this.app = app;
         this.slider = slider;
-        this.valeurSlider = valeurSlider;
+        this.valSlider = valSlider;
     }
 
 	@Override
-	public void update(Observable o, Object arg) {
-        valeurSlider.setText("Nombre d'images intermédiaires : " + String.valueOf((int) slider.getValue()));
+	public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+        app.setNbFrames((int) slider.getValue());
 	}
 
 	@Override
-	public void changed(ObservableValue<? extends Number> observable, Number value1, Number value2) {
-          valeurSlider.setText("Nombre d'images intermédiaires : " + value2.intValue());
-       	
+	public void update(Observable o, Object arg) {
+        valSlider.setText("Nombre d'images intermédiaires : " + app.getNbFrames());
 	}
 }
