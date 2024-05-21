@@ -10,7 +10,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-@Deprecated
+@SuppressWarnings("deprecation")
 public class AccueilApp extends Application {
 	
     @Override

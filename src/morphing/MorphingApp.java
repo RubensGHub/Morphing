@@ -13,7 +13,8 @@ import com.squareup.gifencoder.ImageOptions;
 
 import java.util.Observable;
 
-@Deprecated
+
+@SuppressWarnings("deprecation")
 public class MorphingApp extends Observable {
 
     private ImageT imgSrc;

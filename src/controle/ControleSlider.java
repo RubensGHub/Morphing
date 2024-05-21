@@ -8,7 +8,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Label;
 
-@Deprecated
+
+@SuppressWarnings("deprecation")
 public class ControleSlider implements Observer, ChangeListener <Number>{
     
     private MorphingApp app;

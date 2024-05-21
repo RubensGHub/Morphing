@@ -1,26 +1,23 @@
 package controle;
-import morphing.*;
-
-import java.util.Observer;
 
 import java.util.Observable;
+import java.util.Observer;
+
 import javafx.embed.swing.SwingFXUtils;
-import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import morphing.MorphingApp;
 
 
 @SuppressWarnings("deprecation")
 public class ControleImgStart implements Observer {
 	
-	protected Button bouton;
-	
-	protected ImageView ivStart = new ImageView();
-	protected MorphingApp app;
+	private MorphingApp app;
+	private ImageView ivStart;
 	
 	public ControleImgStart(MorphingApp app, ImageView ivStart) {
-		this.ivStart = ivStart;
 		this.app = app;
+		this.ivStart = ivStart;
 	}
 
 	@Override
@@ -28,5 +25,7 @@ public class ControleImgStart implements Observer {
 		// Création de ImageView pour affichage
 		Image image = SwingFXUtils.toFXImage(app.getImgSrc().getImage(), null);
         ivStart.setImage(image);
+		ivStart.setFitWidth(550);
+		ivStart.setFitHeight(550);
     }
 }

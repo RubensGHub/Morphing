@@ -12,18 +12,20 @@ import morphing.MorphingApp;
 @SuppressWarnings("deprecation")
 public class ControleImgEnd implements Observer {
 	
-protected MorphingApp app;
-	protected ImageView ivStart = new ImageView();
+	private MorphingApp app;
+	private ImageView ivEnd;
 	
-	public ControleImgEnd(MorphingApp app, ImageView ivStart) {
+	public ControleImgEnd(MorphingApp app, ImageView ivEnd) {
 		this.app = app;
-		this.ivStart = ivStart;
+		this.ivEnd = ivEnd;
 	}
 	
 	@Override
 	public void update(Observable o, Object arg) {
 		// Création de ImageView pour affichage
-		Image image = SwingFXUtils.toFXImage(app.getImgSrc().getImage(), null);
-		ivStart.setImage(image);		
+		Image image = SwingFXUtils.toFXImage(app.getImgDest().getImage(), null);
+		ivEnd.setImage(image);
+		ivEnd.setFitWidth(550);
+		ivEnd.setFitHeight(550);
 	}
 }

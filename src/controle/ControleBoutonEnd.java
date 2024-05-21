@@ -18,9 +18,9 @@ import morphing.MorphingApp;
 @SuppressWarnings("deprecation")
 public class ControleBoutonEnd implements Observer, EventHandler<ActionEvent> {
 
-	protected MorphingApp app;
-    protected int wImgMax = 550;
-	protected int hImgMax = 550;
+	private MorphingApp app;
+    private int wImgMax = 550;
+	private int hImgMax = 550;
 	
 	public ControleBoutonEnd(MorphingApp app) {
         this.app = app;
@@ -37,7 +37,7 @@ public class ControleBoutonEnd implements Observer, EventHandler<ActionEvent> {
 	
 	@Override
     public void update(Observable o, Object arg) {
-        // TODO Auto-generated method stub
+
     }
     
 
@@ -64,8 +64,6 @@ public class ControleBoutonEnd implements Observer, EventHandler<ActionEvent> {
         // Vérification de la sélection et de l'extension
         if (selectedFile != null) {
             if (ext.contains(getExtension(selectedFile))) {
-                
-
                 // Création de BufferedImage pour récupérer taille et construire ImageT
                 BufferedImage bImg = ImageIO.read(selectedFile);
                 int w = bImg.getWidth();
@@ -82,7 +80,7 @@ public class ControleBoutonEnd implements Observer, EventHandler<ActionEvent> {
                 
                 // Ajout de l'image à notre App
                 ImageT imgT = new ImageT(bImg, w, h, getExtension(selectedFile));
-                app.setImgSrc(imgT);
+                app.setImgDest(imgT);
             }
             
             else {

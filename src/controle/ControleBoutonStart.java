@@ -1,26 +1,24 @@
 package controle;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.imageio.ImageIO;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.FileChooser;
 import morphing.ImageT;
 import morphing.MorphingApp;
 
-
 @SuppressWarnings("deprecation")
 public class ControleBoutonStart implements Observer, EventHandler<ActionEvent> {
     
     private MorphingApp app;
-    protected int wImgMax = 550;
-	protected int hImgMax = 550;
+    private int wImgMax = 550;
+	private int hImgMax = 550;
 
     public ControleBoutonStart(MorphingApp app) {
         this.app = app;
@@ -37,7 +35,7 @@ public class ControleBoutonStart implements Observer, EventHandler<ActionEvent> 
 
     @Override
     public void update(Observable o, Object arg) {
-        // TODO Auto-generated method stub
+        
     }
     
 
@@ -81,7 +79,9 @@ public class ControleBoutonStart implements Observer, EventHandler<ActionEvent> 
                 // Ajout de l'image à notre App
                 ImageT imgT = new ImageT(bImg, w, h, getExtension(selectedFile));
                 app.setImgSrc(imgT);
-            } else {
+            }
+            
+            else {
                 System.err.println("Seules les images sont acceptées.");
             }
         }
