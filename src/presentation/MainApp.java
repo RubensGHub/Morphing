@@ -151,6 +151,12 @@ public class MainApp extends Application {
 
         // CONTROLEURS
 
+        // LEFT
+        ControleBoutonStart cbs = new ControleBoutonStart(app);
+        buttonAddImgStart.setOnAction(cbs);
+        ControleImgStart cis = new ControleImgStart(app, ivStart);
+        app.addObserver(cis);
+
         // CENTER
         ControleSlider cs = new ControleSlider(app, slider, valSlider);
         slider.valueProperty().addListener(cs);
@@ -159,22 +165,19 @@ public class MainApp extends Application {
         // RIGHT
         ControleBoutonEnd cbe = new ControleBoutonEnd(app);
         buttonAddImgEnd.setOnAction(cbe);
-        //app.addObserver(cbe);
-
         ControleImgEnd cie = new ControleImgEnd(app, ivEnd);
         app.addObserver(cie);
 
-        // LEFT
-        ControleBoutonStart cbs = new ControleBoutonStart(app);
-        buttonAddImgStart.setOnAction(cbs);
-        //app.addObserver(cbs);
-
-        ControleImgStart cis = new ControleImgStart(app, ivStart);
-        app.addObserver(cis);
 
 
 
-        
+
+
+
+
+
+
+
     }
 
     private Slider newSlider()
