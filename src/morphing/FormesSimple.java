@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FormesSimple {
-    private ImageT srcImage;
-    private ImageT destImage;
-    private List<ImageT> frames;
+    private final ImageT srcImage;
+    private final ImageT destImage;
+    private final List<ImageT> frames;
 
     public FormesSimple(ImageT srcImage, ImageT destImage) 
     {
@@ -24,11 +24,13 @@ public class FormesSimple {
     {
         int minLines = Math.min(srcImage.getLines().size(), destImage.getLines().size());
 
-        for (int t = 0; t <= nbFrames; t++) {
+        for (int t = 0; t <= nbFrames; t++) 
+        {
             double fraction = (double) t / nbFrames;
             ImageT frame = new ImageT(srcImage.getWidth(), srcImage.getHeight(), srcImage.getFormat());
 
-            for (int i = 0; i < minLines; i++) {
+            for (int i = 0; i < minLines; i++) 
+            {
                 Line srcLine = srcImage.getLines().get(i);
                 Line destLine = destImage.getLines().get(i);
 
