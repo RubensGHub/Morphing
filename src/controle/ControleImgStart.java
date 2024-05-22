@@ -6,6 +6,7 @@ import java.util.Observer;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import morphing.ImageT;
 import morphing.MorphingApp;
 
 
@@ -23,9 +24,13 @@ public class ControleImgStart implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		// Création de ImageView pour affichage
-		Image image = SwingFXUtils.toFXImage(app.getImgSrc().getImage(), null);
-        ivStart.setImage(image);
-		ivStart.setFitWidth(550);
-		ivStart.setFitHeight(550);
+		ImageT imgSrc = app.getImgSrc();
+		if (imgSrc != null)
+		{
+			Image image = SwingFXUtils.toFXImage(imgSrc.getImage(), null);
+			ivStart.setImage(image);
+			ivStart.setFitWidth(550);
+			ivStart.setFitHeight(550);
+		}
     }
 }

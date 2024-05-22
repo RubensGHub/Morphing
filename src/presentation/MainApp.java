@@ -56,6 +56,10 @@ public class MainApp extends Application {
 
         MorphingApp app = new MorphingApp();
 
+        // CREATION IMAGEVIEW (initialement : null)
+        this.setIvStart(app.getImgSrc());
+        this.setIvEnd(app.getImgDest());
+
         // SLIDER
         Slider slider = newSlider();
         Label valSlider = newLabelSlider(slider, "Nombre d'images intermédiaires");
@@ -146,7 +150,7 @@ public class MainApp extends Application {
 
 
         // CONTROLEURS
-        
+
         // CENTER
         ControleSlider cs = new ControleSlider(app, slider, valSlider);
         slider.valueProperty().addListener(cs);
@@ -155,7 +159,7 @@ public class MainApp extends Application {
         // RIGHT
         ControleBoutonEnd cbe = new ControleBoutonEnd(app);
         buttonAddImgEnd.setOnAction(cbe);
-        app.addObserver(cbe);
+        //app.addObserver(cbe);
 
         ControleImgEnd cie = new ControleImgEnd(app, ivEnd);
         app.addObserver(cie);
@@ -163,14 +167,14 @@ public class MainApp extends Application {
         // LEFT
         ControleBoutonStart cbs = new ControleBoutonStart(app);
         buttonAddImgStart.setOnAction(cbs);
-        app.addObserver(cbs);
+        //app.addObserver(cbs);
 
         ControleImgStart cis = new ControleImgStart(app, ivStart);
         app.addObserver(cis);
+
+
+
         
-
-
-
     }
 
     private Slider newSlider()
