@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Observable;
 
 /*
  * ImageG
@@ -19,7 +20,9 @@ import java.io.IOException;
  * @see morphing.ImageG#ImageG 
  * 
  */
-public class ImageG {
+
+ @SuppressWarnings("deprecation")
+public class ImageG extends Observable {
     private BufferedImage image;
     private int width;
     private int height;

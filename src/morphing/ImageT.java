@@ -3,7 +3,8 @@ package morphing;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class ImageT extends ImageG{
+@SuppressWarnings("deprecation")
+public class ImageT extends ImageG {
     ArrayList<Line> lines;
 
     public ImageT(BufferedImage bImg, int w, int h, String ext) {
@@ -22,6 +23,9 @@ public class ImageT extends ImageG{
 
     public void addLine(Line l){
         lines.add(l);
+        // PAC
+        this.setChanged();
+        this.notifyObservers();
     }
 
     public Line getLine(int i){
@@ -30,6 +34,9 @@ public class ImageT extends ImageG{
 
     public void removeLine(int i){
         lines.remove(i);
+        // PAC
+        this.setChanged();
+        this.notifyObservers();
     }
 
 

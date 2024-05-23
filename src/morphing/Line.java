@@ -1,6 +1,9 @@
 package morphing;
 
-public class Line {
+import java.util.Observable;
+
+@SuppressWarnings("deprecation")
+public class Line extends Observable {
     private Couple<Point,Point> line;
     private Couple<Double,Double> vector;
 
@@ -36,10 +39,16 @@ public class Line {
 
     public void setStart(Point start) {
         this.line.setX(start);
+        // PAC
+        this.setChanged();
+        this.notifyObservers();
     }
 
     public void setEnd(Point end) {
         this.line.setY(end);
+        // PAC
+        this.setChanged();
+        this.notifyObservers();
     }
 
     public Couple<Double,Double> getVector() {

@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Label;
@@ -82,6 +83,7 @@ public class MainApp extends Application {
         zoneImgLeft.getChildren().add(ivStart);
         Canvas canvasLeft = new Canvas(wImgMax, hImgMax);
         zoneImgLeft.getChildren().add(canvasLeft);
+        GraphicsContext leftGC = canvasLeft.getGraphicsContext2D();
 
         // ZONE IMAGE RIGHT
         StackPane zoneImgRight = new StackPane();
@@ -89,6 +91,7 @@ public class MainApp extends Application {
         zoneImgRight.getChildren().add(ivEnd);
         Canvas canvasRight = new Canvas(wImgMax, hImgMax);
         zoneImgRight.getChildren().add(canvasRight);
+        GraphicsContext rightGC = canvasRight.getGraphicsContext2D();
 
         // VBOX LEFT
         VBox vBoxLeft = new VBox(10);
@@ -154,21 +157,31 @@ public class MainApp extends Application {
         // LEFT
         ControleBoutonStart cbs = new ControleBoutonStart(app);
         buttonAddImgStart.setOnAction(cbs);
+
         ControleImgStart cis = new ControleImgStart(app, ivStart);
         app.addObserver(cis);
+
+        ControlePointControleImgStart cpcis = new ControlePointControleImgStart(app, leftGC);
+        canvasLeft.setOnMouseClicked(cpcis);
+        app.addObserver(cpcis);
+
 
         // CENTER
         ControleSlider cs = new ControleSlider(app, slider, valSlider);
         slider.valueProperty().addListener(cs);
         app.addObserver(cs);
         
+
         // RIGHT
         ControleBoutonEnd cbe = new ControleBoutonEnd(app);
         buttonAddImgEnd.setOnAction(cbe);
+        
         ControleImgEnd cie = new ControleImgEnd(app, ivEnd);
         app.addObserver(cie);
 
-
+        ControlePointControleImgEnd cpcie = new ControlePointControleImgEnd(app, rightGC);
+        canvasRight.setOnMouseClicked(cpcie);
+        app.addObserver(cpcie);
 
 
 
