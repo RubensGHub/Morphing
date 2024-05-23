@@ -256,6 +256,9 @@ public class MorphingApp extends Observable {
      * @return ImageT
      */
     public void calculate(){
+        setNbFrames(frames.length - 1);
+        setNbLines(frames[0].getLines().size());
+
         for (int f = 0 ; f <= this.getNbFrames() ; f++){
             ImageT wrapSrc = newFrame(f);
             ImageT wrapDest = newFrame(f);
