@@ -21,6 +21,7 @@ public class MorphingApp extends Observable {
     private ImageT[] frames;
     private int nbFrames;
     private int nbLines;
+    private Point tempPoint;
 
     public ImageT getImgSrc() {
         return this.imgSrc;
@@ -65,6 +66,16 @@ public class MorphingApp extends Observable {
         this.nbLines = nbLines;
     }
 
+    public Point getTempPoint() {
+        return this.tempPoint;
+    }
+
+    public void setTempPoint(Point tempPoint) {
+        this.tempPoint = tempPoint;
+    }
+
+
+
     /**
      * Constructeur par défaut
      */
@@ -74,6 +85,7 @@ public class MorphingApp extends Observable {
         this.frames = null;
         this.nbFrames = 0;
         this.nbLines = 0;
+        this.tempPoint = null;
     }
 
     /**
