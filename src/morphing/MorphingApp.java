@@ -1,19 +1,11 @@
 package morphing;
 
-/* Gif packages 
-
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-
-import com.squareup.gifencoder.GifEncoder;
-import com.squareup.gifencoder.ImageOptions;
-
-*/
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 
-@Deprecated
+
+@SuppressWarnings("deprecation")
 public class MorphingApp extends Observable {
 
     private ImageT imgSrc;
@@ -29,6 +21,9 @@ public class MorphingApp extends Observable {
 
     public void setImgSrc(ImageT imgSrc) {
         this.imgSrc = imgSrc;
+        // PAC
+        this.setChanged();
+        this.notifyObservers();
     }
 
     public ImageT getImgDest() {
@@ -37,6 +32,9 @@ public class MorphingApp extends Observable {
 
     public void setImgDest(ImageT imgDest) {
         this.imgDest = imgDest;
+        // PAC
+        this.setChanged();
+        this.notifyObservers();
     }
 
     public ImageT[] getFrames() {
@@ -110,6 +108,49 @@ public class MorphingApp extends Observable {
 
         return frame;
     }
+
+    public ImageT newFrameBezier(int t)
+    {
+        ImageT frame = new ImageT(imgSrc.getWidth(), imgSrc.getHeight(), imgSrc.getFormat());
+        double f = (double) t / this.getNbFrames();
+        List<CourbesBezier> bezierCurves = courbesBezierInit();
+
+        for (int i = 0; i < bezierCurves.size(); i++) {
+            CourbesBezier bezier = bezierCurves.get(i);
+
+            // Calculer les nouveaux points via les courbes de Bézier
+            Point p = bezier.calculerPoint(f); // Point de départ
+            Point q = bezier.calculerPoint(f); // Point d'arrivée
+
+            frame.addLine(new Line(p, q));
+        } 
+
+        return frame;
+    }
+
+    private List<CourbesBezier> courbesBezierInit() 
+    {
+        List<CourbesBezier> courbes = new ArrayList<>();
+        for (int i = 0; i < this.getNbLines(); i++) {
+            Line lineSrc = imgSrc.getLine(i);
+            Line lineDest = imgDest.getLine(i);
+    
+            // Créer une nouvelle courbe de Bézier pour cette paire de lignes
+            CourbesBezier bezier = new CourbesBezier();
+    
+            // Ajouter les points de contrôle pour la courbe de Bézier
+            bezier.ajouterPointControle(lineSrc.getStart().getPoint().getX(), lineSrc.getStart().getPoint().getY());
+            bezier.ajouterPointControle(lineSrc.getEnd().getPoint().getX(), lineSrc.getEnd().getPoint().getY());
+            bezier.ajouterPointControle(lineDest.getStart().getPoint().getX(), lineDest.getStart().getPoint().getY());
+            bezier.ajouterPointControle(lineDest.getEnd().getPoint().getX(), lineDest.getEnd().getPoint().getY());
+    
+            // Ajoutez la courbe de Bézier à la liste
+            courbes.add(bezier);
+        }
+        return courbes;
+    }
+    
+
 
     
     /**

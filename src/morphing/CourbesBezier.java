@@ -29,8 +29,8 @@ public class CourbesBezier {
     public Point calculerPoint(double t) 
     {
         int n = pointsControle.size() - 1;
-        int x = 0;
-        int y = 0;
+        double x = 0;
+        double y = 0;
         double coeffBinomial;
         double powT;
         double pow1SurT;
@@ -42,7 +42,7 @@ public class CourbesBezier {
             x += coeffBinomial * powT * pow1SurT * pointsControle.get(i).getPoint().getX();
             y += coeffBinomial * powT * pow1SurT * pointsControle.get(i).getPoint().getY();
         }
-        return new Point(x, y);
+        return new Point((int)x, (int)y);
     }
 
     private double factorielle(int number) 

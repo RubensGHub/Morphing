@@ -1,32 +1,36 @@
 package controle;
+
 import java.util.Observable;
 import java.util.Observer;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.scene.control.Button;
-import javafx.scene.image.*;
-import javafx.stage.FileChooser;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import morphing.ImageT;
+import morphing.MorphingApp;
 
-@Deprecated
-public class ControleImgStart implements Observer, ChangeListener<Number> {
-    
-    private ImageView ivStart;
-    private Button addFile;
-    private FileChooser fileChooser = new FileChooser();
 
-    public ControleImgStart(Button addFile, ImageView ivStart) {
-        this.ivStart = ivStart;
-        this.addFile = addFile;
-    }
+@SuppressWarnings("deprecation")
+public class ControleImgStart implements Observer {
+	
+	private MorphingApp app;
+	private ImageView ivStart;
+	
+	public ControleImgStart(MorphingApp app, ImageView ivStart) {
+		this.app = app;
+		this.ivStart = ivStart;
+	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-        
-	}
-
-	@Override
-	public void changed(ObservableValue<? extends Number> observable, Number value1, Number value2) {
-       	
-	}
+		// Création de ImageView pour affichage
+		ImageT imgSrc = app.getImgSrc();
+		if (imgSrc != null)
+		{
+			Image image = SwingFXUtils.toFXImage(imgSrc.getImage(), null);
+			ivStart.setImage(image);
+			ivStart.setFitWidth(550);
+			ivStart.setFitHeight(550);
+		}
+    }
 }

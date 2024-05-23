@@ -3,17 +3,8 @@ package presentation;
 import morphing.*;
 import controle.*;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashSet;
-
-import javax.imageio.ImageIO;
-
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
@@ -25,7 +16,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 @Deprecated
@@ -160,32 +150,24 @@ public class MainApp extends Application {
 
 
         // CONTROLEURS
+
+        // LEFT
+        ControleBoutonStart cbs = new ControleBoutonStart(app);
+        buttonAddImgStart.setOnAction(cbs);
+        ControleImgStart cis = new ControleImgStart(app, ivStart);
+        app.addObserver(cis);
+
+        // CENTER
         ControleSlider cs = new ControleSlider(app, slider, valSlider);
         slider.valueProperty().addListener(cs);
         app.addObserver(cs);
         
+        // RIGHT
+        ControleBoutonEnd cbe = new ControleBoutonEnd(app);
+        buttonAddImgEnd.setOnAction(cbe);
+        ControleImgEnd cie = new ControleImgEnd(app, ivEnd);
+        app.addObserver(cie);
 
-        buttonAddImgStart.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    selectImage(app, ivStart);
-                } catch (IOException e) {
-                    
-                }
-            }
-        });
-
-        buttonAddImgEnd.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    selectImage(app, ivEnd);
-                } catch (IOException e) {
-                    
-                }
-            }
-        });
 
 
 
@@ -227,78 +209,6 @@ public class MainApp extends Application {
         return rectangle;
     }
 
-    private static String getExtension(File f)
-    {
-        int i = f.getName().lastIndexOf(".");
-        if (i > 0) {
-            return f.getName().substring(i+1);
-        }
-        
-        return null;
-    }
-
-    private void selectImage(MorphingApp app, ImageView imageView) throws IOException {
-        // Définition des extension acceptées
-        HashSet<String> ext = new HashSet<String>();
-        ext.add("jpg");
-        ext.add("jpeg");
-        ext.add("png");
-        ext.add("gif");
-
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choisir une image");
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        // Il a bien choisi un fichier
-        if (selectedFile != null) {
-            // Extension valide
-            if (ext.contains(getExtension(selectedFile))) {
-
-                // Création de ImageView pour affichage
-                Image image = new Image(selectedFile.toURI().toString());
-                imageView.setImage(image);
-
-                // Création de BufferedImage pour récupérer taille et construire ImageT
-                BufferedImage bImg = ImageIO.read(selectedFile);
-                int w = bImg.getWidth();
-                int h = bImg.getHeight();
-
-                /*
-                 * Proportionnalité (produit en croix)
-                 * w -> wImgMax
-                 * h -> ?
-                 */
-                if (w > h)
-                {
-                    h = h * wImgMax / w;
-                    w = wImgMax;
-                }
-
-                /*
-                 * Proportionnalité (produit en croix)
-                 * w -> ?
-                 * h -> hImgMax
-                 */
-                else
-                {
-                    w = w * hImgMax / h;
-                    h = hImgMax;
-                }
-
-                // Affectation pour l'interface
-                imageView.setFitWidth(w);
-                imageView.setFitHeight(h);
-
-                // Ajout de l'image à notre App
-                ImageT imgT = new ImageT(bImg, w, h, getExtension(selectedFile));
-                app.setImgSrc(imgT);
-            }
-
-            else {
-                System.err.println("Seule les images sont acceptées.");
-            }
-        }
-    }
     
     public static void main(String[] args) {
         launch(args);
