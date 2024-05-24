@@ -42,4 +42,13 @@ public class Point {
 
         return new Point(x, y);
     }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+            "x=" + point.getX() +
+            ", y=" + point.getY() +
+            '}';
+    }
+
 }

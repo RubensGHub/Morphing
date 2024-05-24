@@ -55,3 +55,4 @@ public class CourbesBezier {
         return result;
     }
 }
+}

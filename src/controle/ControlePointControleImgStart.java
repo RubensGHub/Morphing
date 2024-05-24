@@ -25,55 +25,50 @@ public class ControlePointControleImgStart implements Observer, EventHandler<Mou
 
     @Override
 	public void update(Observable o, Object arg) {
-        // on récupère le nouveau tableau de lignes d'imgSrc
         List<Point> points = new ArrayList<>();
 
         // On met tous les points d'imgSrc dans une arrayList de Point pour pouvoir les dessiner tous en même temps
         if (app.getImgSrc() != null && app.getImgSrc().getLines() != null){
             for (Line line : app.getImgSrc().getLines()){
                 points.add(line.getStart());
-                if (line.getEnd() != null) {
-                    points.add(line.getEnd());
-                }
+                points.add(line.getEnd());
             }
-            draw(leftGC, points);
+            if (app.getImgSrc().getTempPoint() != null) {
+                points.add(app.getImgSrc().getTempPoint());
+            }
         }
-	}
+        draw(leftGC, points);
+    }
     
     @Override
     public void handle(MouseEvent event) {
-
-        // On récupère les coordonnées du clic de l'utilisateur pour créer un nouveau Point
-        if (app.getImgSrc() != null) {
+        ImageT imgSrc = app.getImgSrc();
+        if (imgSrc != null) {
             double x = event.getX();
             double y = event.getY();
             int intX = (int)x;
             int intY = (int)y;
             Point newPoint = new Point(intX, intY);
-        
-            // Si le tableau est vide ou que toutes les lignes sont complètes, alors on créé une nouvelle ligne incomplète, sinon on complète la ligne incomplète.
-            int i = incompleteLine(app.getImgSrc().getLines());
-            if (i == -1) {
-                Line newLine = new Line(newPoint, null);
-                app.getImgSrc().addLine(newLine);
+
+            if (app.getImgSrc().getTempPoint() == null) {
+                app.getImgSrc().setTempPoint(newPoint);
+                System.out.println("Le premier point a bien été sauvegardé");
             } else {
-                app.getImgSrc().getLines().get(i).setEnd(newPoint);
+                Line newLine = new Line(app.getImgSrc().getTempPoint(), newPoint);
+
+                if (imgSrc.getLines() == null) {
+                    imgSrc.setLines(new ArrayList<>());
+                }
+
+                imgSrc.addLine(newLine);
+                imgSrc.printLines(); // Affiche le contenu de la liste des lignes
+                app.getImgSrc().setTempPoint(null);
             }
+        } else {
+            System.err.println("imgSrc est null");
         }
     }
 
-    private int incompleteLine(ArrayList<Line> lines) {
-        int i=0;
-        if (app.getImgSrc().getLines() != null){
-            for (Line line : app.getImgSrc().getLines()) {
-                if (line.getEnd() == null) {
-                    return i;
-                } 
-                i++;
-            }
-        }
-        return -1;
-    }
 
     // permet d'afficher tous les points du tableau de ligne d'une image sur un canvas (graphicsContext)
     private void draw(GraphicsContext gc, List<Point> points) {

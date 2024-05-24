@@ -109,4 +109,12 @@ public class Line extends Observable {
         return num/den;
     }
 
+    @Override
+    public String toString() {
+        return "Line{" +
+            "start=" + getStart() +
+            ", end=" + getEnd() +
+            ", vector=" + vector +
+            '}';
+    }
 }

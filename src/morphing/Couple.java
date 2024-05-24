@@ -56,4 +56,5 @@ public class Couple<X,Y> {
     public Couple<X,Y> copy(){
         return new Couple<>(this.x,this.y);
     }
+
 }
