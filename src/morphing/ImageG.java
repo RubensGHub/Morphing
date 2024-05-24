@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Observable;
 
 /*
  * ImageG
@@ -21,8 +20,7 @@ import java.util.Observable;
  * 
  */
 
- @SuppressWarnings("deprecation")
-public class ImageG extends Observable {
+public class ImageG {
     private BufferedImage image;
     private int width;
     private int height;

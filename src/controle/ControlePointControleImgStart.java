@@ -30,8 +30,7 @@ public class ControlePointControleImgStart implements Observer, EventHandler<Mou
 
         // On met tous les points d'imgSrc dans une arrayList de Point pour pouvoir les dessiner tous en même temps
         if (app.getImgSrc() != null) {
-
-            System.out.println("bla");
+            
             if (app.getImgSrc().getLines() != null) {
                 for (Line line : app.getImgSrc().getLines()){
                     points.add(line.getStart());
@@ -50,7 +49,7 @@ public class ControlePointControleImgStart implements Observer, EventHandler<Mou
     @Override
     public void handle(MouseEvent event) {
         ImageT imgSrc = app.getImgSrc();
-        if (imgSrc != null) {
+        if (imgSrc != null && app.getImgSrc().getLines().size() <= app.getImgDest().getLines().size()) {
             double x = event.getX();
             double y = event.getY();
             int intX = (int)x;
@@ -74,6 +73,8 @@ public class ControlePointControleImgStart implements Observer, EventHandler<Mou
         } else {
             System.err.println("imgSrc est null");
         }
+
+        app.setNbFrames(app.getNbFrames());
     }
 
 

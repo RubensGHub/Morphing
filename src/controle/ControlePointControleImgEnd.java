@@ -27,23 +27,28 @@ public class ControlePointControleImgEnd implements Observer, EventHandler<Mouse
 	public void update(Observable o, Object arg) {
         List<Point> points = new ArrayList<>();
 
-        // On met tous les points d'ImgDest dans une arrayList de Point pour pouvoir les dessiner tous en même temps
-        if (app.getImgDest() != null && app.getImgDest().getLines() != null){
-            for (Line line : app.getImgDest().getLines()){
-                points.add(line.getStart());
-                points.add(line.getEnd());
+        // On met tous les points d'imgDest dans une arrayList de Point pour pouvoir les dessiner tous en même temps
+        if (app.getImgDest() != null) {
+            
+            if (app.getImgDest().getLines() != null) {
+                for (Line line : app.getImgDest().getLines()){
+                    points.add(line.getStart());
+                    points.add(line.getEnd());
+                }
             }
+            
             if (app.getImgDest().getTempPoint() != null) {
                 points.add(app.getImgDest().getTempPoint());
             }
+
+            draw(rightGC, points);
         }
-        draw(rightGC, points);
     }
 	
     @Override
     public void handle(MouseEvent event) {
         ImageT ImgDest = app.getImgDest();
-        if (ImgDest != null) {
+        if (ImgDest != null && app.getImgDest().getLines().size() <= app.getImgDest().getLines().size()) {
             double x = event.getX();
             double y = event.getY();
             int intX = (int)x;
@@ -67,6 +72,8 @@ public class ControlePointControleImgEnd implements Observer, EventHandler<Mouse
         } else {
             System.err.println("ImgDest est null");
         }
+
+        app.setNbFrames(app.getNbFrames());
     }
 
     // permet d'afficher tous les points (ainsi que les segments) du tableau de ligne d'une image sur un canvas (graphicsContext)
@@ -79,9 +86,9 @@ public class ControlePointControleImgEnd implements Observer, EventHandler<Mouse
         }
         gc.setStroke(Color.BLUE); 
         for (int i = 0; i < points.size() - 1; i++) {
-            if (i % 2 == 1) {
+            if (i % 2 == 0) {
                 gc.strokeLine(
-                    points.get(i - 1).getPoint().getX(), points.get(i - 1).getPoint().getY(),
+                    points.get(i + 1).getPoint().getX(), points.get(i + 1).getPoint().getY(),
                     points.get(i).getPoint().getX(), points.get(i).getPoint().getY()
                 );
             }

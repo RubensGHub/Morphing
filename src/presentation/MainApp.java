@@ -164,7 +164,7 @@ public class MainApp extends Application {
         ControlePointControleImgStart cpcis = new ControlePointControleImgStart(app, leftGC);
         canvasLeft.setOnMouseClicked(cpcis);
         app.addObserver(cpcis);
-
+        
 
         // CENTER
         ControleSlider cs = new ControleSlider(app, slider, valSlider);
@@ -182,6 +182,8 @@ public class MainApp extends Application {
         ControlePointControleImgEnd cpcie = new ControlePointControleImgEnd(app, rightGC);
         canvasRight.setOnMouseClicked(cpcie);
         app.addObserver(cpcie);
+    
+        
 
 
 
