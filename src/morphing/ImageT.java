@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings("deprecation")
 public class ImageT extends ImageG {
-    ArrayList<Line> lines;
+    ArrayList<Line> lines = new ArrayList<>();
     private Point tempPoint;
 
     public ImageT(BufferedImage bImg, int w, int h, String ext) {
@@ -14,14 +14,10 @@ public class ImageT extends ImageG {
 
     public ImageT(String path) {
         super(path);
-        lines = new ArrayList<>();
-        this.tempPoint = null;
     }
 
     public ImageT(int width, int height, String format) {
         super(width, height, format);
-        lines = new ArrayList<>();
-        this.tempPoint = null;
     }
 
     public void addLine(Line l){

@@ -2,6 +2,9 @@ package controle;
 
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.plaf.synth.SynthStyle;
+
 import java.util.ArrayList;
 import java.util.List;
 import javafx.event.EventHandler;
@@ -28,15 +31,20 @@ public class ControlePointControleImgStart implements Observer, EventHandler<Mou
         List<Point> points = new ArrayList<>();
 
         // On met tous les points d'imgSrc dans une arrayList de Point pour pouvoir les dessiner tous en même temps
-        if (app.getImgSrc() != null && app.getImgSrc().getLines() != null){
+        if (app.getImgSrc() != null && app.getImgSrc().getLines() != null) {
+
+            System.out.println("bla");
+
             for (Line line : app.getImgSrc().getLines()){
                 points.add(line.getStart());
                 points.add(line.getEnd());
             }
+            
             if (app.getImgSrc().getTempPoint() != null) {
                 points.add(app.getImgSrc().getTempPoint());
             }
         }
+        
         draw(leftGC, points);
     }
     
@@ -74,11 +82,14 @@ public class ControlePointControleImgStart implements Observer, EventHandler<Mou
     private void draw(GraphicsContext gc, List<Point> points) {
         gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
         gc.setStroke(Color.RED);
+
         gc.setFill(Color.TRANSPARENT);
         for (Point pt : points) {
             gc.strokeOval(pt.getPoint().getX() - 3, pt.getPoint().getY() - 3, 6, 6);
         }
+
         gc.setStroke(Color.BLUE); 
+
         for (int i = 0; i < points.size() - 1; i++) {
             if (i % 2 == 1) {
                 gc.strokeLine(
