@@ -45,10 +45,7 @@ public class Point {
 
     @Override
     public String toString() {
-        return "Point{" +
-            "x=" + point.getX() +
-            ", y=" + point.getY() +
-            '}';
+        return "(" + point.getX() + ", " + point.getY() + ")";
     }
 
 }

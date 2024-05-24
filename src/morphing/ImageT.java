@@ -6,6 +6,8 @@ import java.util.ArrayList;
 public class ImageT extends ImageG {
     private ArrayList<Line> lines = new ArrayList<>();
     private Point tempPoint;
+    private String imageType;
+    private int compteur = 1;
 
     public ImageT(BufferedImage bImg, int w, int h, String ext) {
         super(bImg, w, h, ext);
@@ -54,10 +56,18 @@ public class ImageT extends ImageG {
         } else if (lines.isEmpty()) {
             System.out.println("La liste de lignes est vide.");
         } else {
+            System.out.println("\nTableau de ligne d'" + imageType + " n°" + compteur + " :");
             for (Line line : lines) {
-                System.out.println(line);
+                System.out.print(line);
+                
             }
+            System.out.println("");
+            compteur++;
         }
+    }
+    
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
     }
 
 

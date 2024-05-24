@@ -20,6 +20,7 @@ public class MorphingApp extends Observable {
 
     public void setImgSrc(ImageT imgSrc) {
         this.imgSrc = imgSrc;
+        this.imgSrc.setImageType("imgSrc");
         // PAC
         this.setChanged();
         this.notifyObservers();
@@ -31,6 +32,7 @@ public class MorphingApp extends Observable {
 
     public void setImgDest(ImageT imgDest) {
         this.imgDest = imgDest;
+        this.imgDest.setImageType("imgDest");
         // PAC
         this.setChanged();
         this.notifyObservers();

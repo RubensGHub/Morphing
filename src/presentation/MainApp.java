@@ -163,6 +163,8 @@ public class MainApp extends Application {
 
         ControlePointControleImgStart cpcis = new ControlePointControleImgStart(app, leftGC);
         canvasLeft.setOnMouseClicked(cpcis);
+        canvasLeft.setOnMouseDragged(cpcis::onMouseDragged);
+        canvasLeft.setOnMouseReleased(cpcis::onMouseReleased);
         app.addObserver(cpcis);
         
 
@@ -181,19 +183,16 @@ public class MainApp extends Application {
 
         ControlePointControleImgEnd cpcie = new ControlePointControleImgEnd(app, rightGC);
         canvasRight.setOnMouseClicked(cpcie);
+        canvasRight.setOnMouseDragged(cpcie::onMouseDragged);
+        canvasRight.setOnMouseReleased(cpcie::onMouseReleased);
         app.addObserver(cpcie);
     
         
-
-
-
-
-
-
-
-
-
     }
+
+
+
+    
 
     private Slider newSlider()
     {

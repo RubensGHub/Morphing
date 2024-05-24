@@ -111,10 +111,6 @@ public class Line extends Observable {
 
     @Override
     public String toString() {
-        return "Line{" +
-            "start=" + getStart() +
-            ", end=" + getEnd() +
-            ", vector=" + vector +
-            '}';
+        return "[ " + getStart() + ", " + getEnd() + " ]  ||  ";
     }
 }
