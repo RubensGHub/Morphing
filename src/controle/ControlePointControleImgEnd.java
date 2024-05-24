@@ -27,28 +27,23 @@ public class ControlePointControleImgEnd implements Observer, EventHandler<Mouse
 	public void update(Observable o, Object arg) {
         List<Point> points = new ArrayList<>();
 
-        // On met tous les points d'imgDest dans une arrayList de Point pour pouvoir les dessiner tous en même temps
-        if (app.getImgDest() != null) {
-            
-            if (app.getImgDest().getLines() != null) {
-                for (Line line : app.getImgDest().getLines()){
-                    points.add(line.getStart());
-                    points.add(line.getEnd());
-                }
+        // On met tous les points d'ImgDest dans une arrayList de Point pour pouvoir les dessiner tous en même temps
+        if (app.getImgDest() != null && app.getImgDest().getLines() != null){
+            for (Line line : app.getImgDest().getLines()){
+                points.add(line.getStart());
+                points.add(line.getEnd());
             }
-            
             if (app.getImgDest().getTempPoint() != null) {
                 points.add(app.getImgDest().getTempPoint());
             }
-
-            draw(rightGC, points);
         }
+        draw(rightGC, points);
     }
 	
     @Override
     public void handle(MouseEvent event) {
         ImageT ImgDest = app.getImgDest();
-        if (ImgDest != null && app.getImgDest().getLines().size() <= app.getImgDest().getLines().size()) {
+        if (ImgDest != null && app.getImgDest().getLines().size() <= app.getImgSrc().getLines().size()) {
             double x = event.getX();
             double y = event.getY();
             int intX = (int)x;
