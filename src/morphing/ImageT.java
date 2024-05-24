@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings("deprecation")
 public class ImageT extends ImageG {
-    ArrayList<Line> lines = new ArrayList<>();
+    private ArrayList<Line> lines = new ArrayList<>();
     private Point tempPoint;
 
     public ImageT(BufferedImage bImg, int w, int h, String ext) {
@@ -45,6 +45,8 @@ public class ImageT extends ImageG {
 
     public void setLines(ArrayList<Line> lines) {
         this.lines = lines;
+        this.setChanged();
+        this.notifyObservers();
     }
 
     public Point getTempPoint() {
@@ -53,6 +55,8 @@ public class ImageT extends ImageG {
 
     public void setTempPoint(Point tempPoint) {
         this.tempPoint = tempPoint;
+        this.setChanged();
+        this.notifyObservers();
     }
 
     public void printLines() {
