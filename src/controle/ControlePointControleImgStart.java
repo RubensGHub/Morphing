@@ -3,8 +3,6 @@ package controle;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.plaf.synth.SynthStyle;
-
 import java.util.ArrayList;
 import java.util.List;
 import javafx.event.EventHandler;
@@ -31,21 +29,22 @@ public class ControlePointControleImgStart implements Observer, EventHandler<Mou
         List<Point> points = new ArrayList<>();
 
         // On met tous les points d'imgSrc dans une arrayList de Point pour pouvoir les dessiner tous en même temps
-        if (app.getImgSrc() != null && app.getImgSrc().getLines() != null) {
+        if (app.getImgSrc() != null) {
 
             System.out.println("bla");
-
-            for (Line line : app.getImgSrc().getLines()){
-                points.add(line.getStart());
-                points.add(line.getEnd());
+            if (app.getImgSrc().getLines() != null) {
+                for (Line line : app.getImgSrc().getLines()){
+                    points.add(line.getStart());
+                    points.add(line.getEnd());
+                }
             }
             
             if (app.getImgSrc().getTempPoint() != null) {
                 points.add(app.getImgSrc().getTempPoint());
             }
+
+            draw(leftGC, points);
         }
-        
-        draw(leftGC, points);
     }
     
     @Override
@@ -91,9 +90,9 @@ public class ControlePointControleImgStart implements Observer, EventHandler<Mou
         gc.setStroke(Color.BLUE); 
 
         for (int i = 0; i < points.size() - 1; i++) {
-            if (i % 2 == 1) {
+            if (i % 2 == 0) {
                 gc.strokeLine(
-                    points.get(i - 1).getPoint().getX(), points.get(i - 1).getPoint().getY(),
+                    points.get(i + 1).getPoint().getX(), points.get(i + 1).getPoint().getY(),
                     points.get(i).getPoint().getX(), points.get(i).getPoint().getY()
                 );
             }
