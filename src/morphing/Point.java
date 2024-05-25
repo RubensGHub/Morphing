@@ -19,8 +19,8 @@ public class Point {
         this.point = new Couple<>(x, y);
     }
 
-    public Point div(int d) {
-        return new Point(this.point.getX() / d, this.point.getY() / d);
+    public Point div(double d) {
+        return new Point((int) (this.point.getX() / d), (int) (this.point.getY() / d));
     }
 
     public Point add(Point p) {
