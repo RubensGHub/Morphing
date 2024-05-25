@@ -17,11 +17,7 @@ public class ControleBoutonBeier implements Observer, EventHandler<ActionEvent> 
 
     @Override
     public void handle(ActionEvent event) {
-        /*try {
-            CourbesBezier();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+        app.calculate();
     }
 
     @Override

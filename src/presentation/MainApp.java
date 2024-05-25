@@ -172,6 +172,9 @@ public class MainApp extends Application {
         ControleSlider cs = new ControleSlider(app, slider, valSlider);
         slider.valueProperty().addListener(cs);
         app.addObserver(cs);
+
+        ControleBoutonBeier cbb = new ControleBoutonBeier(app);
+        buttonGen.setOnAction(cbb);
         
 
         // RIGHT
