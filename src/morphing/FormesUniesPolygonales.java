@@ -1,6 +1,70 @@
 package morphing;
+import java.util.ArrayList;
+import java.util.List;
 
-public class FormesUniesPolygonales {
+
+import java.util.Observable;
+@SuppressWarnings("deprecation")
+
+public class FormesUniesPolygonales extends Observable{
+
+    private ImageT imgSrc;
+    private ImageT imgDest;
+    private ImageT[] frames;
+    private int nbFrames = 0;
+
+    public ImageT getImgSrc() {
+        return this.imgSrc;
+    }
+
+    public void setImgSrc(ImageT imgSrc) {
+        this.imgSrc = imgSrc;
+        // PAC
+        this.setChanged();
+        this.notifyObservers();
+    }
+
+    public ImageT getImgDest() {
+        return this.imgDest;
+    }
+
+    public void setImgDest(ImageT imgDest) {
+        this.imgDest = imgDest;
+        // PAC
+        this.setChanged();
+        this.notifyObservers();
+    }
+
+    public ImageT[] getFrames() {
+        return this.frames;
+    }
+
+    public void setFrames(ImageT[] frames) {
+        this.frames = frames;
+    }
+
+    public int getNbFrames() {
+        return this.nbFrames;
+    }
+
+    public void setNbFrames(int nbFrames) {
+        this.nbFrames = nbFrames;
+        // PAC
+        this.setChanged();
+        this.notifyObservers();
+    }
+
+ 
+
+
+    /**
+     * Constructeur par défaut
+     */
+    public FormesUniesPolygonales() {
+        
+    }
+
+    
 
     /**
      * Méthode qui vérifie si un point est dans un polygone
