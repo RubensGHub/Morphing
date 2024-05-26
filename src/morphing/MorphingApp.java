@@ -11,8 +11,8 @@ public class MorphingApp extends Observable {
     private ImageT imgSrc;
     private ImageT imgDest;
     private ImageT[] frames;
-    private int nbFrames;
-    private int nbLines;
+    private int nbFrames = 0;
+    private int nbLines = 0;
 
     public ImageT getImgSrc() {
         return this.imgSrc;
@@ -20,7 +20,6 @@ public class MorphingApp extends Observable {
 
     public void setImgSrc(ImageT imgSrc) {
         this.imgSrc = imgSrc;
-        this.imgSrc.setImageType("imgSrc");
         // PAC
         this.setChanged();
         this.notifyObservers();
@@ -32,7 +31,6 @@ public class MorphingApp extends Observable {
 
     public void setImgDest(ImageT imgDest) {
         this.imgDest = imgDest;
-        this.imgDest.setImageType("imgDest");
         // PAC
         this.setChanged();
         this.notifyObservers();
@@ -70,11 +68,7 @@ public class MorphingApp extends Observable {
      * Constructeur par défaut
      */
     public MorphingApp() {
-        this.imgSrc = null;
-        this.imgDest = null;
-        this.frames = null;
-        this.nbFrames = 0;
-        this.nbLines = 0;
+        
     }
 
     /**
@@ -85,6 +79,7 @@ public class MorphingApp extends Observable {
     public ImageT newFrame(int t){
         ImageT frame = new ImageT(imgSrc.getWidth(), imgSrc.getHeight(), imgSrc.getFormat());
         double f = (double) t / this.getNbFrames();
+
         for (int i = 0 ; i < this.getNbLines() ; i++)
         {
             Line v1 = imgSrc.getLine(i);
@@ -92,7 +87,7 @@ public class MorphingApp extends Observable {
 
             // Calcul des nouveaux points pour définir les nouvelles lignes de contrainte
             Point p = v1.getStart().nextPoint(v2.getStart(), f);
-            Point q = v1.getStart().nextPoint(v2.getStart(), f);
+            Point q = v1.getEnd().nextPoint(v2.getEnd(), f);
 
             frame.addLine(new Line(p, q));
         } 
@@ -159,13 +154,14 @@ public class MorphingApp extends Observable {
             for (int y = 0 ; y < imgDest.getHeight() ; y++)
             {
                 Point dsum = new Point(0, 0);
-                int weightsum = 0;
+                double weightsum = 0;
                 double dist = imgDest.getWidth() * imgDest.getHeight();
 
                 for (int k = 0 ; k < this.getNbLines() ; k++){
                     
                     // Calcul de (u,v) dans imgDest
                     length = imgDest.getLine(k).norme();
+
                     double u, v;
                     Line l = imgDest.getLine(k);
                     u = l.hauteurRelative(new Point(x, y));
@@ -193,7 +189,7 @@ public class MorphingApp extends Observable {
                     }
                     
                     // Calcul du poids
-                    double weight = Math.pow(length / (dist + a),b);
+                    double weight = Math.pow(length / (dist + a), b);
 
                     // Calcul de la somme des distances et des poids
                     dsum.setPoint((int) (dsum.getPoint().getX() + d.getPoint().getX() * weight),(int) (dsum.getPoint().getY() +  d.getPoint().getY() * weight)); 
@@ -201,8 +197,8 @@ public class MorphingApp extends Observable {
                 }
 
                 // Calcul de la nouvelle position du pixel
-                int xnew = (int) (x + dsum.div(weightsum).getPoint().getX() );
-                int ynew = (int) (y + dsum.div(weightsum).getPoint().getY() );
+                int xnew = (int) (x + dsum.div(weightsum).getPoint().getX());
+                int ynew = (int) (y + dsum.div(weightsum).getPoint().getY());
 
                 // Vérification des bornes
                 if (xnew >= 0 && xnew < imgSrc.getWidth() && ynew >= 0 && ynew < imgSrc.getHeight())
@@ -247,8 +243,7 @@ public class MorphingApp extends Observable {
      * @return ImageT
      */
     public void calculate(){
-        setNbFrames(frames.length - 1);
-        setNbLines(frames[0].getLines().size());
+        setNbLines(imgSrc.getLines().size());
 
         for (int f = 0 ; f <= this.getNbFrames() ; f++){
             ImageT wrapSrc = newFrame(f);
