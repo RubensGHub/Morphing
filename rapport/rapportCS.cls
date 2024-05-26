@@ -85,7 +85,7 @@
 \rule{\linewidth}{0.2 mm} \\[1.0 cm]
 
 % Nom de l'étudiant
-{\scshape\LARGE \eleve \par} 
+{\scshape\large \eleve \par} 
 \vspace{1.0cm}
 
 % Parcours de l'étudiant
@@ -105,12 +105,13 @@
 %	\end{flushleft}
 %\end{minipage}
 %~
-%\begin{minipage}{0.4\textwidth}
-%	\begin{flushright} 
-%	\emph{\textbf{Tuteur entreprise :}} \\
-%	 \tuteurentreprise \\
-%	\end{flushright}
-%\end{minipage}\\[4cm]
+\hspace*{8cm}
+\begin{minipage}{0.4\textwidth}
+	\begin{flushright} 
+	\emph{\textbf{Tuteur entreprise :}} \\
+	 \tuteurentreprise \\
+	\end{flushright}
+\end{minipage}\\[4cm]
     
 	\vfill
 	

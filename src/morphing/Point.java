@@ -11,6 +11,22 @@ public class Point {
         return this.point;
     }
 
+    public int getX() {
+        return this.point.getX();
+    }
+
+    public int getY() {
+        return this.point.getY();
+    }
+
+    public void setX(int x) {
+        this.point.setX(x);
+    }
+
+    public void setY(int y) {
+        this.point.setY(y);
+    }
+
     public void setPoint(Couple<Integer, Integer> point) {
         this.point = point;
     }
