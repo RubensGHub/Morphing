@@ -161,7 +161,7 @@ public class AppBeier extends Application {
         ControleImgStart cis = new ControleImgStart(app, ivStart);
         app.addObserver(cis);
 
-        ControlePointControleImgStart cpcis = new ControlePointControleImgStart(app, leftGC);
+        ControlePointBeierImgStart cpcis = new ControlePointBeierImgStart(app, leftGC);
         canvasLeft.setOnMouseClicked(cpcis);
         canvasLeft.setOnMouseDragged(cpcis::onMouseDragged);
         canvasLeft.setOnMouseReleased(cpcis::onMouseReleased);
@@ -184,7 +184,7 @@ public class AppBeier extends Application {
         ControleImgEnd cie = new ControleImgEnd(app, ivEnd);
         app.addObserver(cie);
 
-        ControlePointControleImgEnd cpcie = new ControlePointControleImgEnd(app, rightGC);
+        ControlePointBeierImgEnd cpcie = new ControlePointBeierImgEnd(app, rightGC);
         canvasRight.setOnMouseClicked(cpcie);
         canvasRight.setOnMouseDragged(cpcie::onMouseDragged);
         canvasRight.setOnMouseReleased(cpcie::onMouseReleased);

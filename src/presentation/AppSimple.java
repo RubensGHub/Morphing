@@ -161,7 +161,7 @@ public class AppSimple extends Application {
         ControleImgStart cis = new ControleImgStart(app, ivStart);
         app.addObserver(cis);
 
-        ControlePointControleImgStart cpcis = new ControlePointControleImgStart(app, leftGC);
+        ControlePointSimpleImgStart cpcis = new ControlePointSimpleImgStart(app, leftGC);
         canvasLeft.setOnMouseClicked(cpcis);
         canvasLeft.setOnMouseDragged(cpcis::onMouseDragged);
         canvasLeft.setOnMouseReleased(cpcis::onMouseReleased);
@@ -184,7 +184,7 @@ public class AppSimple extends Application {
         ControleImgEnd cie = new ControleImgEnd(app, ivEnd);
         app.addObserver(cie);
 
-        ControlePointControleImgEnd cpcie = new ControlePointControleImgEnd(app, rightGC);
+        ControlePointSimpleImgEnd cpcie = new ControlePointSimpleImgEnd(app, rightGC);
         canvasRight.setOnMouseClicked(cpcie);
         canvasRight.setOnMouseDragged(cpcie::onMouseDragged);
         canvasRight.setOnMouseReleased(cpcie::onMouseReleased);

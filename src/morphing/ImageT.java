@@ -7,7 +7,6 @@ public class ImageT extends ImageG {
     private ArrayList<Line> lines = new ArrayList<>();
     private ArrayList<Point> points = new ArrayList<>();
     private Point tempPoint;
-    private String imageType;
     private int compteur = 1;
 
     public ImageT(BufferedImage bImg, int w, int h, String ext) {
@@ -57,7 +56,7 @@ public class ImageT extends ImageG {
         } else if (lines.isEmpty()) {
             System.out.println("La liste de lignes est vide.");
         } else {
-            System.out.println("\nTableau de ligne d'" + imageType + " n°" + compteur + " :");
+            System.out.println("\nTableau à " + compteur + " lignes :");
             for (Line line : lines) {
                 System.out.print(line);
                 
@@ -67,10 +66,6 @@ public class ImageT extends ImageG {
         }
     }
     
-    public void setImageType(String imageType) {
-        this.imageType = imageType;
-    }
-
     public void addPoint(Point p){
         points.add(p);
     }
@@ -85,6 +80,10 @@ public class ImageT extends ImageG {
 
     public ArrayList<Point> getPoints() {
         return points;
+    }
+
+    public void setPoints(ArrayList<Point> points) {
+        this.points = points;
     }
 
 

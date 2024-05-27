@@ -48,7 +48,7 @@ public class ImageG {
     public ImageG(int width, int height, String format) {
         this.width = width;
         this.height = height;
-        image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         this.format = format;
     }
 
