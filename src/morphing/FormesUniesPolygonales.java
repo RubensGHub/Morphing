@@ -10,6 +10,7 @@ public class FormesUniesPolygonales extends Observable{
     private ImageT imgDest;
     private ImageT[] frames;
     private int nbFrames = 0;
+    private int color;
 
     public ImageT getImgSrc() {
         return this.imgSrc;
@@ -52,6 +53,14 @@ public class FormesUniesPolygonales extends Observable{
         this.notifyObservers();
     }
 
+    public int getColor() {
+        return this.color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
+    }
+
     /**
      * Constructeur par défaut
      */
@@ -60,12 +69,12 @@ public class FormesUniesPolygonales extends Observable{
     }
 
      /**
-     * Constructeur avec paramètres
+     * Calcule les frames intermédiaires
      * @param imgSrc
      * @param imgDest
      * @param k ordre de l'interpolation
      * @return ImageT
-     * @autor Ryan Bouchou$
+     * @autor Ryan Bouchou
      * @date 2024-05-27
      * @version 1.0
      */
@@ -84,9 +93,28 @@ public class FormesUniesPolygonales extends Observable{
         return img;
     }
 
+    /**
+     * Méthode qui génère les frames intermédiaires
+     * @param frame
+     * @return void
+     * @autor Ryan Bouchou
+     * @date 2024-05-27
+     * @version 1.0
+     */
+    void remplissage(ImageT frame){
 
-
-    
+        List<Point> points = frame.getPoints();
+        
+        for(int x=0; x<frame.getMaxX(); x++){
+            for(int y=0; y<frame.getMaxY(); y++){
+                Point p = new Point(x, y);
+                if(Collision(points, p)){
+                    frame.getImage().setRGB(x, y, this.color);
+                }
+            }
+        }
+    }
+   
 
     /**
      * Méthode qui vérifie si un point est dans un polygone
@@ -94,28 +122,45 @@ public class FormesUniesPolygonales extends Observable{
      * @param P
      * @return true si le point est dans le polygone, false sinon
      */
-    boolean Collision(Point tab[],Point P){
-    int nbp = tab.length;
+    boolean Collision(List<Point> tab,Point P){
+    int nbp = tab.size();
     int i;
     for(i=0;i<nbp;i++){
-        Point A = tab[i];
-        Point B;
-        if (i==nbp-1){ 
-            B = tab[0];     // si c'est le dernier point, on relie au premier
-        }
-        else{ 
-            B = tab[i+1];   // sinon on relie au suivant.
-        }
-
+        Point A = tab.get(i);
+        Point B = i==(nbp-1) ? tab.get(0) : tab.get(i+1);
+       
         Couple<Integer,Integer> D = new Couple<>(B.getX() - A.getX(),B.getY() - A.getY());
         Couple<Integer,Integer> T = new Couple<>(P.getX() - A.getX(),P.getY() - A.getY());
 
         double d = D.getX()*T.getY() - D.getY()*T.getX();
 
         if (d<0){
-            return false;  // un point à droite et on arrête tout.
+            return false;  
         }
     }
-    return true;  // si on sort du for, c'est qu'aucun point n'est à gauche, donc c'est bon.
+    return true;
+    }
+
+     /**
+     * Morphing naif d'une forme unie simple
+     * @author Ryan Bouchou
+     * @version 1.0
+     * @date 2024-05-27
+     */
+    void calculate(){
+        int n = imgSrc.getPoints().size();
+        this.frames = new ImageT[this.nbFrames];
+        if(n>2){
+            Line temp = new Line(imgSrc.getPoint(0), imgSrc.getPoint(2));
+            Couple<Double,Double> vTemp = temp.getVector();
+            Point xC = new Point((int)(imgSrc.getPoint(0).getX() + 0.5* vTemp.getX()), (int)(imgSrc.getPoint(0).getY() + 0.5* vTemp.getY()));
+            this.setColor(imgSrc.getImage().getRGB(xC.getX(), xC.getY()));
+        }
+
+        for(int i=0; i<this.nbFrames; i++){
+            this.frames[i] = newFrame(this.imgSrc, this.imgDest, i);
+            remplissage(this.frames[i]);
+            this.frames[i].save("/home/cytech/Desktop/Morphing/bin/test/partie1/frame"+i+".png");
+        }
     }
 }

@@ -199,7 +199,7 @@ public class MorphingApp extends Observable {
         double t = (double) k / this.getNbFrames();
         for (int x = wrapSrc.getMinX() ; x < wrapSrc.getWidth() ; x++)
         {
-            for (int y = wrapSrc.getMinX() ; y < wrapSrc.getHeight() ; y++)
+            for (int y = wrapSrc.getMinY() ; y < wrapSrc.getHeight() ; y++)
             {
                 Color pixSrc = new Color(wrapSrc.getImage().getRGB(x, y), true);
                 Color pixDest = new Color(wrapDest.getImage().getRGB(x, y), true);
