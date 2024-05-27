@@ -205,8 +205,8 @@ public class MorphingApp extends Observable {
                 }
 
                 // Calcul de la nouvelle position du pixel
-                int xnew = (int) (x + dsum.div(weightsum).getPoint().getX());
-                int ynew = (int) (y + dsum.div(weightsum).getPoint().getY());
+                int xnew = (int) (x + dsum.getX()/weightsum);
+                int ynew = (int) (y + dsum.getY()/weightsum);
 
                 // Vérification des bornes
                 if (xnew >= 0 && xnew < imgSrc.getWidth() && ynew >= 0 && ynew < imgSrc.getHeight())
