@@ -115,7 +115,7 @@ public class AppBeier extends Application {
         // VBOX TOP
         VBox vBoxTop = new VBox(10);
         vBoxTop.setId("header");
-        Text title = new Text("Morphing");
+        Text title = new Text("Morphing d'images");
         title.setId("h1");
         vBoxTop.getChildren().add(title);
         Text subTitle = new Text("By CY Tech");
