@@ -167,11 +167,13 @@ public class MorphingApp extends Observable {
                     u = l.hauteurRelative(new Point(x, y));
                     v = l.dist(new Point(x, y));
 
+                    // xh = u*l.getvector -> (XhX) -> XPh+XhX
+
                     // Déduction de (x',y') dans imgSrc d'après (u,v)
                     Line lp = imgSrc.getLine(k);
                     Point pp = lp.getStart();
                     Point qp = lp.getEnd();
-                    Point xpH = new Point((int)(pp.getPoint().getX() + u * l.getVector().getX()), (int)(pp.getPoint().getY() + u * l.getVector().getY()));
+                    Point xpH = new Point((int)(pp.getPoint().getX() + u * lp.getVector().getX()), (int)(pp.getPoint().getY() + u * lp.getVector().getY()));
                     Point xp = new Point((int)(xpH.getPoint().getX() + v * lp.vectorNormalUnitaire().getX()), (int)(xpH.getPoint().getY() - v * lp.vectorNormalUnitaire().getY()));
                     
                     // Calcul du déplacement X'-X
