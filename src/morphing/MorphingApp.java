@@ -179,7 +179,7 @@ public class MorphingApp extends Observable {
                     Point pp = lp.getStart();
                     Point qp = lp.getEnd();
                     Point xpH = new Point((int)(pp.getPoint().getX() + u * lp.getVector().getX()), (int)(pp.getPoint().getY() + u * lp.getVector().getY()));
-                    Point xp = new Point((int)(xpH.getPoint().getX() + vectDist.getX()), (int)(xpH.getPoint().getY() - vectDist.getY()));
+                    Point xp = new Point((int)(xpH.getPoint().getX() + vectDist.getX()), (int)(xpH.getPoint().getY() + vectDist.getY()));
                     
                     // Calcul du déplacement X'-X
                     Point d = new Point(x - xp.getPoint().getX(), y - xp.getPoint().getY());
