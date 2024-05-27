@@ -78,7 +78,7 @@ public class FormesUniesPolygonales extends Observable{
      * @date 2024-05-27
      * @version 1.0
      */
-    ImageT newFrame(ImageT imgSrc, ImageT imgDest, int k){
+    public ImageT newFrame(ImageT imgSrc, ImageT imgDest, int k){
         ImageT img = new ImageT(imgSrc.getMaxX(), imgSrc.getMaxY(), imgSrc.getFormat());
         double t = (double)k/(double)(this.nbFrames);
 
@@ -101,7 +101,7 @@ public class FormesUniesPolygonales extends Observable{
      * @date 2024-05-27
      * @version 1.0
      */
-    void remplissage(ImageT frame){
+    public void remplissage(ImageT frame){
 
         List<Point> points = frame.getPoints();
         
@@ -122,23 +122,23 @@ public class FormesUniesPolygonales extends Observable{
      * @param P
      * @return true si le point est dans le polygone, false sinon
      */
-    boolean Collision(List<Point> tab,Point P){
-    int nbp = tab.size();
-    int i;
-    for(i=0;i<nbp;i++){
-        Point A = tab.get(i);
-        Point B = i==(nbp-1) ? tab.get(0) : tab.get(i+1);
-       
-        Couple<Integer,Integer> D = new Couple<>(B.getX() - A.getX(),B.getY() - A.getY());
-        Couple<Integer,Integer> T = new Couple<>(P.getX() - A.getX(),P.getY() - A.getY());
+    public boolean Collision(List<Point> tab,Point P){
+        int nbp = tab.size();
+        int i;
+        for(i=0;i<nbp;i++){
+            Point A = tab.get(i);
+            Point B = i==(nbp-1) ? tab.get(0) : tab.get(i+1);
+        
+            Couple<Integer,Integer> D = new Couple<>(B.getX() - A.getX(),B.getY() - A.getY());
+            Couple<Integer,Integer> T = new Couple<>(P.getX() - A.getX(),P.getY() - A.getY());
 
-        double d = D.getX()*T.getY() - D.getY()*T.getX();
+            double d = D.getX()*T.getY() - D.getY()*T.getX();
 
-        if (d<0){
-            return false;  
+            if (d<0){
+                return false;  
+            }
         }
-    }
-    return true;
+        return true;
     }
 
      /**
@@ -147,7 +147,7 @@ public class FormesUniesPolygonales extends Observable{
      * @version 1.0
      * @date 2024-05-27
      */
-    void calculate(){
+    public void calculate(){
         int n = imgSrc.getPoints().size();
         this.frames = new ImageT[this.nbFrames];
         if(n>2){
