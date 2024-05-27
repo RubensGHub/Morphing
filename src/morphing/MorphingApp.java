@@ -192,7 +192,7 @@ public class MorphingApp extends Observable {
      * @return ImageT
      * @autor : Ryan Bouchou
      * @date : 2024-05-27
-     * @version : 1.0
+     * @version : 2.0
      */
     public ImageT interpolateColor(int k, ImageT wrapSrc, ImageT wrapDest){
         ImageT img = new ImageT(wrapSrc.getWidth(), wrapSrc.getHeight(), wrapSrc.getFormat());
