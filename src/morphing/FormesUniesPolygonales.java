@@ -61,7 +61,15 @@ public class FormesUniesPolygonales extends Observable{
         
     }
 
-    ImageT newFrame()
+    ImageT newFrame(ImageT imgSrc, ImageT imgDest, int nbFrames){
+        ImageT img = new ImageT(imgSrc.getMaxX(), imgSrc.getMaxY(), imgSrc.getFormat());
+        int i;
+        for(i=0;i<nbFrames;i++){
+            double t = (double)i/(double)(nbFrames-1);
+            img.setFrame(i, imgSrc.morphing(imgDest, t));
+        }
+        return img;
+    }
 
 
 

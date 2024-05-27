@@ -67,14 +67,6 @@ public class ControleBoutonStart implements Observer, EventHandler<ActionEvent> 
                 int w = bImg.getWidth();
                 int h = bImg.getHeight();
 
-                // Ajustement de la taille de l'image
-                if (w > h) {
-                    h = h * wImgMax / w;
-                    w = wImgMax;
-                } else {
-                    w = w * hImgMax / h;
-                    h = hImgMax;
-                }
                 
                 // Ajout de l'image à notre App
                 ImageT imgT = new ImageT(bImg, w, h, getExtension(selectedFile));
