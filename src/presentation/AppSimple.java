@@ -20,7 +20,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 @Deprecated
-public class MainApp extends Application {
+public class AppSimple extends Application {
 
     private int wImgMax = 550;
     private int hImgMax = 550;
