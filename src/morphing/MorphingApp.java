@@ -1,4 +1,5 @@
 package morphing;
+import java.awt.Color;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -12,6 +13,9 @@ import java.util.Observable;
 
 
 @SuppressWarnings("deprecation")
+/**
+ * Classe MorphingApp
+ */
 public class MorphingApp extends Observable {
 
     private ImageT imgSrc;
@@ -81,6 +85,9 @@ public class MorphingApp extends Observable {
      * Créer une image intermédiaire à partir de l'image de départ et de l'image d'arrivée
      * @param t : ordre de l'image intermédiaire
      * @return ImageT
+     * @autor : Ryan Bouchou
+     * @date : 2024-05-27
+     * @version : 1.0
      */
     public ImageT newFrame(int t){
         ImageT frame = new ImageT(imgSrc.getWidth(), imgSrc.getHeight(), imgSrc.getFormat());
@@ -101,66 +108,24 @@ public class MorphingApp extends Observable {
         return frame;
     }
 
-    public ImageT newFrameBezier(int t)
-    {
-        ImageT frame = new ImageT(imgSrc.getWidth(), imgSrc.getHeight(), imgSrc.getFormat());
-        double f = (double) t / this.getNbFrames();
-        List<CourbesBezier> bezierCurves = courbesBezierInit();
-
-        for (int i = 0; i < bezierCurves.size(); i++) {
-            CourbesBezier bezier = bezierCurves.get(i);
-
-            // Calculer les nouveaux points via les courbes de Bézier
-            Point p = bezier.calculerPoint(f); // Point de départ
-            Point q = bezier.calculerPoint(f); // Point d'arrivée
-
-            frame.addLine(new Line(p, q));
-        } 
-
-        return frame;
-    }
-
-    private List<CourbesBezier> courbesBezierInit() 
-    {
-        List<CourbesBezier> courbes = new ArrayList<>();
-        for (int i = 0; i < this.getNbLines(); i++) {
-            Line lineSrc = imgSrc.getLine(i);
-            Line lineDest = imgDest.getLine(i);
-    
-            // Créer une nouvelle courbe de Bézier pour cette paire de lignes
-            CourbesBezier bezier = new CourbesBezier();
-    
-            // Ajouter les points de contrôle pour la courbe de Bézier
-            bezier.ajouterPointControle(lineSrc.getStart().getPoint().getX(), lineSrc.getStart().getPoint().getY());
-            bezier.ajouterPointControle(lineSrc.getEnd().getPoint().getX(), lineSrc.getEnd().getPoint().getY());
-            bezier.ajouterPointControle(lineDest.getStart().getPoint().getX(), lineDest.getStart().getPoint().getY());
-            bezier.ajouterPointControle(lineDest.getEnd().getPoint().getX(), lineDest.getEnd().getPoint().getY());
-    
-            // Ajoutez la courbe de Bézier à la liste
-            courbes.add(bezier);
-        }
-        return courbes;
-    }
-    
-
-
+   
     
     /**
      * Calcul de la transformation de l'image de départ vers l'image d'arrivée
      * @param imgSrc : image de départ
      * @param imgDest : image d'arrivée
-     * @return ImageT
+     * @return void 
+     * @autor : Ryan Bouchou
+     * @date : 2024-05-27
+     * @version : 3.0
      */
     public void wrap(ImageT imgSrc, ImageT imgDest){
         double a = 0.5f;
         double b = 1f;
         double p = 0.75f;
         double length;
-        for (int x = imgDest.getMinX() ; x < imgDest.getMaxX(); x++)
-        {
-            for (int y = imgDest.getMinY() ; y < imgDest.getMaxY() ; y++)
-            {
-                //System.out.println("Début - pixel at: (" + x + ", " + y + ")");
+        for (int x = imgDest.getMinX() ; x < imgDest.getMaxX(); x++){
+            for (int y = imgDest.getMinY() ; y < imgDest.getMaxY() ; y++){
                 Point dsum = new Point(0, 0);
                 double weightsum = 0;
                 double dist = imgDest.getWidth() * imgDest.getHeight();
@@ -211,20 +176,6 @@ public class MorphingApp extends Observable {
                 // Vérification des bornes
                 if (xnew >= imgSrc.getMinX() && xnew < imgSrc.getMaxX() && ynew >= imgSrc.getMinY() && ynew < imgSrc.getMaxY() && x >= imgDest.getMinX() && x < imgDest.getMaxX() && y >= imgDest.getMinY() && y < imgDest.getMaxY())
                 {
-                    //System.out.println("After pixel at: (" + x + ", " + y + ")");
-                    //System.out.println("NEW pixel at: (" + xnew + ", " + ynew + ")");
-
-                    
-                    /*Afficher les tailles et les pixels et lees min et max
-                    System.out.println("x: " + x + " y: " + y);
-                    System.out.println("xnew: " + xnew + " ynew: " + ynew);
-                    System.out.println("imgSrcWH: " + imgSrc.getWidth() + " " + imgSrc.getHeight());
-                    System.out.println("imgDestWH: " + imgDest.getWidth() + " " + imgDest.getHeight());
-                    System.out.println("imgSrc min: " + imgSrc.getMinX() + " " + imgSrc.getMinY());
-                    System.out.println("imgSrc max: " + imgSrc.getMaxX() + " " + imgSrc.getMaxY());
-                    System.out.println("imgDest min: " + imgDest.getMinX() + " " + imgDest.getMinY());
-                    System.out.println("imgDest max: " + imgDest.getMaxX() + " " + imgDest.getMaxY());
-                    */
                     int pix = imgSrc.getImage().getRGB(xnew, ynew);
                     imgDest.getImage().setRGB(x, y, pix);
 
@@ -234,11 +185,14 @@ public class MorphingApp extends Observable {
     }
 
     /**
-     * Interpolation de couleur
+     * Interpolation des couleurs entre deux images
      * @param k : ordre de l'image intermédiaire (entre 0 et 1)
      * @param wrapSrc : image de départ
      * @param wrapDest : image d'arrivée
      * @return ImageT
+     * @autor : Ryan Bouchou
+     * @date : 2024-05-27
+     * @version : 2.0
      */
     public ImageT interpolateColor(int k, ImageT wrapSrc, ImageT wrapDest){
         ImageT img = new ImageT(wrapSrc.getWidth(), wrapSrc.getHeight(), wrapSrc.getFormat());
@@ -247,14 +201,21 @@ public class MorphingApp extends Observable {
         {
             for (int y = wrapSrc.getMinX() ; y < wrapSrc.getHeight() ; y++)
             {
-                int pixSrc = wrapSrc.getImage().getRGB(x, y);
-                int pixDest = wrapDest.getImage().getRGB(x, y);
-                int pix = (int) (pixSrc * (1 - t) + pixDest * t);
-                img.getImage().setRGB(x, y, pix);
+                Color pixSrc = new Color(wrapSrc.getImage().getRGB(x, y), true);
+                Color pixDest = new Color(wrapDest.getImage().getRGB(x, y), true);
+
+                // Interpoler les composantes colorimétriques
+                double red = pixSrc.getRed() * (1 - t) + pixDest.getRed() * t;
+                double green = pixSrc.getGreen() * (1 - t) + pixDest.getGreen() * t;
+                double blue = pixSrc.getBlue() * (1 - t) + pixDest.getBlue() * t;
+                double alpha = pixSrc.getAlpha() * (1 - t) + pixDest.getAlpha() * t;
+                Color interpolatedColor = new Color((int)red,(int)green,(int) blue, (int) alpha);
+
+                // Affectation de la couleur à l'image intermédiaire
+                img.getImage().setRGB(x, y, interpolatedColor.getRGB());
             }
         }
         return img;
-
     }
 
 
@@ -263,17 +224,12 @@ public class MorphingApp extends Observable {
      * Calcul de la transformation de l'image de départ vers l'image d'arrivée
      * @param imgSrc : image de départ
      * @param imgDest : image d'arrivée
-     * @return ImageT
+     * @return void
+     * @autor : Ryan Bouchou
+     * @date : 2024-05-27
+     * @version : 2.0
      */
     public void calculate(){
-        // Afficher la taille min et max des images
-        System.out.println("imgSrcWH: " + imgSrc.getWidth() + " " + imgSrc.getHeight());
-        System.out.println("imgDestWH: " + imgDest.getWidth() + " " + imgDest.getHeight());
-        System.out.println("imgSrc min: " + imgSrc.getMinX() + " " + imgSrc.getMinY());
-        System.out.println("imgSrc max: " + imgSrc.getMaxX() + " " + imgSrc.getMaxY());
-        System.out.println("imgDest min: " + imgDest.getMinX() + " " + imgDest.getMinY());
-        System.out.println("imgDest max: " + imgDest.getMaxX() + " " + imgDest.getMaxY());
-
         setNbLines(imgSrc.getLines().size());
         frames = new ImageT[getNbFrames() + 1];
         
@@ -292,6 +248,8 @@ public class MorphingApp extends Observable {
     /**
      * Sauvegarde des images intermédiaires
      * @param path : chemin de sauvegarde
+     * @return void
+     * @autor : Romain Corral
      */
     public void saveFrames(String path){
         for (int i = 0 ; i < this.getNbFrames() ; i++){
@@ -302,7 +260,13 @@ public class MorphingApp extends Observable {
         }
     }
 
-   
+    /**
+     * Génération d'un gif à partir des images intermédiaires
+     * @param pathSrc
+     * @param pathTarget
+     * @return void
+     * @autor : Ryan Bouchou
+     */
     public void generateGif(String pathSrc, String pathTarget){
         try {
             saveFrames(pathSrc);
@@ -328,7 +292,12 @@ public class MorphingApp extends Observable {
         }
     }
 
-
+    /**
+     * Génération d'un gif à partir des images intermédiaires
+     * @param pathTarget
+     * @return void
+     * @autor : Ryan Bouchou
+     */
     public void generateGif(String pathTarget){
         try {
             OutputStream outputStream = new FileOutputStream(pathTarget+".gif");

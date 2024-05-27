@@ -1,8 +1,6 @@
 package morphing;
 import java.util.ArrayList;
 import java.util.List;
-
-
 import java.util.Observable;
 @SuppressWarnings("deprecation")
 
@@ -61,13 +59,28 @@ public class FormesUniesPolygonales extends Observable{
         
     }
 
-    ImageT newFrame(ImageT imgSrc, ImageT imgDest, int nbFrames){
+     /**
+     * Constructeur avec paramètres
+     * @param imgSrc
+     * @param imgDest
+     * @param k ordre de l'interpolation
+     * @return ImageT
+     * @autor Ryan Bouchou$
+     * @date 2024-05-27
+     * @version 1.0
+     */
+    ImageT newFrame(ImageT imgSrc, ImageT imgDest, int k){
         ImageT img = new ImageT(imgSrc.getMaxX(), imgSrc.getMaxY(), imgSrc.getFormat());
-        int i;
-        for(i=0;i<nbFrames;i++){
-            double t = (double)i/(double)(nbFrames-1);
-            img.setFrame(i, imgSrc.morphing(imgDest, t));
+        double t = (double)k/(double)(this.nbFrames);
+
+        for(int i=0; i<imgSrc.getPoints().size(); i++){
+            Point p = imgSrc.getPoints().get(i);
+            Point q = imgDest.getPoints().get(i);
+            int x = (int)(p.getX()*t + q.getX()*(1-t));
+            int y = (int)(p.getY()*t + q.getY()*(1-t));
+            img.addPoint(new Point(x, y));
         }
+        
         return img;
     }
 
