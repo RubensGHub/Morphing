@@ -83,6 +83,10 @@ public class ImageT extends ImageG {
         points.remove(i);
     }
 
+    public ArrayList<Point> getPoints() {
+        return points;
+    }
+
 
 
 
