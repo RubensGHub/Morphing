@@ -1,3 +1,4 @@
 \babel@toc {french}{}\relax 
-\contentsline {section}{Annexes}{5}{section*.2}%
-\contentsline {section}{R\'ef\'erences}{6}{section*.2}%
+\contentsline {section}{\numberline {1}Cas des polygones simples}{3}{section.1}%
+\contentsline {section}{Annexes}{6}{section*.2}%
+\contentsline {section}{R\'ef\'erences}{7}{section*.2}%

@@ -1782,6 +1782,10 @@ INPUT ./src/sec1.tex
 INPUT src/sec1.tex
 INPUT ./src/sec1.tex
 INPUT src/sec1.tex
+INPUT ./logos/CSxParisSaclay.jpg
+INPUT ./logos/CSxParisSaclay.jpg
+INPUT logos/CSxParisSaclay.jpg
+INPUT ./logos/CSxParisSaclay.jpg
 INPUT ./main.loa
 INPUT main.loa
 INPUT main.loa
@@ -1822,3 +1826,4 @@ INPUT /usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmr12.pfb
+INPUT /usr/share/texmf/fonts/type1/public/lm/lmri12.pfb

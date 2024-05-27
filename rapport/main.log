@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  24 MAY 2024 22:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  27 MAY 2024 23:46
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1161,7 +1161,7 @@ LaTeX Info: Redefining \nameref on input line 18.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count400
-<logos/logoGraphene.png, id=50, 1085.05376pt x 361.35pt>
+<logos/logoGraphene.png, id=54, 1085.05376pt x 361.35pt>
 File: logos/logoGraphene.png Graphic file (type png)
 <use logos/logoGraphene.png>
 Package pdftex.def Info: logos/logoGraphene.png  used on input line 52.
@@ -1200,12 +1200,12 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 52.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-<logos/logoCS.png, id=52, 285.065pt x 150.5625pt>
+<logos/logoCS.png, id=56, 285.065pt x 150.5625pt>
 File: logos/logoCS.png Graphic file (type png)
 <use logos/logoCS.png>
 Package pdftex.def Info: logos/logoCS.png  used on input line 52.
 (pdftex.def)             Requested size: 128.0387pt x 67.62613pt.
-<logos/bordureCS.png, id=53, 377.41pt x 184.69pt>
+<logos/bordureCS.png, id=57, 377.41pt x 184.69pt>
 File: logos/bordureCS.png Graphic file (type png)
 <use logos/bordureCS.png>
 Package pdftex.def Info: logos/bordureCS.png  used on input line 52.
@@ -1213,7 +1213,7 @@ Package pdftex.def Info: logos/bordureCS.png  used on input line 52.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logos/bordureCS.png> <./logos/logoGraphene.png> <./logos/logoCS.png>]
-<logos/CSxParisSaclay.jpg, id=67, 401.5pt x 223.83624pt>
+<logos/CSxParisSaclay.jpg, id=71, 401.5pt x 223.83624pt>
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 62.
@@ -1229,7 +1229,15 @@ l.62 \newpage
  [2]
 \openout2 = `src/sec1.aux'.
 
- (./src/sec1.tex) (./main.loa)
+ (./src/sec1.tex)
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 85.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [3
+
+
+] (./main.loa)
 \tf@loa=\write9
 \openout9 = `main.loa'.
 
@@ -1237,21 +1245,19 @@ File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 96.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [3
-
-
+ [4
 
 
 ] (./main.lof)
 \tf@lof=\write10
 \openout10 = `main.lof'.
 
- [4] (./appendix.tex)
+ [5] (./appendix.tex)
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 111.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [5] (./main.bbl
+ [6] (./main.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
@@ -1260,23 +1266,23 @@ File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 114.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [6] (./main.aux (./src/sec1.aux))
+ [7] (./main.aux (./src/sec1.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9A4682DFD4CD1295DA1A6BA043CD615C;179.
+(rerunfilecheck)             Checksum: ED8ED50B69B6A76A6B93EEE697FB0E29;356.
  ) 
 Here is how much of TeX's memory you used:
- 43774 strings out of 478287
- 931122 string characters out of 5849289
- 1417143 words of memory out of 5000000
- 61176 multiletter control sequences out of 15000+600000
+ 43781 strings out of 478287
+ 931215 string characters out of 5849289
+ 1417191 words of memory out of 5000000
+ 61181 multiletter control sequences out of 15000+600000
  524205 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,16n,120p,507b,874s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb>
-Output written on main.pdf (7 pages, 313016 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb>
+Output written on main.pdf (8 pages, 330882 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
- 193 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 138 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 201 words of extra memory for PDF output out of 10000 (max. 10000000)
 
