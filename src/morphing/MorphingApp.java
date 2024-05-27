@@ -147,7 +147,8 @@ public class MorphingApp extends Observable {
      */
     public void wrap(ImageT imgSrc, ImageT imgDest){
         double a = 0.5f;
-        double b = 0.5f;
+        double b = 1f;
+        double p = 0.75f;
         double length;
         for (int x = 0 ; x < imgDest.getWidth() ; x++)
         {
@@ -182,7 +183,7 @@ public class MorphingApp extends Observable {
                     Point xp = new Point((int)(xpH.getPoint().getX() + vectDist.getX()), (int)(xpH.getPoint().getY() + vectDist.getY()));
                     
                     // Calcul du déplacement X'-X
-                    Point d = new Point(x - xp.getPoint().getX(), y - xp.getPoint().getY());
+                    Point d = new Point(xp.getPoint().getX() - x, xp.getPoint().getY() - y);
 
                     // Calcul de la plus courte distance entre (x,y) et la ligne de contrainte
                     if (0<=u && u<=1){
@@ -196,7 +197,7 @@ public class MorphingApp extends Observable {
                     }
                     
                     // Calcul du poids
-                    double weight = Math.pow(length / (dist + a), b);
+                    double weight = Math.pow(Math.pow(length,p) / (dist + a), b);
 
                     // Calcul de la somme des distances et des poids
                     dsum.setPoint((int) (dsum.getPoint().getX() + d.getPoint().getX() * weight),(int) (dsum.getPoint().getY() +  d.getPoint().getY() * weight)); 
