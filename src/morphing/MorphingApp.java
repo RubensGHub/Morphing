@@ -246,14 +246,17 @@ public class MorphingApp extends Observable {
      */
     public void calculate(){
         setNbLines(imgSrc.getLines().size());
+        frames = new ImageT[getNbFrames() + 1];
 
         for (int f = 0 ; f <= this.getNbFrames() ; f++){
+            
             ImageT wrapSrc = newFrame(f);
             ImageT wrapDest = newFrame(f);
             wrap(imgSrc, wrapSrc);
-            wrap(imgDest, wrapDest);
+            wrap(imgDest, wrapDest);            
             frames[f] = interpolateColor(f, wrapSrc, wrapDest);
         }
+        saveFrames("test");
     }
 
     /**
@@ -262,7 +265,10 @@ public class MorphingApp extends Observable {
      */
     public void saveFrames(String path){
         for (int i = 0 ; i < this.getNbFrames() ; i++){
+            System.out.println("fct save");
+            System.out.println(frames[i]);
             frames[i].save(path + "/frame" + i + ".png");
+            System.out.println(frames[i]);
         }
     }
 
