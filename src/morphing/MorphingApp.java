@@ -167,20 +167,13 @@ public class MorphingApp extends Observable {
                     Line l = imgDest.getLine(k);
                     u = l.hauteurRelative(new Point(x, y));
                     v = l.dist(new Point(x, y));
-                    // Calcul de (XhX)
-                    Couple<Double,Double> tempV = l.getVector().copy();
-                    tempV.setX(tempV.getX()*u);
-                    tempV.setY(tempV.getY()*u);
-                    Point temp = new Point((int)(l.getStart().getX()+tempV.getX()),(int) (l.getStart().getY()+tempV.getY()));
-                    Couple<Integer, Integer> vectDist = new Couple<Integer,Integer>(x-temp.getX(), y-temp.getX());
-
-
+                    
                     // Déduction de (x',y') dans imgSrc d'après (u,v)
                     Line lp = imgSrc.getLine(k);
                     Point pp = lp.getStart();
                     Point qp = lp.getEnd();
                     Point xpH = new Point((int)(pp.getPoint().getX() + u * lp.getVector().getX()), (int)(pp.getPoint().getY() + u * lp.getVector().getY()));
-                    Point xp = new Point((int)(xpH.getPoint().getX() + vectDist.getX()), (int)(xpH.getPoint().getY() + vectDist.getY()));
+                    Point xp = new Point((int)(xpH.getPoint().getX() + v * lp.vectorNormalUnitaire().getX() ), (int)(xpH.getPoint().getY() + v * lp.vectorNormalUnitaire().getY()));
                     
                     // Calcul du déplacement X'-X
                     Point d = new Point(xp.getPoint().getX() - x, xp.getPoint().getY() - y);

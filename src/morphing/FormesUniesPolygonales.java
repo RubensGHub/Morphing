@@ -54,15 +54,14 @@ public class FormesUniesPolygonales extends Observable{
         this.notifyObservers();
     }
 
- 
-
-
     /**
      * Constructeur par défaut
      */
     public FormesUniesPolygonales() {
         
     }
+
+    
 
     
 

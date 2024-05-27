@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class ImageT extends ImageG {
     private ArrayList<Line> lines = new ArrayList<>();
+    private ArrayList<Point> points = new ArrayList<>();
     private Point tempPoint;
     private String imageType;
     private int compteur = 1;
@@ -69,6 +70,19 @@ public class ImageT extends ImageG {
     public void setImageType(String imageType) {
         this.imageType = imageType;
     }
+
+    public void addPoint(Point p){
+        points.add(p);
+    }
+
+    public Point getPoint(int i){
+        return points.get(i);
+    }
+
+    public void removePoint(int i){
+        points.remove(i);
+    }
+
 
 
 
