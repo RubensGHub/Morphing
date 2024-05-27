@@ -61,7 +61,9 @@ public class FormesUniesPolygonales extends Observable{
         
     }
 
-    
+    ImageT newFrame()
+
+
 
     
 

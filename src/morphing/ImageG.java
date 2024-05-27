@@ -51,6 +51,24 @@ public class ImageG {
         image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         this.format = format;
     }
+
+    // Get Min and Max values for x and y for image
+    public int getMinX() {
+        return this.image.getMinX();
+    }
+
+    public int getMaxX() {
+        return this.image.getWidth();
+    }
+
+    public int getMinY() {
+        return this.image.getMinY();
+    }
+
+    public int getMaxY() {
+        return this.image.getHeight();
+    }
+
     
     public void setPixel(int x, int y, Color color) {
         image.setRGB(x, y, color.getRGB());

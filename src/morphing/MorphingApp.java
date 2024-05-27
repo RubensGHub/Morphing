@@ -1,8 +1,15 @@
 package morphing;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
+import com.squareup.gifencoder.GifEncoder;
+import com.squareup.gifencoder.ImageOptions;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List; 
 import java.util.Observable;
+
+
 
 
 @SuppressWarnings("deprecation")
@@ -150,10 +157,11 @@ public class MorphingApp extends Observable {
         double b = 1f;
         double p = 0.75f;
         double length;
-        for (int x = 0 ; x < imgDest.getWidth() ; x++)
+        for (int x = imgDest.getMinX() ; x < imgDest.getMaxX(); x++)
         {
-            for (int y = 0 ; y < imgDest.getHeight() ; y++)
+            for (int y = imgDest.getMinY() ; y < imgDest.getMaxY() ; y++)
             {
+                //System.out.println("Début - pixel at: (" + x + ", " + y + ")");
                 Point dsum = new Point(0, 0);
                 double weightsum = 0;
                 double dist = imgDest.getWidth() * imgDest.getHeight();
@@ -202,10 +210,25 @@ public class MorphingApp extends Observable {
                 int ynew = (int) (y + dsum.getY()/weightsum);
 
                 // Vérification des bornes
-                if (xnew >= 0 && xnew < imgSrc.getWidth() && ynew >= 0 && ynew < imgSrc.getHeight())
+                if (xnew >= imgSrc.getMinX() && xnew < imgSrc.getMaxX() && ynew >= imgSrc.getMinY() && ynew < imgSrc.getMaxY() && x >= imgDest.getMinX() && x < imgDest.getMaxX() && y >= imgDest.getMinY() && y < imgDest.getMaxY())
                 {
+                    //System.out.println("After pixel at: (" + x + ", " + y + ")");
+                    //System.out.println("NEW pixel at: (" + xnew + ", " + ynew + ")");
+
+                    
+                    /*Afficher les tailles et les pixels et lees min et max
+                    System.out.println("x: " + x + " y: " + y);
+                    System.out.println("xnew: " + xnew + " ynew: " + ynew);
+                    System.out.println("imgSrcWH: " + imgSrc.getWidth() + " " + imgSrc.getHeight());
+                    System.out.println("imgDestWH: " + imgDest.getWidth() + " " + imgDest.getHeight());
+                    System.out.println("imgSrc min: " + imgSrc.getMinX() + " " + imgSrc.getMinY());
+                    System.out.println("imgSrc max: " + imgSrc.getMaxX() + " " + imgSrc.getMaxY());
+                    System.out.println("imgDest min: " + imgDest.getMinX() + " " + imgDest.getMinY());
+                    System.out.println("imgDest max: " + imgDest.getMaxX() + " " + imgDest.getMaxY());
+                    */
                     int pix = imgSrc.getImage().getRGB(xnew, ynew);
                     imgDest.getImage().setRGB(x, y, pix);
+
                 }
             }
         }
@@ -221,9 +244,9 @@ public class MorphingApp extends Observable {
     public ImageT interpolateColor(int k, ImageT wrapSrc, ImageT wrapDest){
         ImageT img = new ImageT(wrapSrc.getWidth(), wrapSrc.getHeight(), wrapSrc.getFormat());
         double t = (double) k / this.getNbFrames();
-        for (int x = 0 ; x < wrapSrc.getWidth() ; x++)
+        for (int x = wrapSrc.getMinX() ; x < wrapSrc.getWidth() ; x++)
         {
-            for (int y = 0 ; y < wrapSrc.getHeight() ; y++)
+            for (int y = wrapSrc.getMinX() ; y < wrapSrc.getHeight() ; y++)
             {
                 int pixSrc = wrapSrc.getImage().getRGB(x, y);
                 int pixDest = wrapDest.getImage().getRGB(x, y);
@@ -244,20 +267,29 @@ public class MorphingApp extends Observable {
      * @return ImageT
      */
     public void calculate(){
+        // Afficher la taille min et max des images
+        System.out.println("imgSrcWH: " + imgSrc.getWidth() + " " + imgSrc.getHeight());
+        System.out.println("imgDestWH: " + imgDest.getWidth() + " " + imgDest.getHeight());
+        System.out.println("imgSrc min: " + imgSrc.getMinX() + " " + imgSrc.getMinY());
+        System.out.println("imgSrc max: " + imgSrc.getMaxX() + " " + imgSrc.getMaxY());
+        System.out.println("imgDest min: " + imgDest.getMinX() + " " + imgDest.getMinY());
+        System.out.println("imgDest max: " + imgDest.getMaxX() + " " + imgDest.getMaxY());
+
         setNbLines(imgSrc.getLines().size());
         frames = new ImageT[getNbFrames() + 1];
-
+        
         for (int f = 0 ; f <= this.getNbFrames() ; f++){
             
             ImageT wrapSrc = newFrame(f);
             ImageT wrapDest = newFrame(f);
             wrap(imgSrc, wrapSrc);
-            wrap(imgDest, wrapDest);            
+            wrap(imgDest, wrapDest);
             frames[f] = interpolateColor(f, wrapSrc, wrapDest);
         }
-        saveFrames("test");
+        //saveFrames("/home/cytech/Desktop/testFx/demo/src/main/java/morphing/test");
+        generateGif("/home/cytech/Desktop/testFx/demo/bin/test");
     }
-
+    
     /**
      * Sauvegarde des images intermédiaires
      * @param path : chemin de sauvegarde
@@ -271,10 +303,7 @@ public class MorphingApp extends Observable {
         }
     }
 
-    /**
-     * Génération du gif
-     */
-    /*
+   
     public void generateGif(String pathSrc, String pathTarget){
         try {
             saveFrames(pathSrc);
@@ -325,7 +354,7 @@ public class MorphingApp extends Observable {
         }
     }
 
-    */
+    
 
     
 }
