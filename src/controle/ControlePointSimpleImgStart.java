@@ -18,7 +18,7 @@ import morphing.*;
 @Deprecated
 public class ControlePointSimpleImgStart implements Observer, EventHandler<MouseEvent> {
 
-    private MorphingApp app;
+    private FormesUniesPolygonales app;
     private GraphicsContext leftGC;
     private Point selectedPoint = null;
 
@@ -28,7 +28,7 @@ public class ControlePointSimpleImgStart implements Observer, EventHandler<Mouse
      * @param app l'instance de MorphingApp
      * @param leftGC le GraphicsContext pour le canevas de l'image de source
      */
-    public ControlePointSimpleImgStart(MorphingApp app, GraphicsContext leftGC) {
+    public ControlePointSimpleImgStart(FormesUniesPolygonales app, GraphicsContext leftGC) {
         this.app = app;
         this.leftGC = leftGC;
     }
