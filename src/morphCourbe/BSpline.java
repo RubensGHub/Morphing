@@ -8,9 +8,9 @@ public class BSpline {
     ArrayList<Point> controlPolygon;
     ArrayList<Double> nodeVector;
 
-    public BSpline(int deg, ArrayList<Point> controlPoints, ArrayList<Double> nodeVector) {
+    public BSpline(int deg, ArrayList<Point> controlPolygon, ArrayList<Double> nodeVector) {
         this.deg = deg;
-        this.controlPoints = controlPoints;
+        this.controlPolygon = controlPolygon;
         this.nodeVector = nodeVector;
     }
 
@@ -20,11 +20,11 @@ public class BSpline {
     public void setDeg(int deg) {
         this.deg = deg;
     }
-    public ArrayList<Point> getControlPoints() {
-        return controlPoints;
+    public ArrayList<Point> getcontrolPolygon() {
+        return controlPolygon;
     }
-    public void setControlPoints(ArrayList<Point> controlPoints) {
-        this.controlPoints = controlPoints;
+    public void setcontrolPolygon(ArrayList<Point> controlPolygon) {
+        this.controlPolygon = controlPolygon;
     }
     public ArrayList<Double> getNodeVector() {
         return nodeVector;
