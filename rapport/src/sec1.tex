@@ -2,5 +2,74 @@
 \label{sec:polygones-simples}
 En premier lieu, nous allons nous intéresser au cas des polygones simples.
 Ce faisant, ceci sera l'occasion pour nous de faire notre premier pas dans l'\emph{informatique graphique},
-en traitant des cas simples du problème de la morphose. 
+en traitant des cas élémentaires du problème de la morphose.
+\subsection{Généralités} 
+\label{sec:generalites}
+\paragraph{Conventions}
+Pour toute la suite, et sauf mention contraire, on se place dans le $\R$-evn $\R^2$ muni de la norme euclidienne.
+On notera pour tout vecteur $x\in\R^2$, $X\in \mathcal{M}_{2,1}(\R)$ la matrice colonne associée à $x$ dans la base canonique de $\R^2$.
+
+\begin{definition}\label[definition]{def:1}
+    Soit $n$ un entier naturel non nul. On appelle \emph{polygone simple} de $\R^2$ tout $n$\_uplet $P=(p_1,\ldots,p_n)$ de $\R^2$ tels que:
+    \begin{enumerate}
+        \item Les segments ne se croisent pas, c'est-à-dire que pour chaque paire de segments \( [p_i, p_{i+1}] \) et \( [p_j, p_{j+1}] \) (où \( p_{n+i} \) est \( p_i \)), les segments ne partagent pas de points autres que les sommets.
+        \item Chaque sommet $p_i$ est partagé par exactement deux segments.
+    \end{enumerate}
+    On notera $p_{i^+}$ le segment $[p_i, p_{i+1}]$ et $p_{i^-}$ le segment $[p_i, p_{i-1}]$. Enfin, on notera $\mathbb{P}$ l'ensemble des polygones simples de $\R^2$.
+\end{definition}
+
+\begin{definition}\label[definition]{def:2}
+    Soit $P\in\mathbb{P}$ un polygone simple de $\R^2$.
+    \begin{enumerate}
+        \item On appelle \emph{ordre} de $P$ le nombre $n$ de composantes de $P$.
+        \item On appelle \emph{arête} de $P$ tout segment $p_{i^+}$ ou $p_{i^-}$ pour $i\in\{1,\ldots,n\}$. 
+        \item On appelle \emph{sommet} de $P$ tout vecteur $p_i$ pour $i\in\{1,\ldots,n\}$.
+    \end{enumerate}
+    Subséquemment,pour $n$ un entier naturel non nul, on note $\mathbb{P}_n$ l'ensemble des polygones simples de $\R^2$ d'ordre $n$.
+
+\end{definition}
+
+\begin{definition}\label[definition]{def:3}
+    Soit $P\in\mathbb{P}$ un polygone simple de $\R^2$.
+    On appelle \emph{intérieur} de $P$, noté $\overset{\circ}{P}$ , l'ensemble des points $x\in\R^2$ tels que $x$ est à gauche de chaque arête de $P$.
+\end{definition}
+
+
+
+
+\paragraph{Situation} À ce stade, l'enjeu de cette première partie est de déterminer un algorithme permettant 
+la morphose d'un polygone simple $P$ vers un autre polygone simple $Q$. Pour ce faire, il nous faut nous intéresser
+aux conditions d'une telle transformations, ainsi qu'à sa réalisation.
+
+\subsection[Morphing naif]{Un premier algorithme de morphing}
+\label{sec:morphing-naif}
+\paragraph{Principe} L'idée de cet algorithme est de déformer progressivement le polygone $P$ en un autre polygone $Q$.
+Pour ce faire, une première approche consiste à déformer chaque sommet $p_i$ de $P$ en un sommet $q_i$ de $Q$ par
+une interpolation linéaire. Ainsi, on obtient une suite de polygones $(P_{k})_{0\leq k\leq N}$ 
+où $N$ est le nombre d'images intermédiaires voulues et tels que $P_{0}=P$, $P_{N}=Q$.
+
+\begin{coder}
+    Pour que l'algorithme soit correct, il est nécessaire que les polygones $P$ et $Q$ soient de même ordre.
+\end{coder}
+
+\paragraph*{Notation} Soit $n,N>0$ et $(P_k)_{0\leq k\leq N}$ une suite de polygones de $(\mathbb{P}_{n})^{\NN}$.
+ On notera $p^{(k)}_1,\ldots,p^{(k)}_n$ les sommets de $P_k$.
+
+% Utilisation de algorithm2e
+
+\begin{algorithm}[H]
+    \caption{générationFramesNaif}\label{alg:0}
+    \SetAlgoLined
+    \KwData{$P,Q\in\mathbb{P}_n$ deux polygones, $N>0$ le nombre de frames}
+    \KwResult{Une suite de polygones $(P_k)$}
+    
+    \For{$k\gets 0$ \KwTo $N$}{
+        $t\gets\frac{k}{N}$\\
+        $P_k=(p^{(k)}_1,\ldots,p^{(k)}_n)$\\ 
+        \For{$i\gets 1$ \KwTo $n$}{
+            $p^{(k)}_{i}\gets (1-t)*p_i+t*q_i$
+        }
+    }
+    \Return $(P_k)$
+\end{algorithm}
 

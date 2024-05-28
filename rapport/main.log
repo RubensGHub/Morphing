@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  27 MAY 2024 23:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  29 MAY 2024 00:59
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1050,53 +1050,138 @@ Package: appendix 2020/02/08 v1.2c extra appendix facilities
 \c@@ppsavesec=\count391
 \c@@ppsaveapp=\count392
 )) (./mise_en_forme.tex) (./palette_aef.tex) (./commandes.tex)
+\c@chapter=\count393
+\c@thm=\count394
+ (/usr/share/texlive/texmf-dist/tex/latex/ntheorem/ntheorem.sty
+Style `ntheorem', Version 1.33 <2011/08/15>
+Package: ntheorem 2011/08/15 1.33
+\theorem@style=\toks49
+\theorem@@style=\toks50
+\theorembodyfont=\toks51
+\theoremnumbering=\toks52
+\theorempreskipamount=\skip134
+\theorempostskipamount=\skip135
+\theoremframepreskipamount=\skip136
+\theoremframepostskipamount=\skip137
+\theoreminframepreskipamount=\skip138
+\theoreminframepostskipamount=\skip139
+\theorem@preskip=\toks53
+\theorem@postskip=\toks54
+\theorem@framepreskip=\toks55
+\theorem@framepostskip=\toks56
+\theorem@inframepreskip=\toks57
+\theorem@inframepostskip=\toks58
+\theoremindent=\dimen346
+\theorem@indent=\dimen347
+\theoremrightindent=\dimen348
+\theorem@rightindent=\dimen349
+\theoremheaderfont=\toks59
+\theoremseparator=\toks60
+\theoremprework=\toks61
+\theorempostwork=\toks62
+\theoremsymbol=\toks63
+\qedsymbol=\toks64
+\theoremkeyword=\toks65
+\qedsymbol=\toks66
+\thm@topsep=\skip140
+\thm@topsepadd=\skip141
+Package ntheorem Info: Option `thmmarks' loaded on input line 1175.
+\c@endNonectr=\count395
+\c@currNonectr=\count396
+\mysavskip=\skip142
+Package ntheorem Info: option `amsmath' handling for `thmmarks' loaded on input line 1175.
+\thm@amstmpdepth=\dimen350
+\tagwidth=\dimen351
+) (/usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
+Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2370.
+LaTeX Info: Redefining \cref on input line 2370.
+LaTeX Info: Redefining \Cref on input line 2370.
+LaTeX Info: Redefining \crefrange on input line 2370.
+LaTeX Info: Redefining \Crefrange on input line 2370.
+LaTeX Info: Redefining \cpageref on input line 2370.
+LaTeX Info: Redefining \Cpageref on input line 2370.
+LaTeX Info: Redefining \cpagerefrange on input line 2370.
+LaTeX Info: Redefining \Cpagerefrange on input line 2370.
+LaTeX Info: Redefining \labelcref on input line 2370.
+LaTeX Info: Redefining \labelcpageref on input line 2370.
+Package cleveref Info: `ntheorem' support loaded on input line 3055.
+Package cleveref Info: `listings' support loaded on input line 3131.
+Package cleveref Info: `algorithm2e' support loaded on input line 3147.
+)
+\c@currtheoremectr=\count397
+\c@endtheoremectr=\count398
+\c@theoreme=\count399
+\c@currcorollairectr=\count400
+\c@endcorollairectr=\count401
+\c@currlemmectr=\count402
+\c@endlemmectr=\count403
+
+
+LaTeX Warning: Unknown theoremstyle `definition'. Using `plain' on input line 39.
+
+\c@currdefinitionctr=\count404
+\c@enddefinitionctr=\count405
+\c@definition=\count406
+\c@currexemplectr=\count407
+\c@endexemplectr=\count408
+\c@exemple=\count409
+\c@currexoctr=\count410
+\c@endexoctr=\count411
+\c@exo=\count412
+\c@currproprietectr=\count413
+\c@endproprietectr=\count414
+\c@propriete=\count415
+\c@currdemctr=\count416
+\c@enddemctr=\count417
+\c@dem=\count418
 runsystem(which pygmentize && touch main.aex)...executed.
 
 runsystem(rm main.aex)...executed.
 
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 18.
- (/usr/share/texmf/tex/latex/lm/t1lmr.fd
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 84.
+(/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) (./main.aux (./src/sec1.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Info: Redefining \degres on input line 18.
-LaTeX Info: Redefining \up on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Info: Redefining \degres on input line 84.
+LaTeX Info: Redefining \up on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictionary-french.trsl
 File: translations-basic-dictionary-french.trsl (french translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `french'. on input line 18.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `french'. on input line 84.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count393
-\scratchdimen=\dimen346
+\scratchcounter=\count419
+\scratchdimen=\dimen352
 \scratchbox=\box128
-\nofMPsegments=\count394
-\nofMParguments=\count395
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count396
-\MPscratchDim=\dimen347
-\MPnumerator=\count397
-\makeMPintoPDFobject=\count398
-\everyMPtoPDFconversion=\toks50
+\nofMPsegments=\count420
+\nofMParguments=\count421
+\everyMPshowfont=\toks67
+\MPscratchCnt=\count422
+\MPscratchDim=\dimen353
+\MPnumerator=\count423
+\makeMPintoPDFobject=\count424
+\everyMPtoPDFconversion=\toks68
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -1107,8 +1192,8 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package tocbasic Info: usage of `tocbibind' detected on input line 18.
-Package hyperref Info: Link coloring OFF on input line 18.
+Package tocbasic Info: usage of `tocbibind' detected on input line 84.
+Package hyperref Info: Link coloring OFF on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1116,11 +1201,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count399
+\c@section@level=\count425
 )
-LaTeX Info: Redefining \ref on input line 18.
-LaTeX Info: Redefining \pageref on input line 18.
-LaTeX Info: Redefining \nameref on input line 18.
+LaTeX Info: Redefining \ref on input line 84.
+LaTeX Info: Redefining \pageref on input line 84.
+LaTeX Info: Redefining \nameref on input line 84.
  (./main.out) (./main.out)
 \@outlinefile=\write7
 \openout7 = `main.out'.
@@ -1160,129 +1245,139 @@ LaTeX Info: Redefining \nameref on input line 18.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count400
-<logos/logoGraphene.png, id=54, 1085.05376pt x 361.35pt>
+\c@lstlisting=\count426
+<logos/logoGraphene.png, id=62, 1085.05376pt x 361.35pt>
 File: logos/logoGraphene.png Graphic file (type png)
 <use logos/logoGraphene.png>
-Package pdftex.def Info: logos/logoGraphene.png  used on input line 52.
+Package pdftex.def Info: logos/logoGraphene.png  used on input line 118.
 (pdftex.def)             Requested size: 213.39568pt x 71.0612pt.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 52.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 118.
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 52.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 118.
  (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 52.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 118.
  (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 52.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 118.
  (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 52.
+(Font)              <12> on input line 118.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 52.
+(Font)              <8> on input line 118.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 52.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+(Font)              <6> on input line 118.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 118.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 118.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 52.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 118.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-<logos/logoCS.png, id=56, 285.065pt x 150.5625pt>
+<logos/logoCS.png, id=64, 285.065pt x 150.5625pt>
 File: logos/logoCS.png Graphic file (type png)
 <use logos/logoCS.png>
-Package pdftex.def Info: logos/logoCS.png  used on input line 52.
+Package pdftex.def Info: logos/logoCS.png  used on input line 118.
 (pdftex.def)             Requested size: 128.0387pt x 67.62613pt.
-<logos/bordureCS.png, id=57, 377.41pt x 184.69pt>
+<logos/bordureCS.png, id=65, 377.41pt x 184.69pt>
 File: logos/bordureCS.png Graphic file (type png)
 <use logos/bordureCS.png>
-Package pdftex.def Info: logos/bordureCS.png  used on input line 52.
+Package pdftex.def Info: logos/bordureCS.png  used on input line 118.
 (pdftex.def)             Requested size: 358.50867pt x 175.44038pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logos/bordureCS.png> <./logos/logoGraphene.png> <./logos/logoCS.png>]
-<logos/CSxParisSaclay.jpg, id=71, 401.5pt x 223.83624pt>
+<logos/CSxParisSaclay.jpg, id=79, 401.5pt x 223.83624pt>
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 62.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 128.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.62 \newpage
-              [1 <./logos/CSxParisSaclay.jpg>] (./main.toc)
+l.128 \newpage
+               [1 <./logos/CSxParisSaclay.jpg>] (./main.toc)
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
  [2]
 \openout2 = `src/sec1.aux'.
 
- (./src/sec1.tex)
+ (./src/sec1.tex
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 12.
+)
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 85.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 151.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
  [3
 
 
-] (./main.loa)
+]
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 151.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [4] (./main.loa)
 \tf@loa=\write9
 \openout9 = `main.loa'.
 
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 96.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 162.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [4
+ [5
 
 
 ] (./main.lof)
 \tf@lof=\write10
 \openout10 = `main.lof'.
 
- [5] (./appendix.tex)
+ [6] (./appendix.tex)
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 111.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 177.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [6] (./main.bbl
+ [7] (./main.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 )
+\tf@thm=\write11
+\openout11 = `main.thm'.
+
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 114.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 180.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [7] (./main.aux (./src/sec1.aux))
+ [8] (./main.aux (./src/sec1.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: ED8ED50B69B6A76A6B93EEE697FB0E29;356.
+(rerunfilecheck)             Checksum: DC11A614D23F989A59859F6248D7E5EE;602.
  ) 
 Here is how much of TeX's memory you used:
- 43781 strings out of 478287
- 931215 string characters out of 5849289
- 1417191 words of memory out of 5000000
- 61181 multiletter control sequences out of 15000+600000
- 524205 words of font info for 62 fonts, out of 8000000 for 9000
+ 46105 strings out of 478287
+ 981831 string characters out of 5849289
+ 1490586 words of memory out of 5000000
+ 63483 multiletter control sequences out of 15000+600000
+ 527203 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 125i,16n,120p,507b,874s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb>
-Output written on main.pdf (8 pages, 330882 bytes).
+ 125i,16n,120p,507b,876s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (9 pages, 399933 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
- 201 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 212 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 217 words of extra memory for PDF output out of 10000 (max. 10000000)
 
