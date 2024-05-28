@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class BSpline {
     int deg;
-    ArrayList<Point> controlPoints;
+    ArrayList<Point> controlPolygon;
     ArrayList<Double> nodeVector;
 
     public BSpline(int deg, ArrayList<Point> controlPoints, ArrayList<Double> nodeVector) {
