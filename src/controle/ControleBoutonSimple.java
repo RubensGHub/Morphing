@@ -8,20 +8,16 @@ import morphing.*;
 
 @SuppressWarnings("deprecation")
 public class ControleBoutonSimple implements Observer, EventHandler<ActionEvent> {
-    private MorphingApp app;
+    private FormesUniesPolygonales app;
 
 
-    public ControleBoutonSimple(MorphingApp app){
+    public ControleBoutonSimple(FormesUniesPolygonales app){
         this.app = app;
     }
 
     @Override
     public void handle(ActionEvent event) {
-        /*try {
-            FormeSimple();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+            app.calculate();
     }
 
     @Override
