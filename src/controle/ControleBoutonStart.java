@@ -17,8 +17,6 @@ import morphing.MorphingApp;
 public class ControleBoutonStart implements Observer, EventHandler<ActionEvent> {
     
     private MorphingApp app;
-    private int wImgMax = 550;
-	private int hImgMax = 550;
 
     public ControleBoutonStart(MorphingApp app) {
         this.app = app;
