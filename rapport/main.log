@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  29 MAY 2024 18:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  29 MAY 2024 18:20
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1384,7 +1384,7 @@ Package pdftex.def Info: img/p1/6.png  used on input line 202.
 (pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 218.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 220.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
  [6 <./img/p1/1.png> <./img/p1/2.png> <./img/p1/3.png> <./img/p1/4.png> <./img/p1/5.png> <./img/p1/6.png>])
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
@@ -1439,7 +1439,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  125i,17n,120p,507b,940s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (12 pages, 458970 bytes).
+Output written on main.pdf (12 pages, 458982 bytes).
 PDF statistics:
  285 PDF objects out of 1000 (max. 8388607)
  193 compressed objects within 2 object streams
