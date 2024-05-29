@@ -15,8 +15,8 @@ public class morphingSpline extends Observable {
     private ImageS imgDest;
     private ImageS[] frames;
     private int nbFrames;
-    private int color = 0x000000;
-    private int colorBackground = 0xFFFFFF;
+    protected double[][] matrice;
+
     
 
      public ImageS getImgSrc() {
@@ -60,13 +60,7 @@ public class morphingSpline extends Observable {
         this.notifyObservers();
     }
 
-    public int getColor() {
-        return this.color;
-    }
 
-    public void setColor(int color) {
-        this.color = color;
-    }
 
     /**
      * Constructeur par défaut

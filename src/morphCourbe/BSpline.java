@@ -1,23 +1,33 @@
 package morphCourbe;
 import morphing.*;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class BSpline {
     int deg;
     ArrayList<Point> controlPolygon;
     ArrayList<Double> nodeVector;
+    ArrayList<Couple<Double,Double>> tVectors;
 
     public BSpline(int deg, ArrayList<Point> controlPolygon, ArrayList<Double> nodeVector) {
         this.deg = deg;
         this.controlPolygon = controlPolygon;
         this.nodeVector = nodeVector;
+        this.tVectors = new ArrayList<Couple<Double,Double>>();
+        for (int i = 0; i < controlPolygon.size(); i++) {
+            tVectors.add(new Couple<Double,Double>(0.0,0.0));
+        }
     }
 
     public BSpline() {
         this.deg = -1;
         this.controlPolygon = new ArrayList<Point>();
         this.nodeVector = new ArrayList<Double>();
+        this.tVectors = new ArrayList<Couple<Double,Double>>();
+        for (int i = 0; i < controlPolygon.size(); i++) {
+            tVectors.add(new Couple<Double,Double>(0.0,0.0));
+        }
     }
 
     public int getDeg() {
@@ -88,6 +98,8 @@ public class BSpline {
                 ", nodeVector=" + nodeVector +
                 '}';
     }
+
+    
 
     /**
      * Calcule un point sur la courbe B-Spline à la valeur de paramètre t en utilisant l'algorithme de De Boor.
@@ -169,6 +181,24 @@ public class BSpline {
 
         }
 
+    }
+
+
+    public ArrayList<Couple<Double,Double>> gettVectors() {
+        return tVectors;
+    }
+
+    public void settVectors(ArrayList<Couple<Double,Double>> tVectors) {
+        this.tVectors = tVectors;
+    }
+
+    // Modifier un vecteur t ou récupérer un vecteur t
+    public void settVector(int i, Couple<Double,Double> t) {
+        tVectors.set(i, t);
+    }
+
+    public Couple<Double,Double> gettVector(int i) {
+        return tVectors.get(i);
     }
 
     /*public static void main(String[] args) {
