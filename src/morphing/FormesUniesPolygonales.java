@@ -78,11 +78,11 @@ public class FormesUniesPolygonales extends Observable{
      * @date 2024-05-27
      * @version 1.0
      */
-    public ImageT newFrame(ImageT imgSrc, ImageT imgDest, int k){
+    public ImageT newFrame(ImageT imgSrc, ImageT imgDest, int k) {
         ImageT img = new ImageT(imgSrc.getMaxX(), imgSrc.getMaxY(), imgSrc.getFormat());
         double t = (double)k/(double)(this.nbFrames);
 
-        for(int i=0; i<imgSrc.getPoints().size(); i++){
+        for (int i = 0; i < imgSrc.getPoints().size(); i++) {
             Point p = imgSrc.getPoints().get(i);
             Point q = imgDest.getPoints().get(i);
             int x = (int)(p.getX()*t + q.getX()*(1-t));
@@ -96,7 +96,6 @@ public class FormesUniesPolygonales extends Observable{
     /**
      * Méthode qui génère les frames intermédiaires
      * @param frame
-     * @return void
      * @autor Ryan Bouchou
      * @date 2024-05-27
      * @version 1.0
@@ -147,20 +146,23 @@ public class FormesUniesPolygonales extends Observable{
      * @version 1.0
      * @date 2024-05-27
      */
-    public void calculate(){
-        int n = imgSrc.getPoints().size();
-        this.frames = new ImageT[this.nbFrames];
-        if(n>2){
+    public void calculate() {
+        int n = imgSrc.getPoints().size(); // Nombre points de contrôle
+        this.frames = new ImageT[this.nbFrames]; // Images intermédiaires
+
+        if (n > 2) {
             Line temp = new Line(imgSrc.getPoint(0), imgSrc.getPoint(2));
-            Couple<Double,Double> vTemp = temp.getVector();
-            Point xC = new Point((int)(imgSrc.getPoint(0).getX() + 0.5* vTemp.getX()), (int)(imgSrc.getPoint(0).getY() + 0.5* vTemp.getY()));
+            Point xC = new Point(
+                (int) (imgSrc.getPoint(0).getX() + 0.5*temp.getVector().getX()),
+                (int) (imgSrc.getPoint(0).getY() + 0.5*temp.getVector().getY())
+            );
             this.setColor(imgSrc.getImage().getRGB(xC.getX(), xC.getY()));
         }
 
-        for(int i=0; i<this.nbFrames; i++){
+        for (int i = 0; i < this.nbFrames; i++) {
             this.frames[i] = newFrame(this.imgSrc, this.imgDest, i);
             remplissage(this.frames[i]);
-            this.frames[i].save("/home/cytech/Desktop/Morphing/bin/test/partie1/frame"+i+".png");
+            this.frames[i].save("./" + i + ".png");
         }
     }
 }

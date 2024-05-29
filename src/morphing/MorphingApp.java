@@ -239,8 +239,8 @@ public class MorphingApp extends Observable {
             wrap(imgDest, wrapDest);
             frames[f] = interpolateColor(f, wrapSrc, wrapDest);
         }
-        //saveFrames("/home/cytech/Desktop/testFx/demo/src/main/java/morphing/test");
-        generateGif("/home/cytech/Desktop/testFx/demo/bin/test");
+        saveFrames("./");
+        //generateGif("./");
     }
     
     /**
@@ -319,8 +319,4 @@ public class MorphingApp extends Observable {
             e.printStackTrace();
         }
     }
-
-    
-
-    
 }

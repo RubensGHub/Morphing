@@ -19,8 +19,6 @@ import morphing.MorphingApp;
 public class ControleBoutonEnd implements Observer, EventHandler<ActionEvent> {
 
 	private MorphingApp app;
-    private int wImgMax = 550;
-	private int hImgMax = 550;
 	
 	public ControleBoutonEnd(MorphingApp app) {
         this.app = app;
