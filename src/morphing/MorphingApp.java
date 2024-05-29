@@ -76,7 +76,7 @@ public class MorphingApp extends Observable {
      * Constructeur par défaut
      */
     public MorphingApp() {
-        
+
     }
 
     /**
@@ -101,18 +101,18 @@ public class MorphingApp extends Observable {
             Point q = v1.getEnd().nextPoint(v2.getEnd(), f);
 
             frame.addLine(new Line(p, q));
-        } 
+        }
 
         return frame;
     }
 
-   
-    
+
+
     /**
      * Calcul de la transformation de l'image de départ vers l'image d'arrivée
      * @param imgSrc : image de départ
      * @param imgDest : image d'arrivée
-     * @return void 
+     * @return void
      * @autor : Ryan Bouchou
      * @date : 2024-05-27
      * @version : 3.0
@@ -129,7 +129,7 @@ public class MorphingApp extends Observable {
                 double dist = imgDest.getWidth() * imgDest.getHeight();
 
                 for (int k = 0 ; k < this.getNbLines() ; k++){
-                    
+
                     // Calcul de (u,v) dans imgDest
                     length = imgDest.getLine(k).norme();
 
@@ -137,14 +137,14 @@ public class MorphingApp extends Observable {
                     Line l = imgDest.getLine(k);
                     u = l.hauteurRelative(new Point(x, y));
                     v = l.dist(new Point(x, y));
-                    
+
                     // Déduction de (x',y') dans imgSrc d'après (u,v)
                     Line lp = imgSrc.getLine(k);
                     Point pp = lp.getStart();
                     Point qp = lp.getEnd();
                     Point xpH = new Point((int)(pp.getPoint().getX() + u * lp.getVector().getX()), (int)(pp.getPoint().getY() + u * lp.getVector().getY()));
                     Point xp = new Point((int)(xpH.getPoint().getX() + v * lp.vectorNormalUnitaire().getX() ), (int)(xpH.getPoint().getY() + v * lp.vectorNormalUnitaire().getY()));
-                    
+
                     // Calcul du déplacement X'-X
                     Point d = new Point(xp.getPoint().getX() - x, xp.getPoint().getY() - y);
 
@@ -158,12 +158,12 @@ public class MorphingApp extends Observable {
                             dist = Math.sqrt(Math.pow(x - qp.getPoint().getX(), 2) + Math.pow(y - qp.getPoint().getY(), 2));
                         }
                     }
-                    
+
                     // Calcul du poids
                     double weight = Math.pow(Math.pow(length,p) / (dist + a), b);
 
                     // Calcul de la somme des distances et des poids
-                    dsum.setPoint((int) (dsum.getPoint().getX() + d.getPoint().getX() * weight),(int) (dsum.getPoint().getY() +  d.getPoint().getY() * weight)); 
+                    dsum.setPoint((int) (dsum.getPoint().getX() + d.getPoint().getX() * weight),(int) (dsum.getPoint().getY() +  d.getPoint().getY() * weight));
                     weightsum += weight;
                 }
 
@@ -230,19 +230,19 @@ public class MorphingApp extends Observable {
     public void calculate(){
         setNbLines(imgSrc.getLines().size());
         frames = new ImageT[getNbFrames() + 1];
-        
+
         for (int f = 0 ; f <= this.getNbFrames() ; f++){
-            
+
             ImageT wrapSrc = newFrame(f);
             ImageT wrapDest = newFrame(f);
             wrap(imgSrc, wrapSrc);
             wrap(imgDest, wrapDest);
             frames[f] = interpolateColor(f, wrapSrc, wrapDest);
         }
-        saveFrames("./");
+        saveFrames("/home/cytech/projet/Morphing/test");
         //generateGif("./");
     }
-    
+
     /**
      * Sauvegarde des images intermédiaires
      * @param path : chemin de sauvegarde
@@ -319,4 +319,8 @@ public class MorphingApp extends Observable {
             e.printStackTrace();
         }
     }
+
+
+
+
 }
