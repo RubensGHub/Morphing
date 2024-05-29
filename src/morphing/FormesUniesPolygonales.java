@@ -2,6 +2,7 @@ package morphing;
 
 import java.util.List;
 import java.util.Observable;
+
 @SuppressWarnings("deprecation")
 
 public class FormesUniesPolygonales extends Observable{
@@ -10,7 +11,7 @@ public class FormesUniesPolygonales extends Observable{
     private ImageT imgDest;
     private ImageT[] frames;
     private int nbFrames = 0;
-    private int color;
+    private int color = -16777216; // Black
 
     public ImageT getImgSrc() {
         return this.imgSrc;
@@ -101,7 +102,6 @@ public class FormesUniesPolygonales extends Observable{
      * @version 1.0
      */
     public void remplissage(ImageT frame){
-
         List<Point> points = frame.getPoints();
         
         for(int x=0; x<frame.getMaxX(); x++){
@@ -121,24 +121,26 @@ public class FormesUniesPolygonales extends Observable{
      * @param P
      * @return true si le point est dans le polygone, false sinon
      */
-    public boolean Collision(List<Point> tab,Point P){
+    public boolean Collision(List<Point> tab, Point P) {
         int nbp = tab.size();
         int i;
-        for(i=0;i<nbp;i++){
+        for (i = 0; i < nbp; i++){
+            // Deux points consécutifs
             Point A = tab.get(i);
-            Point B = i==(nbp-1) ? tab.get(0) : tab.get(i+1);
-        
-            Couple<Integer,Integer> D = new Couple<>(B.getX() - A.getX(),B.getY() - A.getY());
-            Couple<Integer,Integer> T = new Couple<>(P.getX() - A.getX(),P.getY() - A.getY());
+            Point B = tab.get((i+1) % nbp);
+            
+            Couple<Integer,Integer> D = new Couple<>(B.getX() - A.getX(), B.getY() - A.getY()); // Vecteur AB
+            Couple<Integer,Integer> T = new Couple<>(P.getX() - A.getX(), P.getY() - A.getY()); // Vecteur AP
 
             double d = D.getX()*T.getY() - D.getY()*T.getX();
 
-            if (d<0){
+            if (d < 0) {
                 return false;  
             }
         }
         return true;
     }
+
 
      /**
      * Morphing naif d'une forme unie simple
@@ -147,17 +149,7 @@ public class FormesUniesPolygonales extends Observable{
      * @date 2024-05-27
      */
     public void calculate() {
-        int n = imgSrc.getPoints().size(); // Nombre points de contrôle
-        this.frames = new ImageT[this.nbFrames]; // Images intermédiaires
-
-        if (n > 2) {
-            Line temp = new Line(imgSrc.getPoint(0), imgSrc.getPoint(2));
-            Point xC = new Point(
-                (int) (imgSrc.getPoint(0).getX() + 0.5*temp.getVector().getX()),
-                (int) (imgSrc.getPoint(0).getY() + 0.5*temp.getVector().getY())
-            );
-            this.setColor(imgSrc.getImage().getRGB(xC.getX(), xC.getY()));
-        }
+        this.frames = new ImageT[this.nbFrames];
 
         for (int i = 0; i < this.nbFrames; i++) {
             this.frames[i] = newFrame(this.imgSrc, this.imgDest, i);
