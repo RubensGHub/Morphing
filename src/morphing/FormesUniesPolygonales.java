@@ -121,20 +121,21 @@ public class FormesUniesPolygonales extends Observable{
      * @param P
      * @return true si le point est dans le polygone, false sinon
      */
-    public boolean Collision(List<Point> tab, Point P) {
+    public boolean Collision(List<Point> tab, Point p) {
         int nbp = tab.size();
         int i;
         for (i = 0; i < nbp; i++){
             // Deux points consécutifs
-            Point A = tab.get(i);
-            Point B = tab.get((i+1) % nbp);
+            Point a = tab.get(i);
+            Point b = tab.get((i+1) % nbp);
             
-            Couple<Integer,Integer> D = new Couple<>(B.getX() - A.getX(), B.getY() - A.getY()); // Vecteur AB
-            Couple<Integer,Integer> T = new Couple<>(P.getX() - A.getX(), P.getY() - A.getY()); // Vecteur AP
+            Couple<Integer,Integer> ab = new Couple<>(b.getX() - a.getX(), b.getY() - a.getY()); // Vecteur AB
+            Couple<Integer,Integer> ap = new Couple<>(p.getX() - a.getX(), p.getY() - a.getY()); // Vecteur AP
 
-            double d = D.getX()*T.getY() - D.getY()*T.getX();
+            // Déterminant des vecteurs AB et AP
+            double det = ab.getX()*ap.getY() - ab.getY()*ap.getX();
 
-            if (d < 0) {
+            if (det < 0) {
                 return false;  
             }
         }
