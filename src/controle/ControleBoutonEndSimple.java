@@ -66,8 +66,6 @@ public class ControleBoutonEndSimple implements Observer, EventHandler<ActionEve
                 BufferedImage bImg = ImageIO.read(selectedFile);
                 int w = bImg.getWidth();
                 int h = bImg.getHeight();
-
-            
                 
                 // Ajout de l'image à notre App
                 ImageT imgT = new ImageT(bImg, w, h, getExtension(selectedFile));

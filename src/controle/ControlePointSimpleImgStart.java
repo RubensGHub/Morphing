@@ -15,7 +15,7 @@ import morphing.*;
  * Cette classe observe les changements dans MorphingApp et met à jour les points de contrôle en conséquence.
  * Elle gère également les événements de la souris pour sélectionner et créer des points de contrôle sur l'image.
  **/
-@Deprecated
+@SuppressWarnings("deprecation")
 public class ControlePointSimpleImgStart implements Observer, EventHandler<MouseEvent> {
 
     private FormesUniesPolygonales app;
