@@ -14,6 +14,12 @@ public class BSpline {
         this.nodeVector = nodeVector;
     }
 
+    public BSpline() {
+        this.deg = -1;
+        this.controlPolygon = new ArrayList<Point>();
+        this.nodeVector = new ArrayList<Double>();
+    }
+
     public int getDeg() {
         return deg;
     }
@@ -69,5 +75,13 @@ public class BSpline {
         return controlPolygon.get(0).equals(controlPolygon.get(controlPolygon.size() - 1));
     }
 
+    @Override
+    public String toString() {
+        return "BSpline{" +
+                "deg=" + deg +
+                ", controlPolygon=" + controlPolygon +
+                ", nodeVector=" + nodeVector +
+                '}';
+    }
     
 }

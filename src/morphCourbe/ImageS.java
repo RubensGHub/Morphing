@@ -7,6 +7,7 @@ public class ImageS extends ImageG {
     
     public ImageS(int w, int h, String format) {
         super(w, h, format);
+        spline = new BSpline();
     }
 
     public ImageS(String img) {
