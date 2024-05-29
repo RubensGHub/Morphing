@@ -25,7 +25,7 @@ On notera pour tout vecteur $x\in\R^2$, $X\in \mathcal{M}_{2,1}(\R)$ la matrice 
         \item On appelle \emph{arête} de $P$ tout segment $p_{i^+}$ ou $p_{i^-}$ pour $i\in\{1,\ldots,n\}$. 
         \item On appelle \emph{sommet} de $P$ tout vecteur $p_i$ pour $i\in\{1,\ldots,n\}$.
     \end{enumerate}
-    Subséquemment,pour $n$ un entier naturel non nul, on note $\mathbb{P}_n$ l'ensemble des polygones simples de $\R^2$ d'ordre $n$.
+    Subséquemment, pour $n$ un entier naturel non nul, on note $\mathbb{P}_n$ l'ensemble des polygones simples de $\R^2$ d'ordre $n$.
 
 \end{definition}
 
@@ -43,6 +43,7 @@ aux conditions d'une telle transformations, ainsi qu'à sa réalisation.
 
 \subsection[Morphing naif]{Un premier algorithme de morphing}
 \label{sec:morphing-naif}
+\subsubsection{Principe et notation}
 \paragraph{Principe} L'idée de cet algorithme est de déformer progressivement le polygone $P$ en un autre polygone $Q$.
 Pour ce faire, une première approche consiste à déformer chaque sommet $p_i$ de $P$ en un sommet $q_i$ de $Q$ par
 une interpolation linéaire. Ainsi, on obtient une suite de polygones $(P_{k})_{0\leq k\leq N}$ 
@@ -55,14 +56,13 @@ où $N$ est le nombre d'images intermédiaires voulues et tels que $P_{0}=P$, $P
 \paragraph*{Notation} Soit $n,N>0$ et $(P_k)_{0\leq k\leq N}$ une suite de polygones de $(\mathbb{P}_{n})^{\NN}$.
  On notera $p^{(k)}_1,\ldots,p^{(k)}_n$ les sommets de $P_k$.
 
-% Utilisation de algorithm2e
-
+\paragraph{} Ce faisant, pour le calcul des images intermédiaires on donne l'algorithme suivant:\\[0.5cm]
 \begin{algorithm}[H]
     \caption{générationFramesNaif}\label{alg:0}
     \SetAlgoLined
     \KwData{$P,Q\in\mathbb{P}_n$ deux polygones, $N>0$ le nombre de frames}
     \KwResult{Une suite de polygones $(P_k)$}
-    
+    $P^*\gets(P_1,\dots,P_N)$\\
     \For{$k\gets 0$ \KwTo $N$}{
         $t\gets\frac{k}{N}$\\
         $P_k=(p^{(k)}_1,\ldots,p^{(k)}_n)$\\ 
@@ -70,6 +70,152 @@ où $N$ est le nombre d'images intermédiaires voulues et tels que $P_{0}=P$, $P
             $p^{(k)}_{i}\gets (1-t)*p_i+t*q_i$
         }
     }
-    \Return $(P_k)$
+    \Return $P^*$
 \end{algorithm}
+
+\subsubsection{Cas des images matricielles}
+\paragraph{Principe} Dans le cadre de l'exercice, la donnée du problème est consituée de deux images matricielles $P$ et $Q$
+de taille $L\times l$ représentant respectivement des polygones simples de couleur même couleur. Naturellement,
+plusieurs méthodes algorithmiques peuvent être utilisées pour encoder l'information géométrique portée par une image.
+Entre autre, des algorithme de \emph{détection de contours} ou de \emph{segmentation} peuvent être utilisés. Toutefois, et par soucis
+de simplicité, nous allons considérer que l'information géométrique est directement encodée par l'utilisateur lors de la saisie des
+\emph{points de contrôle}. De plus, pour chaque pixel de coordonnées $(i,j)$, on a :
+
+$$
+\begin{cases}
+    \1_{P}(i,j) \= 1 & \text{si } (i,j)\in\overset{\circ}{P}\\
+    \1_{P}(i,j) \= 0 & \text{sinon}
+\end{cases}
+$$
+\begin{coder}
+    Pour que l'algorithme soit correct, il est nécessaire que les images $P$ et $Q$ soient de même taille. De plus,
+    si les points de contrôle saisis par l'utilisateur ne correspondent pas aux sommets des polygones,
+    les résultats de l'algorithme peuvent être inattendus.
+\end{coder}
+
+\begin{propriete}\label[proprieté]{prop:1}
+    Soit $u,v\in\R^2$ deux vecteurs.
+    Alors $u$ est à gauche de $v$ si et seulement si $det(u,v)>0$.
+\end{propriete}
+\begin{dem}
+    Admis.
+\end{dem}
+
+
+\begin{propriete}\label[proprieté]{prop:1}
+    Soit $p=[u,v], (u,v)\in\R^2$ un segment et $x\in\mathbb{R}^2$ un vecteur.
+    Alors $x$ est à gauche de $p$ si et seulement si $det(p,[u,x])>0$.
+\end{propriete}
+\begin{dem}\label{dem:1}
+    Soit $u,v\in\R^2$ deux vecteurs. On note $\theta$ l'angle orienté entre $u$ et $v$.
+    Alors, 
+    \begin{align}
+        u \text{ est à gauche de } v &\iff \text{det}(u,v)>0\\
+        &\iff \left\lVert u \right\rVert \cdot \left\lVert v \right\rVert \sin(\theta)>0\\
+        &\iff \sin(\theta)>0\\
+        &\iff \theta\in\left]0,\pi\right[\\
+        &\iff u \text{ est dans le demi-espace à gauche de } v
+    \end{align}
+\end{dem}
+\paragraph{} Ce faisant, pour le calcul des images intermédiaires, 
+et la determination de l'intérieur du polygone, de on donne la suivante:\\[0.5cm]
+%% Détermination de l'intérieur d'un polygone
+
+\begin{algorithm}[H]
+    \SetAlgoLined
+    \KwData{Une liste de points $tab$ représentant le polygone, un point $P$}
+    \KwResult{Un booléen indiquant si le point $P$ est à l'intérieur du polygone}
+    
+    $nbp \gets \text{taille de } tab$ 
+    \For{$i \gets 0$ \KwTo $nbp-1$}{
+        $A \gets tab[i]$ 
+        $B \gets tab[(i+1) \mod nbp]$ 
+        
+        $D \gets (B.x - A.x, B.y - A.y)$ 
+        $T \gets (P.x - A.x, P.y - A.y)$ 
+        
+        $d \gets det(D,T)$ 
+        
+        \If{$d < 0$}{
+            \Return Faux 
+        }
+    }
+    \Return Vrai;
+    
+    \caption{isInside}
+\end{algorithm}
+
+\paragraph{} On en déduit l'algorithme naif pour le mophing de formes unies simples:\\[0.5cm]
+
+\begin{algorithm}[H]
+    \SetAlgoLined
+    \KwData{Deux images matricielles $P$ et $Q$ de taille $L\times l$, un entier $N$}
+    \KwResult{Une suite d'images matricielles $P^*$}
+    
+    $nbp \gets \text{taille de } tab$\\
+    $P^* \gets \text{générationFramesNaif}(P,Q)$\\
+    \For{$i \gets 0$ \KwTo $nbp-1$}{
+        \For{$x \gets 0$ \KwTo $L-1$}{
+            \For{$y \gets 0$ \KwTo $l-1$}{
+                if($isInside(P^*_i, (x,y))$){
+                    $P^*_i[x][y] \gets color$
+                }
+            }
+        }
+
+    }
+    \Return $P^*$
+    
+    \caption{morphingNaif}
+\end{algorithm}
+\newpage
+\paragraph{Résultats} Considérons une exécution de l'algorithmes sur deux instances du problème.\\
+\begin{figure}[h!]
+        \centering
+        \begin{subfigure}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/p1/1.png}
+            \caption{Image initiale}
+        \end{subfigure}
+        \begin{subfigure}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/p1/2.png}
+            \caption{Image intermédiaire 1}
+        \end{subfigure}
+        \begin{subfigure}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/p1/3.png}
+            \caption{Image intermédiaire 2}
+        \end{subfigure}
+        \begin{subfigure}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/p1/4.png}
+            \caption{Image intermédiaire 3}
+        \end{subfigure}
+        \begin{subfigure}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/p1/5.png}
+            \caption{Image intermédiaire 4}
+        \end{subfigure}
+        \begin{subfigure}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/p1/6.png}
+            \caption{Image finale}
+        \end{subfigure}
+        \caption{Résultats de l'algorithme de morphing}
+\end{figure}
+
+\begin{codeb}
+    Dans le cas de polygones simples, relativements semblables dans leur géométrie, 
+    l'algorithme de morphing naif donne des résultats satisfaisants.
+\end{codeb}
+
+\paragraph{En pratique} Toutefois, il apparaît qu'une telle approche ne préserve pas les propriétés géométriques
+du polygone. En effet, les images intermédiaires peuvent contenir des segments qui se croisent, 
+ou des sommets qui ne sont pas partagés par exactement deux segments. Dans un tel cas, la transformations
+ne paraît pas naturelle.
+
+Ainsi, il est nécessaire de trouver une approche plus rigoureuse pour le morphing de polygones simples.
+
+\subsection[Méthode L-A]{Morphing par interpolation longeur-angle}
 

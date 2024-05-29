@@ -10,7 +10,7 @@ public class FormesUniesPolygonales extends Observable{
     private ImageT imgDest;
     private ImageT[] frames;
     private int nbFrames = 0;
-    private int color;
+    private int color = 0;
 
     public ImageT getImgSrc() {
         return this.imgSrc;
@@ -148,14 +148,7 @@ public class FormesUniesPolygonales extends Observable{
      * @date 2024-05-27
      */
     public void calculate(){
-        int n = imgSrc.getPoints().size();
         this.frames = new ImageT[this.nbFrames];
-        if(n>2){
-            Line temp = new Line(imgSrc.getPoint(0), imgSrc.getPoint(2));
-            Couple<Double,Double> vTemp = temp.getVector();
-            Point xC = new Point((int)(imgSrc.getPoint(0).getX() + 0.5* vTemp.getX()), (int)(imgSrc.getPoint(0).getY() + 0.5* vTemp.getY()));
-            this.setColor(imgSrc.getImage().getRGB(xC.getX(), xC.getY()));
-        }
 
         for(int i=0; i<this.nbFrames; i++){
             this.frames[i] = newFrame(this.imgSrc, this.imgDest, i);
