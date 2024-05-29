@@ -83,5 +83,22 @@ public class BSpline {
                 ", nodeVector=" + nodeVector +
                 '}';
     }
+
+    public void computeUniformVector() {
+        nodeVector.clear();
+        int n = controlPolygon.size();
+        int m = n + deg;
+        for (int i = 0; i < m + 1; i++) {
+            if (i < deg + 1) {
+                nodeVector.add(0.0);
+            } else if (i >= m - deg) {
+                nodeVector.add(1.0);
+            } else {
+                nodeVector.add((double) (i - deg) / (double) (n - deg + 1));
+            }
+
+        }
+
+    }
     
 }

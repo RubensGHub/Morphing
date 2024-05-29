@@ -8,6 +8,9 @@ public class ImageT extends ImageG {
     private ArrayList<Point> points = new ArrayList<>();
     private Point tempPoint;
     private int compteur = 1;
+    private final static Couple<Integer, Integer> DEFAULT_ORIENTATION = new Couple<Integer,Integer>(-1,0);
+    ArrayList<Double> lengthVector;
+    ArrayList<Double> angleVector;
 
     public ImageT(BufferedImage bImg, int w, int h, String ext) {
         super(bImg, w, h, ext);
