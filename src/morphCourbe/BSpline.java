@@ -65,12 +65,9 @@ public class BSpline {
         controlPolygon.add(controlPolygon.get(0));
     }
 
-
-
-
+    public boolean isClosed() {
+        return controlPolygon.get(0).equals(controlPolygon.get(controlPolygon.size() - 1));
+    }
 
     
-
-
-
 }
