@@ -214,8 +214,31 @@ et la determination de l'intérieur du polygone, de on donne la suivante:\\[0.5c
 du polygone. En effet, les images intermédiaires peuvent contenir des segments qui se croisent, 
 ou des sommets qui ne sont pas partagés par exactement deux segments. Dans un tel cas, la transformations
 ne paraît pas naturelle.
-
+\begin{figure}[h!]
+    \centering
+    \includegraphics{img/p1/naif.png}
+    \caption{Interpolation linéaire, observez les auto-intersections. \cite{cornillac2010morphing}}
+\end{figure}
+\newline
 Ainsi, il est nécessaire de trouver une approche plus rigoureuse pour le morphing de polygones simples.
 
 \subsection[Méthode L-A]{Morphing par interpolation longeur-angle}
 
+\subsubsection{Principe et notation}
+\paragraph{Principe} L'idée de cette méthode, issue des travaux de Sederberg \cite{sederberg1993}, est de déformer progressivement le polygone $P$ en un autre polygone $Q$, en interpolant
+linéairement la mesure des angles entre chaque arêtes consécutives, et leurs normes respectives. Ce faisant, l'avantage est de préserver les propriétés géométriques
+ souhaitées pour un rendu visuel naturel. On parle d'\emph{invariance par mouvement rigide}.
+ de morphing améliorée est.
+
+\paragraph*{Notation} Soit $n,N>0$ et $(P_k)_{0\leq k\leq N}$ une suite de polygones de $(\mathbb{P}_{n})^{\NN}$.
+On pose, pour $k\in\{0,\ldots,N\}$:
+\begin{itemize}
+    \flch $l^{(k)}_i$ la longueur de l'arête $p^{(k)}_{i^{+}}$,
+    \flch $\theta^{(k)}_i$ l'angle entre les arêtes $p^{(k)}_{i^{-}}$ et $p^{(k)}_{i^{+}}$.
+\end{itemize}
+Subséquemment, pour une image intermédiaire $k \in \{0,\ldots,N\}$, avec $t=\frac{k}{N}$ on a:
+
+\begin{align*}
+        l^{(k)}_i &= (1-t)l_i+tq_i\\
+        \theta^{(k)}_i &= (1-t)\theta_i+t\theta_i
+\end{align*}

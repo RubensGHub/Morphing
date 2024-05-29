@@ -1,3 +1,15 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{cornillac2010morphing}
+Mélanie Cornillac.
+\newblock {\em Morphing multirésolution de courbes}.
+\newblock Modélisation et simulation, Université de Grenoble, 2010.
+\newblock NNT : ff, tel-00581474f.
+
+\bibitem{sederberg1993}
+T.W. Sederberg, P.~Gao, G.~Wang, and H.~Mu.
+\newblock 2-d shape blending: An intrinsic solution to the vertex path problem.
+\newblock In {\em Computer Graphics (SIGGRAPH 93 Proceedings)}, volume~27,
+  pages 15--18, 1993.
 
 \end{thebibliography}
