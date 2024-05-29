@@ -33,6 +33,38 @@ public class BSpline {
         this.nodeVector = nodeVector;
     }
 
+    public void addControlPoint(Point p) {
+        controlPolygon.add(p);
+    }
+
+    public void addNode(double d) {
+        nodeVector.add(d);
+    }
+
+    public void removeControlPoint(Point p) {
+        controlPolygon.remove(p);
+    }
+
+    public void removeNode(double d) {
+        nodeVector.remove(d);
+    }
+
+    public void removeControlPoint(int i) {
+        controlPolygon.remove(i);
+    }
+
+    public Point getcontrolPoint(int i) {
+        return controlPolygon.get(i);
+    }
+
+    public double getNode(int i) {
+        return nodeVector.get(i);
+    }
+
+    public void close() {
+        controlPolygon.add(controlPolygon.get(0));
+    }
+
 
 
 
