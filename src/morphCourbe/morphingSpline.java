@@ -140,12 +140,25 @@ public class morphingSpline extends Observable {
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             drawBSpline(g2d, this.frames[i].getSpline());
             g2d.dispose();
+            saveFrames("./test");
+
         }
     }
 
-
-
-
+    /**
+     * Sauvegarde des images intermédiaires
+     * @param path : chemin de sauvegarde
+     * @return void
+     * @autor : Romain Corral
+     */
+    public void saveFrames(String path){
+        for (int i = 0 ; i < this.getNbFrames() ; i++){
+            System.out.println("fct save");
+            System.out.println(frames[i]);
+            frames[i].save(path + "/frame" + i + ".png");
+            System.out.println(frames[i]);
+        }
+    }
 
     
     
