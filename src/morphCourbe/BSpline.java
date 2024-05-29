@@ -150,6 +150,27 @@ public class BSpline {
         return mid;
     }
 
+    /**
+     * Calcule le vecteur de noeuds uniforme pour la courbe B-Spline.
+     * @autor : Ryan Bouchou
+     */
+    public void computeUniformVector() {
+        nodeVector.clear();
+        int n = controlPolygon.size();
+        int m = n + deg;
+        for (int i = 0; i < m + 1; i++) {
+            if (i < deg + 1) {
+                nodeVector.add(0.0);
+            } else if (i >= m - deg) {
+                nodeVector.add(1.0);
+            } else {
+                nodeVector.add((double) (i - deg) / (double) (n - deg + 1));
+            }
+
+        }
+
+    }
+
     /*public static void main(String[] args) {
         // Create the BSpline instance with scaled control points
         ArrayList<Point> controlPolygon = new ArrayList<>();
