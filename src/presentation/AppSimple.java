@@ -55,7 +55,7 @@ public class AppSimple extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        MorphingApp app = new MorphingApp();
+        FormesUniesPolygonales app = new FormesUniesPolygonales();
 
         // CREATION IMAGEVIEW (initialement : null)
         this.setIvStart(app.getImgSrc());
@@ -155,10 +155,10 @@ public class AppSimple extends Application {
         // CONTROLEURS
 
         // LEFT
-        ControleBoutonStart cbs = new ControleBoutonStart(app);
+        ControleBoutonStartSimple cbs = new ControleBoutonStartSimple(app);
         buttonAddImgStart.setOnAction(cbs);
 
-        ControleImgStart cis = new ControleImgStart(app, ivStart);
+        ControleImgStartSimple cis = new ControleImgStartSimple(app, ivStart);
         app.addObserver(cis);
 
         ControlePointSimpleImgStart cpcis = new ControlePointSimpleImgStart(app, leftGC);
@@ -169,19 +169,19 @@ public class AppSimple extends Application {
         
 
         // CENTER
-        ControleSlider cs = new ControleSlider(app, slider, valSlider);
+        ControleSliderSimple cs = new ControleSliderSimple(app, slider, valSlider);
         slider.valueProperty().addListener(cs);
         app.addObserver(cs);
 
-        ControleBoutonBeier cbb = new ControleBoutonBeier(app);
+        ControleBoutonSimple cbb = new ControleBoutonSimple(app);
         buttonGen.setOnAction(cbb);
         
 
         // RIGHT
-        ControleBoutonEnd cbe = new ControleBoutonEnd(app);
+        ControleBoutonEndSimple cbe = new ControleBoutonEndSimple(app);
         buttonAddImgEnd.setOnAction(cbe);
         
-        ControleImgEnd cie = new ControleImgEnd(app, ivEnd);
+        ControleImgEndSimple cie = new ControleImgEndSimple(app, ivEnd);
         app.addObserver(cie);
 
         ControlePointSimpleImgEnd cpcie = new ControlePointSimpleImgEnd(app, rightGC);
