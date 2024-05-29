@@ -297,28 +297,29 @@ public class MorphingApp extends Observable {
      * @autor : Ryan Bouchou
      */
     public void generateGif(String pathTarget){
-        try {
-            OutputStream outputStream = new FileOutputStream(pathTarget+".gif");
-            ImageOptions options = new ImageOptions();
-            GifEncoder encod = new GifEncoder(outputStream, imgSrc.getWidth(), imgSrc.getHeight(), 0);
-            int[][] pixels = new int[imgSrc.getWidth()][imgSrc.getHeight()];
-            for (int i = 0 ; i < this.getNbFrames() ; i++){
-                for (int x = 0 ; x < imgSrc.getWidth() ; x++){
-                    for (int y = 0 ; y < imgSrc.getHeight() ; y++){
-                        pixels[x][y] = frames[i].getImage().getRGB(x, y);
-                    }
+    try {
+        OutputStream outputStream = new FileOutputStream(pathTarget + ".gif");
+        ImageOptions options = new ImageOptions();
+        GifEncoder encod = new GifEncoder(outputStream, imgSrc.getWidth(), imgSrc.getHeight(), 0);
+        int[][] pixels = new int[imgSrc.getHeight()][imgSrc.getWidth()]; //Ordre de height et width très important !
+        
+        for (int i = 0; i < this.getNbFrames(); i++) {
+            for (int y = 0; y < imgSrc.getHeight(); y++) {
+                for (int x = 0; x < imgSrc.getWidth(); x++) { 
+                    pixels[y][x] = frames[i].getImage().getRGB(x, y);
                 }
-                encod.addImage(pixels, options);
             }
-            encod.finishEncoding();
-
-            outputStream.close();
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            encod.addImage(pixels, options);
         }
+        
+        encod.finishEncoding();
+        outputStream.close();
+        
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
+
 
 
 
