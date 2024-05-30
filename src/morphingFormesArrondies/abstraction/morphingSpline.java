@@ -17,10 +17,7 @@ public class morphingSpline extends Observable {
     private ImageS imgSrc;
     private ImageS imgDest;
     private ImageS[] frames;
-    private int nbFrames;
-    protected double[][] matrice;
-
-    
+    private int nbFrames;    
 
      public ImageS getImgSrc() {
         return this.imgSrc;
@@ -88,11 +85,13 @@ public class morphingSpline extends Observable {
         img.getSpline().setDeg(imgSrc.getSpline().getDeg());
         img.getSpline().computeUniformVector();
         double t = (double)k/(double)(this.nbFrames);
+
         for(int i=0 ; i < imgSrc.getSpline().getcontrolPolygon().size()-1 ; i++) {
             Point p = new Point(0,0);
             p.setX((int)(imgSrc.getSpline().getcontrolPoint(i).getX()*(1-t) + imgDest.getSpline().getcontrolPoint(i).getX()*t));
             p.setY((int)(imgSrc.getSpline().getcontrolPoint(i).getY()*(1-t) + imgDest.getSpline().getcontrolPoint(i).getY()*t));
             img.getSpline().addControlPoint(p);
+            img.getSpline().settVector(i,(new Couple<Double, Double>((double)(p.getX() - imgSrc.getSpline().getcontrolPoint(i).getX()),(double)(p.getY() - imgSrc.getSpline().getcontrolPoint(i).getY()))));
         }
         img.getSpline().close();      
         return img;
@@ -106,16 +105,19 @@ public class morphingSpline extends Observable {
      * @date 2024-05-27
      * @version 1.0
      */
-    private static void drawBSpline(Graphics2D g2d, BSpline spline) {
+    private static void drawBSpline(Graphics2D g2d, BSpline spline, ImageS imgSrc) {
         double step = 0.01; // Increment for the parameter t
         double tMin = spline.getNode(spline.getDeg());
         double tMax = spline.getNode(spline.getNodeVector().size() - 1 - spline.getDeg());
-
+        Point v = new Point(0,0);
+        for (int i = 0; i < spline.getcontrolPolygon().size(); i++) {
+            v.add(new Point((int)(spline.gettVector(i).getX()*imgSrc.getSpline().matrice[i][0]),(int)(spline.gettVector(i).getY()*imgSrc.getSpline().matrice[i][0])));
+        }
         g2d.setColor(Color.BLUE);
-        Point previousPoint = spline.calculerPoint(tMin, false);
+        Point previousPoint = spline.calculerPoint(tMin).add(v);
 
         for (double t = tMin + step; t <= tMax; t += step) {
-            Point point = spline.calculerPoint(t, false);
+            Point point = spline.calculerPoint(t).add(v);
             g2d.draw(new Line2D.Double(previousPoint.getX(),previousPoint.getY(),point.getX(),point.getY()));
             previousPoint = point;
         }
@@ -128,6 +130,8 @@ public class morphingSpline extends Observable {
      * @date 2024-05-27
      * @version 1.0
      */
+    /*
+     
     public void calculate(){
         this.frames = new ImageS[this.nbFrames];
         
@@ -138,10 +142,25 @@ public class morphingSpline extends Observable {
             drawBSpline(g2d, this.frames[i].getSpline());
             g2d.dispose();
             saveFrames("./test");
-
+            
         }
     }
+    */
 
+    public void calculate(){
+        this.frames = new ImageS[this.nbFrames];
+        // Calculer C et N pour imgSrc
+
+        for(int i=0 ; i < this.nbFrames ; i++) {
+            this.frames[i] = this.newFrame(this.imgSrc, this.imgDest, i);
+            Graphics2D g2d = this.frames[i].getImage().createGraphics();
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            drawBSpline(g2d, this.frames[i].getSpline(), this.imgSrc);
+            g2d.dispose();
+            saveFrames("./test");
+        }
+    }
+    
     /**
      * Sauvegarde des images intermédiaires
      * @param path : chemin de sauvegarde
