@@ -243,7 +243,7 @@ public class MorphingApp extends Observable {
             frames[f] = interpolateColor(f, wrapSrc, wrapDest);
         }
         //saveFrames("/home/cytech/projet/Morphing/test");
-        generateGif("/home/cytech/ING1/Prog/Github/MorphingTests");
+        generateGif("./morphing");
     }
 
     /**
