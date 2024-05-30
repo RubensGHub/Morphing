@@ -25,9 +25,9 @@ public class AccueilApp extends Application {
         boutonBeier.getStyleClass().add("boutonBeier");
         boutonSimple.getStyleClass().add("boutonSimple");
         boutonCourbe.getStyleClass().add("boutonCourbe");
-        boutonBeier.setOnAction(event -> afficherSecondEcran(primaryStage));
-        boutonSimple.setOnAction(event -> afficherSecondEcran2(primaryStage));
-        boutonCourbe.setOnAction(event -> afficherSecondEcran3(primaryStage));
+        boutonSimple.setOnAction(event -> afficherAppSimple(primaryStage));
+        boutonCourbe.setOnAction(event -> afficherAppCourbe(primaryStage));
+        boutonBeier.setOnAction(event -> afficherAppBeier(primaryStage));
 
 
         Label phrase = new Label("Pour commencer le morphing, appuyez sur le morphing que vous souhaitez utiliser");
@@ -53,18 +53,7 @@ public class AccueilApp extends Application {
         primaryStage.setResizable(false);
     }
 
-    private void afficherSecondEcran(Stage primaryStage) {
-        Stage secondStage = new Stage();
-        AppBeier secondScreen = new AppBeier();
-        try {
-            secondScreen.start(secondStage);
-            primaryStage.close(); 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void afficherSecondEcran2(Stage primaryStage) {
+    private void afficherAppSimple(Stage primaryStage) {
         Stage secondStage = new Stage();
         AppSimple secondScreen = new AppSimple();
         try {
@@ -75,7 +64,7 @@ public class AccueilApp extends Application {
         }
     }
 
-    private void afficherSecondEcran3(Stage primaryStage) {
+    private void afficherAppCourbe(Stage primaryStage) {
         Stage secondStage = new Stage();
         AppCourbe secondScreen = new AppCourbe();
         try {
@@ -86,6 +75,17 @@ public class AccueilApp extends Application {
         }
     }
 
+    private void afficherAppBeier(Stage primaryStage) {
+        Stage secondStage = new Stage();
+        AppBeier secondScreen = new AppBeier();
+        try {
+            secondScreen.start(secondStage);
+            primaryStage.close(); 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public static void main(String[] args) {
         launch(args);
     }

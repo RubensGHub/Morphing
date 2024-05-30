@@ -79,6 +79,8 @@ public class AppBeier extends Application {
         buttonAddImgEnd.getStyleClass().add("bouton");
         Button buttonGen = newButton("Morphing");
         buttonGen.getStyleClass().add("bouton");
+        Button buttonReturn = new Button("Retour à l'accueil");
+        buttonReturn.getStyleClass().add("bouton");
 
         // ZONE IMAGE LEFT
         StackPane zoneImgLeft = new StackPane();
@@ -117,6 +119,9 @@ public class AppBeier extends Application {
 
         // VBOX TOP
         VBox vBoxTop = new VBox(10);
+        VBox vBoxRetour = new VBox(10);
+        vBoxRetour.getChildren().add(buttonReturn); 
+        vBoxTop.getChildren().add(vBoxRetour); 
         vBoxTop.setId("header");
         Text title = new Text("Morphing d'images");
         title.setId("h1");
@@ -125,7 +130,7 @@ public class AppBeier extends Application {
         subTitle.setId("h2");
         vBoxTop.getChildren().add(subTitle);
 
-        // VBOX TOP
+        // VBOX BOTTOM
         VBox vBoxBottom = new VBox(10);
         vBoxBottom.setId("footer");
         Text credits = new Text("Authors : Romain, Ryan, Paul, Rubens, Alexandre");
@@ -141,6 +146,7 @@ public class AppBeier extends Application {
         root.setRight(vBoxRight);
         root.setTop(vBoxTop);
         root.setBottom(vBoxBottom);
+        root.getStyleClass().add("body-AppBeier");
 
         // SCENE
         Scene scene = new Scene(root, 1500, 1500);
@@ -193,8 +199,20 @@ public class AppBeier extends Application {
         canvasRight.setOnMouseReleased(cpcie::onMouseReleased);
         app.addObserver(cpcie);
     
-        
-    }
+        // CONTROLEUR RETOUR
+        buttonReturn.setOnAction(e -> {
+            AccueilApp accueilApp = new AccueilApp();
+            try {
+                accueilApp.start(new Stage());
+                primaryStage.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+}
+
+    
 
 
 

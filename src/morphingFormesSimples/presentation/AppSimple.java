@@ -77,6 +77,8 @@ public class AppSimple extends Application {
         buttonAddImgEnd.getStyleClass().add("bouton");
         Button buttonGen = newButton("Morphing");
         buttonGen.getStyleClass().add("bouton");
+        Button buttonReturn = new Button("Retour à l'accueil");
+        buttonReturn.getStyleClass().add("bouton");
 
         // ZONE IMAGE LEFT
         StackPane zoneImgLeft = new StackPane();
@@ -115,6 +117,9 @@ public class AppSimple extends Application {
 
         // VBOX TOP
         VBox vBoxTop = new VBox(10);
+        VBox vBoxRetour = new VBox(10);
+        vBoxRetour.getChildren().add(buttonReturn); 
+        vBoxTop.getChildren().add(vBoxRetour);
         vBoxTop.setId("header");
         Text title = new Text("Morphing Simple");
         title.setId("h1");
@@ -123,7 +128,7 @@ public class AppSimple extends Application {
         subTitle.setId("h2");
         vBoxTop.getChildren().add(subTitle);
 
-        // VBOX TOP
+        // VBOX BOTTOM
         VBox vBoxBottom = new VBox(10);
         vBoxBottom.setId("footer");
         Text credits = new Text("Authors : Romain, Ryan, Paul, Rubens, Alexandre");
@@ -139,6 +144,7 @@ public class AppSimple extends Application {
         root.setRight(vBoxRight);
         root.setTop(vBoxTop);
         root.setBottom(vBoxBottom);
+        root.getStyleClass().add("body-AppSimple");
 
         // SCENE
         Scene scene = new Scene(root, 1500, 1500);
@@ -191,7 +197,15 @@ public class AppSimple extends Application {
         canvasRight.setOnMouseReleased(cpcie::onMouseReleased);
         app.addObserver(cpcie);
     
-        
+        buttonReturn.setOnAction(e -> {
+            AccueilApp accueilApp = new AccueilApp();
+            try {
+                accueilApp.start(new Stage());
+                primaryStage.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
     }
 
 
