@@ -1,54 +1,74 @@
 \babel@toc {french}{}\relax 
-\contentsline {section}{\numberline {1}Cas des polygones simples}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Généralités}{3}{subsection.1.1}%
-\contentsline {paragraph}{Conventions}{3}{subsection.1.1}%
-\contentsline {paragraph}{Situation}{3}{definition.1.3}%
-\contentsline {subsection}{\numberline {1.2}Morphing naif}{3}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Principe et notation}{3}{subsubsection.1.2.1}%
-\contentsline {paragraph}{Principe}{3}{subsubsection.1.2.1}%
-\contentsline {paragraph}{}{4}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Cas des images matricielles}{4}{subsubsection.1.2.2}%
-\contentsline {paragraph}{Principe}{4}{subsubsection.1.2.2}%
-\contentsline {paragraph}{}{5}{equation.1.5}%
-\contentsline {paragraph}{}{5}{algocf.1}%
-\contentsline {paragraph}{Résultats}{6}{algocf.2}%
-\contentsline {paragraph}{En pratique}{6}{figure.caption.2}%
-\contentsline {subsection}{\numberline {1.3}Méthode L-A}{7}{subsection.1.3}%
-\contentsline {subsubsection}{\numberline {1.3.1}Principe et notation}{7}{subsubsection.1.3.1}%
-\contentsline {paragraph}{Principe}{7}{subsubsection.1.3.1}%
-\contentsline {paragraph}{}{7}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}Cas des images matricielles}{8}{subsubsection.1.3.2}%
-\contentsline {section}{\numberline {2}Morphing de formes courbes}{9}{section.2}%
-\contentsline {paragraph}{}{9}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Propédeutique au morphing de courbes splines}{9}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Splines}{9}{subsubsection.2.1.1}%
-\contentsline {paragraph}{Notation.}{9}{equation.2.7}%
-\contentsline {subsubsection}{\numberline {2.1.2}Courbes B-Splines}{9}{subsubsection.2.1.2}%
-\contentsline {paragraph}{En pratique}{10}{dem.3}%
-\contentsline {subsection}{\numberline {2.2}Morphing de courbes B-splines}{11}{subsection.2.2}%
-\contentsline {paragraph}{Principe}{11}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Calcul d'une courbe B-spline}{11}{subsubsection.2.2.1}%
-\contentsline {paragraph}{Calcul de la courbe}{11}{subsubsection.2.2.1}%
-\contentsline {paragraph}{Remarque. }{11}{algocf.4}%
-\contentsline {paragraph}{Algorithme}{11}{algocf.4}%
-\contentsline {section}{\numberline {3}Morphing d'images quelconques}{13}{section.3}%
-\contentsline {paragraph}{}{13}{section.3}%
-\contentsline {paragraph}{}{13}{figure.caption.8}%
-\contentsline {paragraph}{Principe}{13}{figure.caption.8}%
-\contentsline {subsection}{\numberline {3.1}Déformation des images}{14}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Préliminaires}{14}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Cas simple: un seul vecteur de contrôle}{14}{subsubsection.3.1.2}%
-\contentsline {paragraph}{Notations.}{14}{subsubsection.3.1.2}%
-\contentsline {paragraph}{Algorithme.}{15}{figure.caption.10}%
-\contentsline {subsubsection}{\numberline {3.1.3}Cas général: plusieurs vecteurs de contrôle}{15}{subsubsection.3.1.3}%
-\contentsline {paragraph}{Principe}{15}{subsubsection.3.1.3}%
-\contentsline {paragraph}{Poids.}{15}{subsubsection.3.1.3}%
-\contentsline {paragraph}{Vecteurs de contrôle.}{15}{equation.3.12}%
-\contentsline {paragraph}{Algorithme.}{16}{equation.3.13}%
-\contentsline {paragraph}{Exemple.}{16}{algocf.7}%
-\contentsline {subsection}{\numberline {3.2}Interpolation des images}{17}{subsection.3.2}%
-\contentsline {paragraph}{Principe}{17}{subsection.3.2}%
-\contentsline {paragraph}{Algorithme.}{17}{subsection.3.2}%
-\contentsline {section}{Annexes}{20}{section*.15}%
-\contentsline {section}{\numberline {A}Splines}{20}{appendix.A}%
-\contentsline {section}{R\'ef\'erences}{21}{algocf.9}%
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Contexte}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Objectif}{4}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Organisation au sein du groupe}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Espace de travail : GitHub}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Répartition des tâches}{5}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Cas des polygones simples}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Généralités}{6}{subsection.3.1}%
+\contentsline {paragraph}{Conventions}{6}{subsection.3.1}%
+\contentsline {paragraph}{Situation}{6}{definition.1.3}%
+\contentsline {subsection}{\numberline {3.2}Morphing naif}{6}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Principe et notation}{6}{subsubsection.3.2.1}%
+\contentsline {paragraph}{Principe}{6}{subsubsection.3.2.1}%
+\contentsline {paragraph}{}{7}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Cas des images matricielles}{7}{subsubsection.3.2.2}%
+\contentsline {paragraph}{Principe}{7}{subsubsection.3.2.2}%
+\contentsline {paragraph}{}{8}{equation.3.5}%
+\contentsline {paragraph}{}{8}{algocf.1}%
+\contentsline {paragraph}{Résultats}{9}{algocf.2}%
+\contentsline {paragraph}{En pratique}{9}{figure.caption.2}%
+\contentsline {subsection}{\numberline {3.3}Méthode L-A}{10}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Principe et notation}{10}{subsubsection.3.3.1}%
+\contentsline {paragraph}{Principe}{10}{subsubsection.3.3.1}%
+\contentsline {paragraph}{}{10}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Cas des images matricielles}{11}{subsubsection.3.3.2}%
+\contentsline {section}{\numberline {4}Morphing de formes courbes}{12}{section.4}%
+\contentsline {paragraph}{}{12}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Propédeutique au morphing de courbes splines}{12}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Splines}{12}{subsubsection.4.1.1}%
+\contentsline {paragraph}{Notation.}{12}{equation.4.7}%
+\contentsline {subsubsection}{\numberline {4.1.2}Courbes B-Splines}{12}{subsubsection.4.1.2}%
+\contentsline {paragraph}{En pratique}{13}{dem.3}%
+\contentsline {subsection}{\numberline {4.2}Morphing de courbes B-splines}{14}{subsection.4.2}%
+\contentsline {paragraph}{Principe}{14}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Calcul d'une courbe B-spline}{14}{subsubsection.4.2.1}%
+\contentsline {paragraph}{Calcul de la courbe}{14}{subsubsection.4.2.1}%
+\contentsline {paragraph}{Remarque. }{14}{algocf.4}%
+\contentsline {paragraph}{Algorithme}{14}{algocf.4}%
+\contentsline {section}{\numberline {5}Morphing d'images quelconques}{16}{section.5}%
+\contentsline {paragraph}{}{16}{section.5}%
+\contentsline {paragraph}{}{16}{figure.caption.8}%
+\contentsline {paragraph}{Principe}{16}{figure.caption.8}%
+\contentsline {subsection}{\numberline {5.1}Déformation des images}{17}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Préliminaires}{17}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Cas simple: un seul vecteur de contrôle}{17}{subsubsection.5.1.2}%
+\contentsline {paragraph}{Notations.}{17}{subsubsection.5.1.2}%
+\contentsline {paragraph}{Algorithme.}{18}{figure.caption.10}%
+\contentsline {subsubsection}{\numberline {5.1.3}Cas général: plusieurs vecteurs de contrôle}{18}{subsubsection.5.1.3}%
+\contentsline {paragraph}{Principe}{18}{subsubsection.5.1.3}%
+\contentsline {paragraph}{Poids.}{18}{subsubsection.5.1.3}%
+\contentsline {paragraph}{Vecteurs de contrôle.}{18}{equation.5.12}%
+\contentsline {paragraph}{Algorithme.}{19}{equation.5.13}%
+\contentsline {paragraph}{Exemple.}{19}{algocf.7}%
+\contentsline {subsection}{\numberline {5.2}Interpolation des images}{20}{subsection.5.2}%
+\contentsline {paragraph}{Principe}{20}{subsection.5.2}%
+\contentsline {paragraph}{Algorithme.}{20}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Analyse et conception}{21}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Diagramme de cas d'utilisation}{21}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Diagramme de classe}{21}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Diagramme d'activité}{21}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Testing}{26}{section.7}%
+\contentsline {paragraph}{Approche et Méthodologie}{26}{section.7}%
+\contentsline {paragraph}{Remarque.}{26}{section.7}%
+\contentsline {section}{\numberline {8}Bilans personnels}{28}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Bilan Rubens}{28}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Bilan Alex}{28}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Bilan Paul}{28}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Bilan Romain}{28}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Bilan Ryan}{29}{subsection.8.5}%
+\contentsline {section}{Annexes}{32}{section*.17}%
+\contentsline {section}{\numberline {A}Splines}{32}{appendix.A}%
+\contentsline {section}{\numberline {B}Tests unitaires}{32}{appendix.B}%
+\contentsline {section}{R\'ef\'erences}{39}{figure.caption.24}%

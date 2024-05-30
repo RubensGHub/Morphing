@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  30 MAY 2024 23:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  31 MAY 2024 00:16
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1135,21 +1135,37 @@ LaTeX Warning: Unknown theoremstyle `definition'. Using `plain' on input line 39
 \c@currdemctr=\count416
 \c@enddemctr=\count417
 \c@dem=\count418
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2022/01/29 v0.5u Insert pages of external PDF documents (AM)
+\AM@pagewidth=\dimen352
+\AM@pageheight=\dimen353
+\AM@fboxrule=\dimen354
+ (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2022/01/29 v0.5u Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count419
+\AM@pagebox=\box128
+\AM@global@opts=\toks67
+\AM@pagecnt=\count420
+\AM@toc@title=\toks68
+\c@AM@survey=\count421
+\AM@templatesizebox=\box129
+)
 runsystem(which pygmentize && touch main.aex)...executed.
 
 runsystem(rm main.aex)...executed.
 
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 99.
-(/usr/share/texmf/tex/latex/lm/t1lmr.fd
+ (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) (./main.aux (./src/sec1.aux
+) (./main.aux (./src/intro.aux) (./src/orga.aux) (./src/sec1.aux
 
 LaTeX Warning: Label `prop:1' multiply defined.
 
 
 LaTeX Warning: Label `prop:1@cref' multiply defined.
 
-) (./src/sec2.aux) (./src/sec3.aux))
+) (./src/sec2.aux) (./src/sec3.aux) (./src/conception.aux) (./src/testing.aux) (./src/bilans.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
@@ -1178,17 +1194,17 @@ File: translations-basic-dictionary-french.trsl (french translation file `transl
 Package translations Info: loading dictionary `translations-basic-dictionary' for `french'. on input line 99.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count419
-\scratchdimen=\dimen352
-\scratchbox=\box128
-\nofMPsegments=\count420
-\nofMParguments=\count421
-\everyMPshowfont=\toks67
-\MPscratchCnt=\count422
-\MPscratchDim=\dimen353
-\MPnumerator=\count423
-\makeMPintoPDFobject=\count424
-\everyMPtoPDFconversion=\toks68
+\scratchcounter=\count422
+\scratchdimen=\dimen355
+\scratchbox=\box130
+\nofMPsegments=\count423
+\nofMParguments=\count424
+\everyMPshowfont=\toks69
+\MPscratchCnt=\count425
+\MPscratchDim=\dimen356
+\MPnumerator=\count426
+\makeMPintoPDFobject=\count427
+\everyMPtoPDFconversion=\toks70
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -1208,7 +1224,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count425
+\c@section@level=\count428
 )
 LaTeX Info: Redefining \ref on input line 99.
 LaTeX Info: Redefining \pageref on input line 99.
@@ -1252,8 +1268,8 @@ LaTeX Info: Redefining \nameref on input line 99.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count426
-<logos/logoGraphene.png, id=135, 1085.05376pt x 361.35pt>
+\c@lstlisting=\count429
+<logos/logoGraphene.png, id=207, 1085.05376pt x 361.35pt>
 File: logos/logoGraphene.png Graphic file (type png)
 <use logos/logoGraphene.png>
 Package pdftex.def Info: logos/logoGraphene.png  used on input line 133.
@@ -1292,12 +1308,12 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 133
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-<logos/logoCS.png, id=137, 285.065pt x 150.5625pt>
+<logos/logoCS.png, id=209, 285.065pt x 150.5625pt>
 File: logos/logoCS.png Graphic file (type png)
 <use logos/logoCS.png>
 Package pdftex.def Info: logos/logoCS.png  used on input line 133.
 (pdftex.def)             Requested size: 128.0387pt x 67.62613pt.
-<logos/bordureCS.png, id=138, 377.41pt x 184.69pt>
+<logos/bordureCS.png, id=210, 377.41pt x 184.69pt>
 File: logos/bordureCS.png Graphic file (type png)
 <use logos/bordureCS.png>
 Package pdftex.def Info: logos/bordureCS.png  used on input line 133.
@@ -1305,7 +1321,7 @@ Package pdftex.def Info: logos/bordureCS.png  used on input line 133.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logos/bordureCS.png> <./logos/logoGraphene.png> <./logos/logoCS.png>]
-<logos/CSxParisSaclay.jpg, id=152, 401.5pt x 223.83624pt>
+<logos/CSxParisSaclay.jpg, id=225, 401.5pt x 223.83624pt>
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 143.
@@ -1314,11 +1330,38 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 <to be read again> 
                    \relax 
 l.143 \newpage
-               [1 <./logos/CSxParisSaclay.jpg>] (./main.toc)
+               [1 <./logos/CSxParisSaclay.jpg>] (./main.toc [2])
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
- [2]
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 157.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [3]
+\openout2 = `src/intro.aux'.
+
+ (./src/intro.tex)
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 165.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [4
+
+
+]
+\openout2 = `src/orga.aux'.
+
+ (./src/orga.tex)
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 166.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [5
+
+
+
+]
 \openout2 = `src/sec1.aux'.
 
  (./src/sec1.tex
@@ -1327,7 +1370,8 @@ File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 59.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [3
+ [6
+
 
 
 ]
@@ -1337,7 +1381,7 @@ File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 118.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [4]
+ [7]
 Underfull \hbox (badness 10000) in paragraph at lines 120--123
 
  []
@@ -1351,38 +1395,38 @@ File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 171.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
-[5]
-<img/p1/1.png, id=231, 501.875pt x 501.875pt>
+[8]
+<img/p1/1.png, id=338, 501.875pt x 501.875pt>
 File: img/p1/1.png Graphic file (type png)
 <use img/p1/1.png>
 Package pdftex.def Info: img/p1/1.png  used on input line 177.
 (pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
-<img/p1/2.png, id=232, 501.875pt x 501.875pt>
+<img/p1/2.png, id=339, 501.875pt x 501.875pt>
 File: img/p1/2.png Graphic file (type png)
 <use img/p1/2.png>
 Package pdftex.def Info: img/p1/2.png  used on input line 182.
 (pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
-<img/p1/3.png, id=233, 501.875pt x 501.875pt>
+<img/p1/3.png, id=340, 501.875pt x 501.875pt>
 File: img/p1/3.png Graphic file (type png)
 <use img/p1/3.png>
 Package pdftex.def Info: img/p1/3.png  used on input line 187.
 (pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
-<img/p1/4.png, id=234, 501.875pt x 501.875pt>
+<img/p1/4.png, id=341, 501.875pt x 501.875pt>
 File: img/p1/4.png Graphic file (type png)
 <use img/p1/4.png>
 Package pdftex.def Info: img/p1/4.png  used on input line 192.
 (pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
-<img/p1/5.png, id=235, 501.875pt x 501.875pt>
+<img/p1/5.png, id=342, 501.875pt x 501.875pt>
 File: img/p1/5.png Graphic file (type png)
 <use img/p1/5.png>
 Package pdftex.def Info: img/p1/5.png  used on input line 197.
 (pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
-<img/p1/6.png, id=236, 501.875pt x 501.875pt>
+<img/p1/6.png, id=343, 501.875pt x 501.875pt>
 File: img/p1/6.png Graphic file (type png)
 <use img/p1/6.png>
 Package pdftex.def Info: img/p1/6.png  used on input line 202.
 (pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
-<img/p1/naif.png, id=237, 366.36874pt x 97.36375pt>
+<img/p1/naif.png, id=344, 366.36874pt x 97.36375pt>
 File: img/p1/naif.png Graphic file (type png)
 <use img/p1/naif.png>
 Package pdftex.def Info: img/p1/naif.png  used on input line 219.
@@ -1395,13 +1439,13 @@ File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 225.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
-[6 <./img/p1/1.png> <./img/p1/2.png> <./img/p1/3.png> <./img/p1/4.png> <./img/p1/5.png> <./img/p1/6.png>]
+[9 <./img/p1/1.png> <./img/p1/2.png> <./img/p1/3.png> <./img/p1/4.png> <./img/p1/5.png> <./img/p1/6.png>]
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 270.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [7 <./img/p1/naif.png>]
-<img/p1/la.png, id=265, 373.395pt x 125.46875pt>
+ [10 <./img/p1/naif.png>]
+<img/p1/la.png, id=371, 373.395pt x 125.46875pt>
 File: img/p1/la.png Graphic file (type png)
 <use img/p1/la.png>
 Package pdftex.def Info: img/p1/la.png  used on input line 273.
@@ -1409,9 +1453,9 @@ Package pdftex.def Info: img/p1/la.png  used on input line 273.
 )
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 166.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 167.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [8 <./img/p1/la.png>]
+ [11 <./img/p1/la.png>]
 \openout2 = `src/sec2.aux'.
 
  (./src/sec2.tex
@@ -1419,7 +1463,7 @@ File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 78.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [9
+ [12
 
 
 
@@ -1430,7 +1474,7 @@ File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 119.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [10]
+ [13]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 155.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1441,14 +1485,14 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 )
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 167.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 168.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [11]
+ [14]
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 167.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 168.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [12]
+ [15]
 \openout2 = `src/sec3.aux'.
 
  (./src/sec3.tex
@@ -1456,17 +1500,17 @@ Overfull \hbox (3.58723pt too wide) in paragraph at lines 4--7
 \T1/lmr/m/n/12 unies simples et courbes, nous al-lons dé-sor-mais nous in-té-res-ser à la mor-phose d'images
  []
 
-<img/p3/lena.png, id=323, 713.66624pt x 537.00626pt>
+<img/p3/lena.png, id=430, 713.66624pt x 537.00626pt>
 File: img/p3/lena.png Graphic file (type png)
 <use img/p3/lena.png>
 Package pdftex.def Info: img/p3/lena.png  used on input line 12.
 (pdftex.def)             Requested size: 136.57166pt x 102.76152pt.
-<img/p3/lena2.png, id=324, 713.66624pt x 537.00626pt>
+<img/p3/lena2.png, id=431, 713.66624pt x 537.00626pt>
 File: img/p3/lena2.png Graphic file (type png)
 <use img/p3/lena2.png>
 Package pdftex.def Info: img/p3/lena2.png  used on input line 18.
 (pdftex.def)             Requested size: 136.57166pt x 102.76152pt.
-<img/p3/principe.png, id=328, 581.17125pt x 161.60374pt>
+<img/p3/principe.png, id=435, 581.17125pt x 161.60374pt>
 File: img/p3/principe.png Graphic file (type png)
 <use img/p3/principe.png>
 Package pdftex.def Info: img/p3/principe.png  used on input line 37.
@@ -1475,12 +1519,12 @@ File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 53.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
-[13
+[16
 
 
 
  <./img/p3/lena.png> <./img/p3/lena2.png> <./img/p3/principe.png>]
-<img/p3/uv.png, id=344, 382.42876pt x 202.7575pt>
+<img/p3/uv.png, id=450, 382.42876pt x 202.7575pt>
 File: img/p3/uv.png Graphic file (type png)
 <use img/p3/uv.png>
 Package pdftex.def Info: img/p3/uv.png  used on input line 90.
@@ -1489,7 +1533,7 @@ File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 94.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [14 <./img/p3/uv.png>]
+ [17 <./img/p3/uv.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 117--123
 
  []
@@ -1498,8 +1542,8 @@ File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 132.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
-[15]
-<img/p3/multiple.png, id=373, 383.4325pt x 260.975pt>
+[18]
+<img/p3/multiple.png, id=481, 383.4325pt x 260.975pt>
 File: img/p3/multiple.png Graphic file (type png)
 <use img/p3/multiple.png>
 Package pdftex.def Info: img/p3/multiple.png  used on input line 160.
@@ -1508,59 +1552,405 @@ File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 170.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [16 <./img/p3/multiple.png>])
+ [19 <./img/p3/multiple.png>])
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 168.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 169.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [17] (./main.loa)
+ [20]
+\openout2 = `src/conception.aux'.
+
+ (./src/conception.tex
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+</home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf, id=502, 903.375pt x 903.375pt>
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf  used on input line 15.
+(pdftex.def)             Requested size: 903.3728pt x 903.3728pt.
+
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf  used on input line 15.
+(pdftex.def)             Requested size: 903.3728pt x 903.3728pt.
+
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+</home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf, id=505, page=1, 903.375pt x 903.375pt>
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf , page1 used on input line 15.
+(pdftex.def)             Requested size: 903.3728pt x 903.3728pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf , page1 used on input line 15.
+(pdftex.def)             Requested size: 903.74498pt x 903.74498pt.
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 15.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+[21
+
+
+
+]
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf , page1 used on input line 15.
+(pdftex.def)             Requested size: 903.74498pt x 903.74498pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf , page1 used on input line 15.
+(pdftex.def)             Requested size: 903.74498pt x 903.74498pt.
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 15.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf , page1 used on input line 15.
+(pdftex.def)             Requested size: 903.74498pt x 903.74498pt.
+ [22 </home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/MorphingApp-1.pdf>]
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+</home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf, id=533, 677.53125pt x 1129.21875pt>
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf  used on input line 16.
+(pdftex.def)             Requested size: 677.52959pt x 1129.216pt.
+
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf  used on input line 16.
+(pdftex.def)             Requested size: 677.52959pt x 1129.216pt.
+
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+</home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf, id=536, page=1, 677.53125pt x 1129.21875pt>
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf , page1 used on input line 16.
+(pdftex.def)             Requested size: 677.52959pt x 1129.216pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf , page1 used on input line 16.
+(pdftex.def)             Requested size: 677.65364pt x 1129.42276pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf , page1 used on input line 16.
+(pdftex.def)             Requested size: 677.65364pt x 1129.42276pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf , page1 used on input line 16.
+(pdftex.def)             Requested size: 677.65364pt x 1129.42276pt.
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 16.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf , page1 used on input line 16.
+(pdftex.def)             Requested size: 677.65364pt x 1129.42276pt.
+[23 </home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_vierge-1-1.pdf>]
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+</home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf, id=560, 794.97pt x 1156.32pt>
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf  used on input line 17.
+(pdftex.def)             Requested size: 794.96806pt x 1156.31718pt.
+
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf  used on input line 17.
+(pdftex.def)             Requested size: 794.96806pt x 1156.31718pt.
+
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+</home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf, id=563, page=1, 794.97pt x 1156.32pt>
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf , page1 used on input line 17.
+(pdftex.def)             Requested size: 794.96806pt x 1156.31718pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf , page1 used on input line 17.
+(pdftex.def)             Requested size: 795.17427pt x 1156.61713pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf , page1 used on input line 17.
+(pdftex.def)             Requested size: 795.17427pt x 1156.61713pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf , page1 used on input line 17.
+(pdftex.def)             Requested size: 795.17427pt x 1156.61713pt.
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 17.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf , page1 used on input line 17.
+(pdftex.def)             Requested size: 795.17427pt x 1156.61713pt.
+[24 </home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf>]
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf  used on input line 18.
+(pdftex.def)             Requested size: 794.96806pt x 1156.31718pt.
+
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf  used on input line 18.
+(pdftex.def)             Requested size: 794.96806pt x 1156.31718pt.
+
+
+pdfTeX warning: pdflatex (file /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf , page1 used on input line 18.
+(pdftex.def)             Requested size: 794.96806pt x 1156.31718pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf , page1 used on input line 18.
+(pdftex.def)             Requested size: 795.17427pt x 1156.61713pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf , page1 used on input line 18.
+(pdftex.def)             Requested size: 795.17427pt x 1156.61713pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf , page1 used on input line 18.
+(pdftex.def)             Requested size: 795.17427pt x 1156.61713pt.
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 18.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf Graphic file (type pdf)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf, page 1>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/diag/Diagramme_dactivites.pdf , page1 used on input line 18.
+(pdftex.def)             Requested size: 795.17427pt x 1156.61713pt.
+[25])
+\openout2 = `src/testing.aux'.
+
+ (./src/testing.tex
+<img/testvisuel/frame0.png, id=624, 713.66624pt x 537.00626pt>
+File: img/testvisuel/frame0.png Graphic file (type png)
+<use img/testvisuel/frame0.png>
+Package pdftex.def Info: img/testvisuel/frame0.png  used on input line 17.
+(pdftex.def)             Requested size: 192.0548pt x 144.51018pt.
+<img/testvisuel/frame1.png, id=625, 713.66624pt x 537.00626pt>
+File: img/testvisuel/frame1.png Graphic file (type png)
+<use img/testvisuel/frame1.png>
+Package pdftex.def Info: img/testvisuel/frame1.png  used on input line 22.
+(pdftex.def)             Requested size: 192.0548pt x 144.51018pt.
+<img/testvisuel/frame2.png, id=626, 713.66624pt x 537.00626pt>
+File: img/testvisuel/frame2.png Graphic file (type png)
+<use img/testvisuel/frame2.png>
+Package pdftex.def Info: img/testvisuel/frame2.png  used on input line 27.
+(pdftex.def)             Requested size: 192.0548pt x 144.51018pt.
+<img/testvisuel/frame3.png, id=627, 713.66624pt x 537.00626pt>
+File: img/testvisuel/frame3.png Graphic file (type png)
+<use img/testvisuel/frame3.png>
+Package pdftex.def Info: img/testvisuel/frame3.png  used on input line 32.
+(pdftex.def)             Requested size: 192.0548pt x 144.51018pt.
+<img/testvisuel/frame4.png, id=628, 713.66624pt x 537.00626pt>
+File: img/testvisuel/frame4.png Graphic file (type png)
+<use img/testvisuel/frame4.png>
+Package pdftex.def Info: img/testvisuel/frame4.png  used on input line 39.
+(pdftex.def)             Requested size: 192.0548pt x 144.51018pt.
+<img/testvisuel/frame5.png, id=629, 713.66624pt x 537.00626pt>
+File: img/testvisuel/frame5.png Graphic file (type png)
+<use img/testvisuel/frame5.png>
+Package pdftex.def Info: img/testvisuel/frame5.png  used on input line 44.
+(pdftex.def)             Requested size: 192.0548pt x 144.51018pt.
+<img/testvisuel/frame6.png, id=630, 713.66624pt x 537.00626pt>
+File: img/testvisuel/frame6.png Graphic file (type png)
+<use img/testvisuel/frame6.png>
+Package pdftex.def Info: img/testvisuel/frame6.png  used on input line 49.
+(pdftex.def)             Requested size: 192.0548pt x 144.51018pt.
+<img/testvisuel/frame7.png, id=631, 713.66624pt x 537.00626pt>
+File: img/testvisuel/frame7.png Graphic file (type png)
+<use img/testvisuel/frame7.png>
+Package pdftex.def Info: img/testvisuel/frame7.png  used on input line 54.
+(pdftex.def)             Requested size: 192.0548pt x 144.51018pt.
+<img/testvisuel/frame8.png, id=632, 713.66624pt x 537.00626pt>
+File: img/testvisuel/frame8.png Graphic file (type png)
+<use img/testvisuel/frame8.png>
+Package pdftex.def Info: img/testvisuel/frame8.png  used on input line 59.
+(pdftex.def)             Requested size: 192.0548pt x 144.51018pt.
+<img/testvisuel/frame9.png, id=633, 713.66624pt x 537.00626pt>
+File: img/testvisuel/frame9.png Graphic file (type png)
+<use img/testvisuel/frame9.png>
+Package pdftex.def Info: img/testvisuel/frame9.png  used on input line 64.
+(pdftex.def)             Requested size: 192.0548pt x 144.51018pt.
+<img/testvisuel/frame10.png, id=634, 713.66624pt x 537.00626pt>
+File: img/testvisuel/frame10.png Graphic file (type png)
+<use img/testvisuel/frame10.png>
+Package pdftex.def Info: img/testvisuel/frame10.png  used on input line 69.
+(pdftex.def)             Requested size: 192.0548pt x 144.51018pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 171.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [26
+
+
+
+ <./img/testvisuel/frame0.png> <./img/testvisuel/frame1.png> <./img/testvisuel/frame2.png> <./img/testvisuel/frame3.png>]
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 171.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [27 <./img/testvisuel/frame4.png> <./img/testvisuel/frame5.png> <./img/testvisuel/frame6.png> <./img/testvisuel/frame7.png> <./img/testvisuel/frame8.png> <./img/testvisuel/frame9.png> <./img/testvisuel/frame10.png>]
+\openout2 = `src/bilans.aux'.
+
+ (./src/bilans.tex
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 18.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [28
+
+
+
+])
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 172.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [29] (./main.loa)
 \tf@loa=\write9
 \openout9 = `main.loa'.
 
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 178.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 182.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [18
+ [30
 
 
 ] (./main.lof)
 \tf@lof=\write10
 \openout10 = `main.lof'.
 
- [19] (./appendix.tex)
+ [31] (./appendix.tex
+</home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test1.png, id=712, 950.55125pt x 870.25125pt>
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test1.png Graphic file (type png)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test1.png>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test1.png  used on input line 24.
+(pdftex.def)             Requested size: 426.79135pt x 390.73303pt.
+</home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test2.png, id=713, 571.13374pt x 793.96625pt>
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test2.png Graphic file (type png)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test2.png>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test2.png  used on input line 30.
+(pdftex.def)             Requested size: 426.79135pt x 593.30466pt.
+</home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test3.png, id=714, 618.31pt x 685.56125pt>
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test3.png Graphic file (type png)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test3.png>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test3.png  used on input line 36.
+(pdftex.def)             Requested size: 426.79135pt x 473.22606pt.
+</home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test4.png, id=715, 781.92125pt x 527.9725pt>
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test4.png Graphic file (type png)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test4.png>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test4.png  used on input line 42.
+(pdftex.def)             Requested size: 426.79135pt x 288.17838pt.
+</home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test5.png, id=716, 594.22pt x 702.625pt>
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test5.png Graphic file (type png)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test5.png>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test5.png  used on input line 48.
+(pdftex.def)             Requested size: 426.79135pt x 504.67812pt.
+</home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test6.png, id=717, 700.6175pt x 663.47874pt>
+File: /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test6.png Graphic file (type png)
+<use /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test6.png>
+Package pdftex.def Info: /home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test6.png  used on input line 54.
+(pdftex.def)             Requested size: 426.79135pt x 404.17474pt.
+)
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 193.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 197.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [20] (./main.bbl)
+ [32]
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 197.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [33 </home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test1.png>]
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 197.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [34 </home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test2.png>]
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 197.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [35 </home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test3.png>] (./main.bbl
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 1.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [36 </home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test4.png>]
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 1.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [37 </home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test5.png>]
+File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
+<use logos/CSxParisSaclay.jpg>
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 1.
+(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
+ [38 </home/cytech/Desktop/Morphing/Morphing/rapport/img/testing/test6.png>])
 \tf@thm=\write11
 \openout11 = `main.thm'.
 
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 196.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 200.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [21] (./main.aux (./src/sec1.aux) (./src/sec2.aux) (./src/sec3.aux))
+ [39
+
+] (./main.aux (./src/intro.aux) (./src/orga.aux) (./src/sec1.aux) (./src/sec2.aux) (./src/sec3.aux) (./src/conception.aux) (./src/testing.aux) (./src/bilans.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 08707E3554F58E8F19552312F059059C;4018.
+(rerunfilecheck)             Checksum: DF69609DB87D3D720C2B104650C55AD9;6517.
  ) 
 Here is how much of TeX's memory you used:
- 46587 strings out of 478287
- 989995 string characters out of 5849289
- 1496587 words of memory out of 5000000
- 63827 multiletter control sequences out of 15000+600000
+ 47501 strings out of 478287
+ 1011972 string characters out of 5849289
+ 1503412 words of memory out of 5000000
+ 64626 multiletter control sequences out of 15000+600000
  542329 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 125i,18n,120p,507b,942s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 125i,18n,120p,1014b,1121s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (22 pages, 2630358 bytes).
+Output written on main.pdf (40 pages, 13899561 bytes).
 PDF statistics:
- 554 PDF objects out of 1000 (max. 8388607)
- 424 compressed objects within 5 object streams
- 124 named destinations out of 1000 (max. 500000)
- 426 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 884 PDF objects out of 1000 (max. 8388607)
+ 683 compressed objects within 7 object streams
+ 171 named destinations out of 1000 (max. 500000)
+ 725 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,16 +1,73 @@
-Testing
+\section{Testing}
 Le testing a été une partie cruciale de notre projet de morphing. Assurer la fiabilité et la précision des algorithmes que nous avons développés nécessitait une approche rigoureuse et méthodique du test. Nous avons mené une série de tests approfondis pour vérifier la robustesse de notre code et garantir que chaque composant fonctionnait comme prévu.
-Approche et Méthodologie
-Pour tester efficacement notre projet, nous avons adopté une approche en plusieurs étapes :
-Tests Unitaires :
-Nous avons commencé par des tests unitaires pour chaque fonction individuelle. Cela comprenait toutes les fonctions des classes Line, Point, Couple, etc. Les tests unitaires visaient à vérifier que chaque fonction de chaque classe renvoyait les résultats attendus pour un ensemble donné d'entrées. Des cas de test simples et complexes ont été utilisés pour s'assurer que les fonctions géraient correctement toutes les situations, y compris les cas limites.
-Tests d'Intégration :
-Une fois que chaque fonction individuelle a été validée, nous avons procédé aux tests d'intégration. Ces tests visaient à vérifier que les différentes classes interagissaient correctement lorsqu'elles étaient combinées. Par exemple, il fallait vérifier que Line, Couple et Point interagissaient correctement entre eux afin que la classe MorphingApp puisse marcher.
-Tests de Régression :
-Chaque fois que des modifications ou des améliorations étaient apportées au code, nous avons effectué des tests de régression pour s'assurer que les nouvelles modifications n'introduisaient pas de nouveaux bugs ou n'altéraient pas le comportement existant de l'application.
-Validation Visuelle :
-Enfin, nous avons utilisé des tests visuels pour valider les résultats du morphing. En visualisant les transformations et les courbes générées, on a pu s'assurer que les algorithmes fonctionnaient correctement et produisaient les résultats attendus. Ces tests étaient particulièrement importants pour les aspects visuels du projet, où les erreurs peuvent souvent être détectées plus facilement par l'œil humain.
+\paragraph{Approche et Méthodologie} Pour tester efficacement notre projet, nous avons adopté une approche en plusieurs étapes :
+\begin{itemize}
+    \item Tests Unitaires : Nous avons testé chaque fonction individuelle pour s'assurer qu'elle renvoyait les résultats attendus pour un ensemble donné d'entrées.
+    \item Tests d'Intégration : Nous avons vérifié que les différentes classes interagissaient correctement lorsqu'elles étaient combinées.
+    \item Tests de Régression : Nous avons effectué des tests de régression pour s'assurer que les nouvelles modifications n'altéraient pas le comportement existant de l'application.
+    \item Validation Visuelle : Nous avons utilisé des tests visuels pour valider les résultats
+\end{itemize}Tests Unitaires :
 
-Les classes des tests peuvent être trouvées en annexe.
-Conclusion
-Grâce à une approche méthodique et rigoureuse du testing, nous avons pu garantir que notre projet de morphing était fiable, robuste et performant. Les tests ont joué un rôle crucial dans l'assurance qualité et ont permis de livrer un produit final de haute qualité.
+\paragraph{Remarque.} Les classes des tests peuvent être trouvées en annexe.
+
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/testvisuel/frame0.png}
+        \caption{Sous-figure 1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/testvisuel/frame1.png}
+        \caption{Sous-figure 2}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/testvisuel/frame2.png}
+        \caption{Sous-figure 3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/testvisuel/frame3.png}
+        \caption{Sous-figure 4}
+    \end{subfigure}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/testvisuel/frame4.png}
+        \caption{Sous-figure 5}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/testvisuel/frame5.png}
+        \caption{Sous-figure 6}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/testvisuel/frame6.png}
+        \caption{Sous-figure 7}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/testvisuel/frame7.png}
+        \caption{Sous-figure 8}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/testvisuel/frame8.png}
+        \caption{Sous-figure 9}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/testvisuel/frame9.png}
+        \caption{Sous-figure 10}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/testvisuel/frame10.png}
+        \caption{Sous-figure 11}
+    \end{subfigure}
+    \caption{Résultats des tests visuels}
+\end{figure}
