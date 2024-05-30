@@ -1,4 +1,2 @@
 \babel@toc {french}{}\relax 
-\contentsline {figure}{\numberline {2}{\ignorespaces Résultats de l'algorithme de morphing\relax }}{6}{figure.caption.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Interpolation linéaire, observez les auto-intersections. \cite {cornillac2010morphing}\relax }}{7}{figure.caption.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Morphing par interpolation longueur-angle à droite, naive à gauche. \cite {sederberg1993}\relax }}{8}{figure.caption.4}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Courbes B-splines\relax }}{4}{figure.caption.2}%
