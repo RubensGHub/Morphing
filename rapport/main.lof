@@ -1,4 +1,9 @@
 \babel@toc {french}{}\relax 
-\contentsline {figure}{\numberline {2}{\ignorespaces Paires d'images à morpher \cite {beier1992feature}\relax }}{3}{figure.caption.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Calcul d'un image intermédiaire \cite {CSC320W}\relax }}{3}{figure.caption.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Apparaiement à un seul vecteur \cite {beier1992feature}\relax }}{4}{figure.caption.4}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Résultats de l'algorithme de morphing\relax }}{6}{figure.caption.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Interpolation linéaire, observez les auto-intersections. \cite {cornillac2010morphing}\relax }}{7}{figure.caption.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Morphing par interpolation longueur-angle à droite, naive à gauche. \cite {sederberg1993}\relax }}{8}{figure.caption.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Courbes B-splines\relax }}{10}{figure.caption.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Paires d'images à morpher \cite {beier1992feature}\relax }}{13}{figure.caption.8}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Calcul d'un image intermédiaire \cite {CSC320W}\relax }}{13}{figure.caption.9}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Apparaiement à un seul vecteur \cite {beier1992feature}\relax }}{14}{figure.caption.10}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Multiple lignes \cite {beier1992feature}\relax }}{16}{figure.caption.13}%
