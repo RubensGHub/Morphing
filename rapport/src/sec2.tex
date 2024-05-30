@@ -66,7 +66,7 @@ $
     
     Soit le point de contrôle \( \mathbf{P}_i \) déplacé vers une nouvelle position \( \mathbf{P}_i + \mathbf{v} \). Alors, la nouvelle courbe B-spline \( D(u) \) de degré \( p \) est la suivante \cite{pansu2004bsplines} :
     \begin{equation}
-        D(u) = C(u) + N_{i,p}(u) \mathbf{v}
+        D(u) = C(u) + N_{i,p}(u)\mathbf{v}
     \end{equation}
 \end{propriete}
 \begin{dem}
@@ -99,7 +99,119 @@ comme ci-dessous:
 \begin{lemme}
     \label{lem:bspline_fermee}
     Soit $\mathcal{C}=(U,P,d)$ une courbe B-Spline.
-    Alors, $\mathcal{C}$ est une courbe fermée si et seulement si $\mathbf{P}_0=\mathbf{P}_m$, où $m=ord(P)$.
+    Alors, $\mathcal{C}$ est une courbe fermée si et seulement si :
+    \begin{enumerate}
+        \item $\mathbf{P}_0=\mathbf{P}_m$, où $m=ord(P)$,
+        \item $U$ est un vecteur de noeuds uniforme.
+    \end{enumerate}
 \end{lemme}
 
+\begin{corollaire}
+    \label{cor:1}
+    Soient $m, N>0$ et $v=(\mathbf{v}_{i,k})_{(i,k)\in\intervalle{0}{m}\times\intervalle{0}{N}}\in\mathcal{M}_{m+1,N+1}(\R^2)$\\
+    Soit $\mathcal{C}_0=(U,P^{(0)},d)$ et $\mathcal{C}_k=(U,P^{(k)},d)$, $k\in\NN$, deux courbes B-Splines telles que :
+    \begin{enumerate}
+        \item $\forall k\in\intervalle{0}{N},\forall i\in\intervalle{0}{m},\, \mathbf{P} _i^{(k)}=\mathbf{P} _i^{(0)}+\mathbf{v}_{i,k}$, 
+        \item $U$ est un vecteur de noeuds uniforme.
+    \end{enumerate}
+\end{corollaire}
+
+\newpage
 \subsection{Morphing de courbes B-splines}
+\paragraph{Principe} Notre approche se distingue en deux phases. Premièrement, laisser à l'utilisateur le soin de réaliser
+l'ajout de points de contrôles, et subséquemment, l'ajustement de la courbe qui modélise la forme souhaitée. Ensuite, nous procédons
+au calcul des fonctions de base $B_{i,p}(u)$ ainsi qu'aux points de la courbes $C(u)$ pour l'image source. Ce faisant, en réalisant
+une interpolation linéaire des points de controles entre les polygones de contrôles de l'image source et de l'image destination,
+nous sommes en mesure de déterminer pour chaque image intermédiaire $0\leq k\leq N$ la position $C^{(k)}(u)$ de la courbe en utilisant
+le corollaire \ref{cor:1}.
+\subsubsection{Calcul d'une courbe B-spline}
+\paragraph{Calcul de la courbe} Dans le sous-domaine mathématique de l'analyse numérique, l'algorithme de de Boor \cite{sheneGeometryNotes} est un algorithme polynomial 
+et numériquement stable pour évaluer les courbes splines sous forme de B-splines. 
+Il s'agit d'une généralisation de l'algorithme de de Casteljau pour les courbes de Bézier. 
+Cet algorithme a été conçu par le mathématicien germano-américain Carl R. de Boor. 
+Des variantes simplifiées et potentiellement plus rapides de l'algorithme de de Boor ont été créées, mais elles souffrent d'une stabilité comparativement plus faible.
+\begin{algorithm}[h!]
+    \BlankLine
+    \SetKwFunction{FMain}{calculerPoint}
+    \SetKwProg{Fn}{Fonction}{:}{}
+    \Fn{\FMain{$u$, $controlPoints$, $nodeVector$}}{
+        $k \leftarrow trouverIntervalle(u, nodeVector)$\;
+        $d \leftarrow controlPoints.subList(k - deg, k + 1)$\;
+        
+        \BlankLine
+        \tcp{Algorithme de De Boor}
+        \For{$r \leftarrow 1$ \KwTo $deg$}{
+            \For{$j \leftarrow k$ \KwTo $k - r$ \KwBy $-1$}{
+                $i \leftarrow j - k + deg$\;
+                $a \leftarrow \frac{u - nodeVector.get(j)}{nodeVector.get(j + deg - r + 1) - nodeVector.get(j)}$\;
+                $interpolated \leftarrow d.get(i - 1).nextPoint(d.get(i), a)$\;
+                $d.set(i, interpolated)$\;
+            }
+        }
+        
+        \BlankLine
+        \Return{$d.get(deg)$}\;
+    } 
+    \caption{Calcul courbes B-splines}
+    \label{algo:deboor}
+\end{algorithm}
+\paragraph{Remarque. } On donne le pseudo-code de la fonction \texttt{trouverIntervalle} dans l'algorithme \ref{algo:trouver-intervalle} en annexe.
+
+\paragraph{Algorithme} On donne ci-après l'algorithme principal pour le morphing de courbes B-splines, basé sur l'approche évoquée plus haut. Malheureusement,
+faute d'appréciation, nous n'avons pas pu tester l'algorithme. Nous en donnons une implémentation en Java complète dans les sources du projet. Par ailleurs,
+ la javadoc est disponible pour une meilleure compréhension de l'implémentation.
+\begin{algorithm}[h!]
+    \SetKwInOut{Input}{Entrée}
+    \SetKwInOut{Output}{Sortie}
+    
+    \Input{Les points de contrôle de l'image source $sourcePoints$, les points de contrôle de l'image destination $destinationPoints$, le nombre d'images intermédiaires à générer $numFrames$}
+    \Output{Une liste d'images intermédiaires représentant le morphing de courbes B-splines}
+    
+    \BlankLine
+    \tcp{Vérifier que les listes de points de contrôle ont la même taille}
+    \If{$sourcePoints.size() \neq destinationPoints.size()$}{
+        \Return{$null$}\;
+    }
+    
+    \BlankLine
+    \tcp{Calculer les vecteurs de noeuds pour les courbes source et destination}
+    $sourceNodeVector \leftarrow calculerNodeVector(sourcePoints.size(), deg)$\;
+    $destinationNodeVector \leftarrow calculerNodeVector(destinationPoints.size(), deg)$\;
+    
+    \BlankLine
+    \tcp{Générer les images intermédiaires}
+    $intermediateImages \leftarrow$ une liste vide\;
+    \For{$i \leftarrow 0$ \KwTo $numFrames$}{
+        $t \leftarrow \frac{i}{numFrames}$\;
+        
+        \BlankLine
+        \tcp{Calculer les points de contrôle intermédiaires par interpolation linéaire}
+        $intermediatePoints \leftarrow$ une liste vide\;
+        \For{$j \leftarrow 0$ \KwTo $sourcePoints.size()$}{
+            $sourcePoint \leftarrow sourcePoints.get(j)$\;
+            $destinationPoint \leftarrow destinationPoints.get(j)$\;
+            $x \leftarrow (1 - t) \cdot sourcePoint.getX() + t \cdot destinationPoint.getX()$\;
+            $y \leftarrow (1 - t) \cdot sourcePoint.getY() + t \cdot destinationPoint.getY()$\;
+            $intermediatePoints.add(new Point(x, y))$\;
+        }
+        
+        \BlankLine
+        \tcp{Calculer les points de la courbe B-spline intermédiaire}
+        $intermediateCurve \leftarrow$ une liste vide\;
+        \For{$u \gets 0$ \KwTo $1$ \KwBy $0.01$}{
+            $point \leftarrow calculerPoint(u, intermediatePoints, sourceNodeVector)$\;
+            $intermediateCurve.add(point)$\;
+        }
+        
+        \BlankLine
+        \tcp{Ajouter l'image intermédiaire à la liste}
+        $intermediateImage \leftarrow genererImage(intermediateCurve)$\;
+        $intermediateImages.add(intermediateImage)$\;
+    }
+    
+    \BlankLine
+    \Return{$intermediateImages$}\;
+    \caption{Morphing de courbes B-splines}
+    \label{algo:mainalgorithm}
+\end{algorithm}
+

@@ -1,0 +1,20 @@
+\section[Splines]{Morphing de courbes splines}
+\begin{algorithm}
+    \tcp{Trouve l'intervalle dans le vecteur de noeuds qui contient le paramètre u}
+    \SetKwFunction{FMain}{trouverIntervalle}
+    \SetKwProg{Fn}{Fonction}{:}{}
+    \Fn{\FMain{$u$, $nodeVector$}}{
+        $n \leftarrow nodeVector.size() - 1$\;
+        \If{$u \geq nodeVector.get(n)$}{
+            \Return{$n - 1$}\;
+        }
+        \For{$i \leftarrow 0$ \KwTo $n - 1$}{
+            \If{$u \geq nodeVector.get(i)$ \textbf{and} $u < nodeVector.get(i + 1)$}{
+                \Return{$i$}\;
+            }
+        }
+        \Return{$-1$} \tcp{Interval not found}
+    }
+    \caption{Trouver intervalle}
+    \label{algo:trouver-intervalle}
+\end{algorithm}

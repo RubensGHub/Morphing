@@ -1,8 +1,16 @@
 \begin{thebibliography}{1}
 
-\bibitem{pansu2004bsplines}
-Pierre Pansu.
-\newblock Courbes b-splines, 2004.
-\newblock Accessed: 2024-05-30.
+\bibitem{beier1992feature}
+Thaddeus Beier and Shawn Neely.
+\newblock Feature-based image metamorphosis.
+\newblock {\em Computer Graphics}, 26(2):35--42, 1992.
+
+\bibitem{CSC320W}
+{Department of Computer Science, University of Toronto} and {Flores-Mangas,
+  Fernando}.
+\newblock Csc320w: Introduction to visual computing.
+\newblock Course Material, 2021.
+\newblock Course syllabus, lecture slides, and other materials may be available
+  on the course website or through the department.
 
 \end{thebibliography}

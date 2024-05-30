@@ -150,7 +150,9 @@ public class morphingSpline extends Observable {
     public void calculate(){
         this.frames = new ImageS[this.nbFrames];
         // Calculer C et N pour imgSrc
-
+        this.imgSrc.getSpline().computeUniformVector();
+        this.imgSrc.getSpline().computeMatrice();
+        
         for(int i=0 ; i < this.nbFrames ; i++) {
             this.frames[i] = this.newFrame(this.imgSrc, this.imgDest, i);
             Graphics2D g2d = this.frames[i].getImage().createGraphics();
