@@ -26,7 +26,7 @@ public class AccueilApp extends Application {
         boutonCourbe.setOnAction(event -> afficherSecondEcran3(primaryStage));
 
 
-        Label phrase = new Label("Pour commencer le morphing, appuyez sur le bouton start");
+        Label phrase = new Label("Pour commencer le morphing, appuyez sur le morphing que vous souhaitez utiliser");
         phrase.getStyleClass().add("phrase");
 
         VBox vbox = new VBox(20);
