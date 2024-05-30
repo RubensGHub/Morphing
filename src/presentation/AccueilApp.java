@@ -40,7 +40,7 @@ public class AccueilApp extends Application {
         root.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         root.getChildren().add(vbox);
 
-        Scene scene = new Scene(root, 700, 400);
+        Scene scene = new Scene(root, 900, 500);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         
         primaryStage.setTitle("Application de Morphing");
