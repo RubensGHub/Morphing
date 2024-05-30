@@ -17,10 +17,13 @@ public class AccueilApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         Button boutonBeier = new Button("Morphing d'images");
         Button boutonSimple = new Button("Morphing Simple");
+        Button boutonCourbe = new Button("Morphing Simple Arrondie");
         boutonBeier.getStyleClass().add("boutonBeier");
         boutonSimple.getStyleClass().add("boutonSimple");
+        boutonCourbe.getStyleClass().add("boutonCourbe");
         boutonBeier.setOnAction(event -> afficherSecondEcran(primaryStage));
         boutonSimple.setOnAction(event -> afficherSecondEcran2(primaryStage));
+        boutonCourbe.setOnAction(event -> afficherSecondEcran3(primaryStage));
 
 
         Label phrase = new Label("Pour commencer le morphing, appuyez sur le bouton start");
@@ -31,7 +34,7 @@ public class AccueilApp extends Application {
         vbox.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, new CornerRadii(15), Insets.EMPTY)));
         vbox.setPadding(new Insets(50)); 
         vbox.getStyleClass().add("vboxAccueil");
-        vbox.getChildren().addAll(phrase, boutonSimple, boutonBeier);
+        vbox.getChildren().addAll(phrase, boutonSimple, boutonCourbe, boutonBeier);
 
         StackPane root = new StackPane();
         root.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -59,6 +62,17 @@ public class AccueilApp extends Application {
     private void afficherSecondEcran2(Stage primaryStage) {
         Stage secondStage = new Stage();
         AppSimple secondScreen = new AppSimple();
+        try {
+            secondScreen.start(secondStage);
+            primaryStage.close(); 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void afficherSecondEcran3(Stage primaryStage) {
+        Stage secondStage = new Stage();
+        AppCourbe secondScreen = new AppCourbe();
         try {
             secondScreen.start(secondStage);
             primaryStage.close(); 
