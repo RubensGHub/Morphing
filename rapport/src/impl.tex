@@ -1,0 +1,75 @@
+
+\section{Implémentation en Java}
+
+\subsection{JavaFX (PAC)}
+
+Au niveau de la partie JavaFx nous avons décidé de partir sur une première scène de menu qui nous permet de choisir le type de morphing voulu. Nous avons trois options. Tout d’abord le morphing de formes unies simples. Ensuite le morphing de formes unies arrondies. Enfin la troisième option, le morphing d’images.
+
+Lorsque l’on clique sur l’un des trois boutons, cela quitte la page du menu et ouvre la fenêtre correspondante au morphing souhaité. Par la suite, nous avons opté pour diviser la fenêtre en trois parties. Une à gauche de l’écran, une autre au centre de l’écran et la dernière à droite de l’écran. Dans la partie gauche, nous avons créé un bouton pour ajouter une image dans le carré que l’on a créé dans la partie javaFx. Cette image correspond à l’image de départ. Nous avons fait la même chose à droite mais cette fois-ci l’image correspond à l’image d’arrivée. En revanche, au milieu de l’écran nous avons opté pour un slider qui permet de choisir le nombre d’images intermédiaires à créer pour effectuer le morphing ainsi que du bouton “Morphing” qui permet la création du gif.
+
+Ajoutons également que, quand il y a une photo à droite et à gauche (image de départ et d’arrivée) l’utilisateur peut ajouter des points de contrôles à gauche et à droite. Pour un morphing simple, l’utilisateur ajoute des points sur les images alors que pour un morphing d’images, l’utilisateur ajoute deux points sur une image afin de former une ligne. Il faut noter qu’il faut intervertir l’ajout de point sur les deux images. C'est-à-dire un point à gauche puis un point à droite. Et pour le morphing d’images c’est une ligne à gauche (deux points) puis une ligne à droite (deux points). Tant qu’il n’y a pas le même nombre de points de chaque côté, on ne peut avoir un côté avec plus de points que l’autre. 
+
+Ensuite, toujours dans la partie JavaFx, nous avons opté pour utiliser la méthode PAC (Présentation, Abstraction, Control). La partie présentation est représentée par tout ce qui est le visuel du JavaFx. La partie abstraction représente toute la partie java, c'est-à-dire tout le code, fonctions afin de réaliser un morphing. Finalement, la partie contrôle représente tous les contrôleurs. Il faut un contrôleur pour chaque boutons, sliders, images, points de contrôle. Les contrôleurs font le lien entre la partie java et la partie JavaFx. Nous avons choisie de partir la dessus car cette méthode nous offre de nombreux avantages comme :
+
+
+
+\begin{itemize}
+	\item Lorsque l’on change quelque chose dans le programme (par exemple dans notre projet, l’image de départ ou le nombre d’images intermédiaires) tous les objets qui ont besoin de ceci seront automatiquement modifiés.
+	\item Les objets qui produisent des données  et les objets qui utilisent ces données (les observateurs) sont indépendants. On peut changer l'un sans affecter l'autre. Cela rend le code plus modulaire.
+\end{itemize}
+
+
+
+
+\subsection{Librairies}
+
+Nous avons utilisé un certain nombre de librairies afin de réaliser ce projet. Tout d’abord, nous avons utilisé toutes les librairies JavaFx vues et utilisées lors des TD de Java puis nous avons ajouté une autre librairie afin de réaliser le Gif. Les imports réalisés pour obtenir un Gif sont : 
+
+\begin{itemize}
+	\item import com.quareup.gifencoder.GifEncoder ;
+	\item import com.squareup.gifencoder.ImageOptions.
+\end{itemize}
+
+
+Nous avons également importé les librairies java.io qui permettent de gérer des erreurs.
+
+Ensuite, pour tous les contrôleurs, nous avons importé java.util.Observable ainsi que java.util.Observer.
+
+Pour toute la partie JavaFx, afin de pouvoir avoir des boutons, sliders, labels, des images, ou encore pouvoir cliquer sur un canvas pour afficher des points de contrôles et bien plus, nous avons ajouté toutes les librairies suivantes :
+
+
+\begin{itemize}
+	\item import javafx.embed.swing.SwingFXUtils ;
+	\item import javafx.scene.image.Image ;
+	\item import javafx.scene.image.ImageView ;
+	\item import javafx.application.Application ;
+	\item import javafx.geometry.Insets ;
+	\item import javafx.geometry.Pos ;
+	\item import javafx.scene.Scene ;
+	\item import javafx.scene.control.Button ;
+	\item import javafx.scene.control.Label ;
+	\item import javafx.scene.layout.* ;
+	\item import javafx.scene.paint.Color;
+	\item import javafx.stage.Stage ;
+	\item import javafx.embed.swing.SwingFXUtils ;
+	\item import javafx.scene.canvas.Canvas ;
+	\item import javafx.scene.canvas.GraphicsContext ;
+	\item import javafx.scene.control.Slider ;
+	\item import javafx.scene.shape.Rectangle ;
+	\item import javafx.scene.text.Text ;
+	\item import javafx.stage.Stage.
+\end{itemize}
+
+
+
+\subsection{Tests unitaires}
+
+\subsection{Bonus : CSS}
+
+Nous avons créé un fichier CSS afin de rendre plus esthétique notre projet. Dans ce fichier, nous avons modifié la couleur de l'arrière-plan de chaque scène. Nous avons également modifier l'apparence des boutons se trouvant dans chaque scène.
+
+
+
+
+
+
