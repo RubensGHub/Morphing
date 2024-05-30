@@ -242,3 +242,34 @@ Subséquemment, pour une image intermédiaire $k \in \{0,\ldots,N\}$, avec $t=\f
         l^{(k)}_i &= (1-t)l_i+tq_i\\
         \theta^{(k)}_i &= (1-t)\theta_i+t\theta_i
 \end{align*}
+
+\paragraph{} Ce faisant, pour le calcul des images intermédiaires on donne l'algorithme suivant:
+
+\begin{algorithm}[H]
+    \caption{générationFramesLA}\label{alg:1}
+    \SetAlgoLined
+    \KwData{$P,Q\in\mathbb{P}_n$ deux polygones, $N>0$ le nombre de frames}
+    \KwResult{Une suite de polygones $(P_k)$}
+    $P^*\gets(P_1,\dots,P_N)$\\
+    $P_0\gets P$, $P_N\gets Q$\\
+    \For{$k\gets 0$ \KwTo $N$}{
+        $t\gets\frac{k}{N}$\\
+        $P_k=((l^{(k)}_1,\theta^{(k)}_1),\ldots,(l^{(k)}_n,\theta^{(k)}_n))$\\ 
+        \For{$i\gets 1$ \KwTo $n$}{
+            $l^{(k)}_i\gets (1-t)l_i+tq_i$\\
+            $\theta^{(k)}_i\gets (1-t)\theta_i+t\theta_i$
+        }
+    }
+    \Return $P^*$
+\end{algorithm}
+
+\subsubsection{Cas des images matricielles}
+\begin{codeb}
+    En l'état, et de par des contraintes de temps, nous n'avons pas implémenté ce segond algorithme. On donne cependant une comparaison des résultats obtenus par \emph{Sederberg et al} \cite{sederberg1993} avec les deux méthodes.
+\end{codeb}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics{img/p1/la.png}
+    \caption{Morphing par interpolation longueur-angle à droite, naive à gauche. \cite{sederberg1993}}
+\end{figure}

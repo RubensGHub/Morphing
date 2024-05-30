@@ -1,0 +1,105 @@
+\section{Morphing de formes courbes}
+\label{sec:morphing_courbes}
+
+\paragraph{} Les polylignes à courbure nulle ne permettent pas une représentation précise de formes courbes. 
+Pour pallier ce problème, nous allons nous appuyer sur les \emph{courbes B-splines}, couramment utilisées en CAO pour représenter des formes courbes \cite{pansu2004bsplines}.
+
+
+\subsection{Propédeutique au morphing de courbes splines}
+
+\subsubsection{Splines}
+
+\begin{definition}
+    Considérons des réels $u_0 < u_1 < \ldots < u_m$, et $p\in\NN$.
+    On définit les \emph{fonction B-Splines} $B_{i, p}$ par récurrence sur $p$ et $i$ dans $\NN$ comme suit :
+    
+    \begin{equation}
+        \begin{cases}
+            \text{Pour } 0 \leq i \leq m-1 \\
+            B_{i, 0}(u)=1 \text{ si } u \in[u_i, u_{i+1}[, \quad B_{i, 0}(u)=0 \text{ sinon }
+        \end{cases}
+    \end{equation}
+    \begin{equation}
+        \begin{cases}
+            \text{Pour } 0 \leq i \leq m-1 \\
+            B_{i, p}(u)=\frac{u-u_i}{t_{i+p}-t_i}B_{i, p-1}(u)+\frac{u_{i+p+1}-u}{u_{i+p+1}-u_{i+1}}B_{i+1, p-1}(u)
+        \end{cases}
+    \end{equation}
+    
+\end{definition}
+\paragraph{Notation.} Soit $j=1, \ldots, m+1-i$. , on note:
+$
+\begin{cases}
+    \omega_{i, j}(u)=\frac{u-u_i}{u_{i+j}-u_i} & \text{si } u_i<u_{i+1},\\
+    \omega_{i, j}=0 & \text{sinon}.
+\end{cases}$
+\vspace*{0.5cm}
+
+\begin{coder}
+\textbf{Convention.  } Pour la suite, toute fonction dont le dénominateur est nul sera considérée comme nulle.
+\end{coder}
+
+\begin{definition}
+    Ainsi, on a pour $i \in \{0, \ldots, m-p-1\}$ et $p \in \NN$ :
+    \begin{align*}
+        B_{i, 0}(u)=&1 \quad \text { pour } \quad t \in\left[u_i, t_{i+1}[=0\text {, }\right.\\
+        B_{i, p}(u)=&\sum_{j=1}^{m+1-i} \omega_{i, j}(u)B_{i, p-1}(u) \quad \text { pour } p>0.
+    \end{align*}
+\end{definition}
+
+\subsubsection{Courbes B-Splines}
+
+\begin{definition}
+    Soit $m\in\NN$. On appelle $(u_i)_{0 \leq i \leq m}$, \emph{vecteur de noeuds}, et $p$, \emph{degré de la B-spline}.
+    On considère aussi des \emph{points de contrôle} $\mathbf{P}_1, \dots, \mathbf{P}_m$ de $\R^n$. De fait, $(\mathbf{P}_i)_{0 \leq i \leq m}$ forme un \emph{polygone de contrôle}.
+    La \emph{courbe B-Spline} d'ordre $p$ associée à ces données est définie par:
+    \begin{equation}
+        u \longmapsto C(u)=\sum_{i=0}^{m} B_{i, p}(u)\mathbf{P}_i.
+    \end{equation}
+\end{definition}
+
+\begin{propriete}
+    Supposons que \( C(u) \) soit une courbe B-spline de degré \( p \) définie comme suit :
+    \[
+    C(u) = \sum_{i=0}^{n} B_{i,p}(u) \mathbf{P}_i
+    \]
+    
+    Soit le point de contrôle \( \mathbf{P}_i \) déplacé vers une nouvelle position \( \mathbf{P}_i + \mathbf{v} \). Alors, la nouvelle courbe B-spline \( D(u) \) de degré \( p \) est la suivante \cite{pansu2004bsplines} :
+    \begin{equation}
+        D(u) = C(u) + N_{i,p}(u) \mathbf{v}
+    \end{equation}
+\end{propriete}
+\begin{dem}
+    \begin{align*}
+        D(u) &= \sum_{i=0}^{n} B_{i,p}(u) (\mathbf{P}_i + \mathbf{v}) \\
+        &= \sum_{i=0}^{n} B_{i,p}(u) \mathbf{P}_i + \sum_{i=0}^{n} B_{i,p}(u) \mathbf{v} \\
+        &= C(u) + \sum_{i=0}^{n} B_{i,p}(u) \mathbf{v} \\
+        &= C(u) + N_{i,p}(u) \mathbf{v}
+    \end{align*}
+\end{dem}
+\paragraph{En pratique} Desormais, il nous est possible, sur la base de points de contrôle, d'un vecteur de noeud et du degré de la B-spline, de générer une courbe B-spline
+comme ci-dessous:
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+        \Bezier{0,0}{1,1}{2,-1}{3,0}
+        \begin{scope}[xshift=4cm]
+            \Bezier{0,0}{9,2}{-2,2}{7,0}
+        \end{scope}
+        \begin{scope}[yshift=-5cm]
+            \Bezier{0,0}{1,3}{2,3}{7,0}
+    \end{scope}
+    \begin{scope}[xshift=8cm,yshift=-5cm]
+        \Bezier{0,0}{-2,4}{4,-1}{5,0}
+    \end{scope}
+\end{tikzpicture}
+\caption{Courbes B-splines}
+\label[figure]{fig:bsplines}
+\end{figure}
+\begin{lemme}
+    \label{lem:bspline_fermee}
+    Soit $\mathcal{C}=(U,P,d)$ une courbe B-Spline.
+    Alors, $\mathcal{C}$ est une courbe fermée si et seulement si $\mathbf{P}_0=\mathbf{P}_m$, où $m=ord(P)$.
+\end{lemme}
+
+\subsection{Morphing de courbes B-splines}

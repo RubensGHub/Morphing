@@ -1,0 +1,27 @@
+package morphingImages.controle;
+
+import java.util.Observable;
+import java.util.Observer;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import morphingImages.abstraction.MorphingApp;
+
+@SuppressWarnings("deprecation")
+public class ControleBoutonBeier implements Observer, EventHandler<ActionEvent> {
+    private MorphingApp app;
+
+
+    public ControleBoutonBeier(MorphingApp app){
+        this.app = app;
+    }
+
+    @Override
+    public void handle(ActionEvent event) {
+        app.calculate();
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        
+    }
+}

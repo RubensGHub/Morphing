@@ -1,0 +1,133 @@
+/*** AccueilApp.java ***/
+
+.boutonBeier {
+    -fx-background-color: linear-gradient(#a5a2a2, #c24343);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-min-width: 250px;
+    -fx-max-width: 250px;
+    -fx-pref-width: 250px;
+    -fx-min-height: 50px;
+    -fx-max-height: 50px;
+    -fx-pref-height: 50px;
+}
+
+.boutonBeier:hover {
+    -fx-background-color: linear-gradient(#cfcccc, #e97070);
+}
+
+.boutonBeier:pressed {
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+    -fx-scale-z: 0.9;
+}
+
+.boutonSimple {
+    -fx-background-color: linear-gradient(#a5a2a2, #4365c2);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-min-width: 250px;
+    -fx-max-width: 250px;
+    -fx-pref-width: 250px;
+    -fx-min-height: 50px;
+    -fx-max-height: 50px;
+    -fx-pref-height: 50px;
+}
+
+.boutonSimple:hover {
+    -fx-background-color: linear-gradient(#d8d2d2, #7087e9);
+}
+
+.boutonSimple:pressed {
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+    -fx-scale-z: 0.9;
+}
+
+.boutonCourbe {
+    -fx-background-color: linear-gradient(#a5a2a2, #43c249);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-min-width: 250px;
+    -fx-max-width: 250px;
+    -fx-pref-width: 250px;
+    -fx-min-height: 50px;
+    -fx-max-height: 50px;
+    -fx-pref-height: 50px;
+}
+
+.boutonCourbe:hover {
+    -fx-background-color: linear-gradient(#d8d2d2, #70e97a);
+}
+
+.boutonCourbe:pressed {
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+    -fx-scale-z: 0.9;
+}
+
+.phrase {
+    -fx-font-size: 16px;
+    -fx-text-fill: #020202;
+    -fx-font-weight: bold;
+}
+
+.vboxAccueil {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5);
+}
+
+
+/*** MainApp.java ***/
+
+#body {
+    -fx-background-color: linear-gradient(white, skyblue);
+}
+
+#header {
+    -fx-alignment: center;
+    -fx-padding: 30px;
+}
+
+#h1 {
+    -fx-font-size: 50px;
+}
+
+#h2 {
+    -fx-font-size: 30px;
+}
+
+.vb {
+    -fx-alignment: center;
+    -fx-padding: 50px;
+    -fx-max-width: 500px;
+}
+
+.bouton {
+    -fx-background-color: linear-gradient(#317AC1, #c24343);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.bouton:hover {
+    -fx-background-color: linear-gradient(#72ace6, #d37676);
+}
+
+.bouton:pressed {
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+    -fx-scale-z: 0.9;
+}
+
+#footer {
+    -fx-alignment: center;
+    -fx-padding: 30px;
+}

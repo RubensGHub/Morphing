@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  29 MAY 2024 19:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  30 MAY 2024 17:39
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1139,43 +1139,36 @@ runsystem(which pygmentize && touch main.aex)...executed.
 
 runsystem(rm main.aex)...executed.
 
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 84.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 99.
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) (./main.aux (./src/sec1.aux
-
-LaTeX Warning: Label `prop:1' multiply defined.
-
-
-LaTeX Warning: Label `prop:1@cref' multiply defined.
-
-))
+) (./main.aux (./src/sec2.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Info: Redefining \degres on input line 84.
-LaTeX Info: Redefining \up on input line 84.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Info: Redefining \degres on input line 99.
+LaTeX Info: Redefining \up on input line 99.
  (/usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictionary-french.trsl
 File: translations-basic-dictionary-french.trsl (french translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `french'. on input line 84.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `french'. on input line 99.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count419
@@ -1199,8 +1192,8 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package tocbasic Info: usage of `tocbibind' detected on input line 84.
-Package hyperref Info: Link coloring OFF on input line 84.
+Package tocbasic Info: usage of `tocbibind' detected on input line 99.
+Package hyperref Info: Link coloring OFF on input line 99.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1210,9 +1203,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count425
 )
-LaTeX Info: Redefining \ref on input line 84.
-LaTeX Info: Redefining \pageref on input line 84.
-LaTeX Info: Redefining \nameref on input line 84.
+LaTeX Info: Redefining \ref on input line 99.
+LaTeX Info: Redefining \pageref on input line 99.
+LaTeX Info: Redefining \nameref on input line 99.
  (./main.out) (./main.out)
 \@outlinefile=\write7
 \openout7 = `main.out'.
@@ -1253,201 +1246,137 @@ LaTeX Info: Redefining \nameref on input line 84.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count426
-<logos/logoGraphene.png, id=78, 1085.05376pt x 361.35pt>
+<logos/logoGraphene.png, id=70, 1085.05376pt x 361.35pt>
 File: logos/logoGraphene.png Graphic file (type png)
 <use logos/logoGraphene.png>
-Package pdftex.def Info: logos/logoGraphene.png  used on input line 118.
+Package pdftex.def Info: logos/logoGraphene.png  used on input line 133.
 (pdftex.def)             Requested size: 213.39568pt x 71.0612pt.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 118.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 133.
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 118.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 133.
  (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 118.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 133.
  (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 118.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 133.
  (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 118.
+(Font)              <12> on input line 133.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 118.
+(Font)              <8> on input line 133.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 118.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 118.
+(Font)              <6> on input line 133.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 133.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 118.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 133.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 118.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 133.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-<logos/logoCS.png, id=80, 285.065pt x 150.5625pt>
+<logos/logoCS.png, id=72, 285.065pt x 150.5625pt>
 File: logos/logoCS.png Graphic file (type png)
 <use logos/logoCS.png>
-Package pdftex.def Info: logos/logoCS.png  used on input line 118.
+Package pdftex.def Info: logos/logoCS.png  used on input line 133.
 (pdftex.def)             Requested size: 128.0387pt x 67.62613pt.
-<logos/bordureCS.png, id=81, 377.41pt x 184.69pt>
+<logos/bordureCS.png, id=73, 377.41pt x 184.69pt>
 File: logos/bordureCS.png Graphic file (type png)
 <use logos/bordureCS.png>
-Package pdftex.def Info: logos/bordureCS.png  used on input line 118.
+Package pdftex.def Info: logos/bordureCS.png  used on input line 133.
 (pdftex.def)             Requested size: 358.50867pt x 175.44038pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logos/bordureCS.png> <./logos/logoGraphene.png> <./logos/logoCS.png>]
-<logos/CSxParisSaclay.jpg, id=95, 401.5pt x 223.83624pt>
+<logos/CSxParisSaclay.jpg, id=87, 401.5pt x 223.83624pt>
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 128.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 143.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.128 \newpage
+l.143 \newpage
                [1 <./logos/CSxParisSaclay.jpg>] (./main.toc)
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
  [2]
-\openout2 = `src/sec1.aux'.
+\openout2 = `src/sec2.aux'.
 
- (./src/sec1.tex
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 12.
+ (./src/sec2.tex
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 13.
+Package hyperref Info: bookmark level for unknown propriete defaults to 0 on input line 62.
+Package hyperref Info: bookmark level for unknown dem defaults to 0 on input line 73.
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 59.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 78.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
  [3
 
 
 ]
-Package hyperref Info: bookmark level for unknown propriete defaults to 0 on input line 96.
-Package hyperref Info: bookmark level for unknown dem defaults to 0 on input line 101.
+Package hyperref Info: bookmark level for unknown lemme defaults to 0 on input line 100.
+)
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 118.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 167.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [4]
-Underfull \hbox (badness 10000) in paragraph at lines 120--123
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
-
- []
-
-File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
-<use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 171.
-(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
-[5]
-<img/p1/1.png, id=159, 501.875pt x 501.875pt>
-File: img/p1/1.png Graphic file (type png)
-<use img/p1/1.png>
-Package pdftex.def Info: img/p1/1.png  used on input line 177.
-(pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
-<img/p1/2.png, id=160, 501.875pt x 501.875pt>
-File: img/p1/2.png Graphic file (type png)
-<use img/p1/2.png>
-Package pdftex.def Info: img/p1/2.png  used on input line 182.
-(pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
-<img/p1/3.png, id=161, 501.875pt x 501.875pt>
-File: img/p1/3.png Graphic file (type png)
-<use img/p1/3.png>
-Package pdftex.def Info: img/p1/3.png  used on input line 187.
-(pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
-<img/p1/4.png, id=162, 501.875pt x 501.875pt>
-File: img/p1/4.png Graphic file (type png)
-<use img/p1/4.png>
-Package pdftex.def Info: img/p1/4.png  used on input line 192.
-(pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
-<img/p1/5.png, id=163, 501.875pt x 501.875pt>
-File: img/p1/5.png Graphic file (type png)
-<use img/p1/5.png>
-Package pdftex.def Info: img/p1/5.png  used on input line 197.
-(pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
-<img/p1/6.png, id=164, 501.875pt x 501.875pt>
-File: img/p1/6.png Graphic file (type png)
-<use img/p1/6.png>
-Package pdftex.def Info: img/p1/6.png  used on input line 202.
-(pdftex.def)             Requested size: 136.57166pt x 136.57251pt.
-<img/p1/naif.png, id=165, 366.36874pt x 97.36375pt>
-File: img/p1/naif.png Graphic file (type png)
-<use img/p1/naif.png>
-Package pdftex.def Info: img/p1/naif.png  used on input line 219.
-(pdftex.def)             Requested size: 366.36784pt x 97.3635pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
-<use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 225.
-(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
-[6 <./img/p1/1.png> <./img/p1/2.png> <./img/p1/3.png> <./img/p1/4.png> <./img/p1/5.png> <./img/p1/6.png>])
-File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
-<use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 151.
-(pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [7 <./img/p1/naif.png>] (./main.loa)
+ [4] (./main.loa)
 \tf@loa=\write9
 \openout9 = `main.loa'.
 
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 162.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 178.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [8
+ [5
 
 
 ] (./main.lof)
 \tf@lof=\write10
 \openout10 = `main.lof'.
 
- [9] (./appendix.tex)
+ [6] (./appendix.tex)
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 177.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 193.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [10] (./main.bbl)
+ [7] (./main.bbl)
 \tf@thm=\write11
 \openout11 = `main.thm'.
 
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
-Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 180.
+Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 196.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
- [11] (./main.aux (./src/sec1.aux))
-
-LaTeX Warning: There were multiply-defined labels.
-
+ [8] (./main.aux (./src/sec2.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6F1BE030F7935D553BCCCB5D44FCC124;1277.
+(rerunfilecheck)             Checksum: A5FA476CA6E8CA4DCAD1EE68035C3AC3;1124.
  ) 
 Here is how much of TeX's memory you used:
- 46213 strings out of 478287
- 983424 string characters out of 5849289
- 1490587 words of memory out of 5000000
- 63557 multiletter control sequences out of 15000+600000
- 533183 words of font info for 65 fonts, out of 8000000 for 9000
+ 46180 strings out of 478287
+ 983243 string characters out of 5849289
+ 1493587 words of memory out of 5000000
+ 63549 multiletter control sequences out of 15000+600000
+ 542011 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 125i,17n,120p,507b,940s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (12 pages, 470624 bytes).
+ 125i,17n,120p,507b,942s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (9 pages, 423451 bytes).
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
- 205 compressed objects within 3 object streams
- 48 named destinations out of 1000 (max. 500000)
- 284 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 
