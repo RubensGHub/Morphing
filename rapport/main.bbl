@@ -5,6 +5,12 @@ Thaddeus Beier and Shawn Neely.
 \newblock Feature-based image metamorphosis.
 \newblock {\em Computer Graphics}, 26(2):35--42, 1992.
 
+\bibitem{cornillac2010morphing}
+Mélanie Cornillac.
+\newblock {\em Morphing multirésolution de courbes}.
+\newblock Modélisation et simulation, Université de Grenoble, 2010.
+\newblock NNT : ff, tel-00581474f.
+
 \bibitem{CSC320W}
 {Department of Computer Science, University of Toronto} and {Flores-Mangas,
   Fernando}.
@@ -12,5 +18,23 @@ Thaddeus Beier and Shawn Neely.
 \newblock Course Material, 2021.
 \newblock Course syllabus, lecture slides, and other materials may be available
   on the course website or through the department.
+
+\bibitem{pansu2004bsplines}
+Pierre Pansu.
+\newblock Courbes b-splines, 2004.
+\newblock Accessed: 2024-05-30.
+
+\bibitem{sederberg1993}
+T.W. Sederberg, P.~Gao, G.~Wang, and H.~Mu.
+\newblock 2-d shape blending: An intrinsic solution to the vertex path problem.
+\newblock In {\em Computer Graphics (SIGGRAPH 93 Proceedings)}, volume~27,
+  pages 15--18, 1993.
+
+\bibitem{sheneGeometryNotes}
+C.-K. Shene.
+\newblock Cs3621 introduction to computing with geometry notes, Year Not
+  Specified.
+\newblock Professor, Department of Computer Science, Michigan Technological
+  University.
 
 \end{thebibliography}

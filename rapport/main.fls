@@ -1635,6 +1635,12 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT ./main.aux
 INPUT main.aux
 INPUT main.aux
+INPUT ./src/sec1.aux
+INPUT src/sec1.aux
+INPUT src/sec1.aux
+INPUT ./src/sec2.aux
+INPUT src/sec2.aux
+INPUT src/sec2.aux
 INPUT ./src/sec3.aux
 INPUT src/sec3.aux
 INPUT src/sec3.aux
