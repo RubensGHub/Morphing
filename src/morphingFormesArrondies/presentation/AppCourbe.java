@@ -142,7 +142,7 @@ public class AppCourbe extends Application {
 
         // SCENE
         Scene scene = new Scene(root, 1500, 1500);
-        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("commun/style.css").toExternalForm());
         
         primaryStage.setScene(scene);
         primaryStage.setTitle("Application de Morphing");

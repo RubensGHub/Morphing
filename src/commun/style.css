@@ -51,7 +51,6 @@
 .boutonSimple:hover
 {
     -fx-background-color: linear-gradient(#d8d2d2, #7087e9);
-    -fx-cursor: pointer;
 }
 
 .boutonSimple:pressed

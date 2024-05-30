@@ -7,7 +7,6 @@ import morphingFormesArrondies.presentation.*;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,9 +25,6 @@ public class AccueilApp extends Application {
         boutonBeier.getStyleClass().add("boutonBeier");
         boutonSimple.getStyleClass().add("boutonSimple");
         boutonCourbe.getStyleClass().add("boutonCourbe");
-        boutonBeier.setCursor(Cursor.HAND);
-        boutonSimple.setCursor(Cursor.HAND);
-        boutonCourbe.setCursor(Cursor.HAND);
         boutonBeier.setOnAction(event -> afficherSecondEcran(primaryStage));
         boutonSimple.setOnAction(event -> afficherSecondEcran2(primaryStage));
         boutonCourbe.setOnAction(event -> afficherSecondEcran3(primaryStage));
@@ -49,7 +45,7 @@ public class AccueilApp extends Application {
         root.getChildren().add(vbox);
 
         Scene scene = new Scene(root, 900, 500);
-        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("commun/style.css").toExternalForm());
         
         primaryStage.setTitle("Application de Morphing");
         primaryStage.setScene(scene);
