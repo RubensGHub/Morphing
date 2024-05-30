@@ -10,8 +10,8 @@ Il est également possible de choisir le nombre total d'images intermédiaires q
 Afin de pouvoir lancer le projet, il est nécessaire d'installer les librairies requises pour l'utilisation du JavaFX.
 Commencez par extraire le dossier de l'archive.
 Poursuivez en ouvrant le projet dans votre éditeur de texte préféré. Téléchargez javafx SFX ici : https://gluonhq.com/products/javafx/ (version 22.0.1 ou la plus récente). 
-    - Sur Eclipse, ajoutez les librairies .jar téléchargées précédemment dans le menu Java Build Path ;
-    - Sur Visual Studio Code, ajoutez les librairies .jar téléchargées précédemment en cliquant sur le "+" de "Referenced Libraries", dans la partie "JAVA PROJECT".
+- Sur Eclipse, ajoutez les librairies .jar téléchargées précédemment dans le menu Java Build Path ;
+- Sur Visual Studio Code, ajoutez les librairies .jar téléchargées précédemment en cliquant sur le "+" de "Referenced Libraries", dans la partie "JAVA PROJECT".
 Il vous faudra également télécharger une librairie "gifencoder" pour veiller au bon fonctionnement du GIF (https://jar-download.com/artifact-search/gifencoder).
 
 
