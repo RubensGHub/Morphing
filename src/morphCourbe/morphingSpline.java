@@ -108,12 +108,15 @@ public class morphingSpline extends Observable {
         double tMax = spline.getNode(spline.getNodeVector().size() - 1 - spline.getDeg());
         Point v = new Point(0,0);
         for (int i = 0; i < spline.getcontrolPolygon().size(); i++) {
-            v.add(new Point((int)(spline.gettVector(i).getX()*imgSrc.getSpline().matrice[i][0]),(int)(spline.gettVector(i).getY()*imgSrc.getSpline().matrice[i][0])));
+            v.add(new Point((int)(spline.gettVector(i).getX()*imgSrc.getSpline().matrice[i][(int)tMin*100]),(int)(spline.gettVector(i).getY()*imgSrc.getSpline().matrice[i][(int)(100*tMin)])));
         }
         g2d.setColor(Color.BLUE);
         Point previousPoint = spline.calculerPoint(tMin).add(v);
 
         for (double t = tMin + step; t <= tMax; t += step) {
+            for (int i = 0; i < spline.getcontrolPolygon().size(); i++) {
+                v.add(new Point((int)(spline.gettVector(i).getX()*imgSrc.getSpline().matrice[i][(int)(100*t)]),(int)(spline.gettVector(i).getY()*imgSrc.getSpline().matrice[i][(int)(100*t)])));
+            }
             Point point = spline.calculerPoint(t).add(v);
             g2d.draw(new Line2D.Double(previousPoint.getX(),previousPoint.getY(),point.getX(),point.getY()));
             previousPoint = point;
