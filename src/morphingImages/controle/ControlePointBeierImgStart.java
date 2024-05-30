@@ -122,7 +122,7 @@ public class ControlePointBeierImgStart implements Observer, EventHandler<MouseE
      * @return true si le point est proche des coordonnées données, false sinon
      */
     private boolean isNear(Point point, int x, int y) {
-        return Math.abs(point.getPoint().getX() - x) < 2 && Math.abs(point.getPoint().getY() - y) < 2;
+        return Math.abs(point.getPoint().getX() - x) < 5 && Math.abs(point.getPoint().getY() - y) < 5;
     }
 
     /**

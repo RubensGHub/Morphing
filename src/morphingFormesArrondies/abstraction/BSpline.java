@@ -1,35 +1,37 @@
 package morphingFormesArrondies.abstraction;
 
+import commun.*;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-import commun.*;
 
 public class BSpline {
     int deg;
     ArrayList<Point> controlPolygon;
     ArrayList<Double> nodeVector;
-    ArrayList<Couple<Double,Double>> tVectors;
-    protected double[][] matrice; // matrice de stockage des Ni,p(u)
-    protected Point[] matriceC; // matrice de stockage des C(u)
+    ArrayList<Couple<Double, Double>> tVectors;
+    protected double[][] matrice;
+    protected Point[] courbe;
 
     public BSpline(int deg, ArrayList<Point> controlPolygon, ArrayList<Double> nodeVector) {
         this.deg = deg;
         this.controlPolygon = controlPolygon;
         this.nodeVector = nodeVector;
-        this.tVectors = new ArrayList<Couple<Double,Double>>();
+        this.tVectors = new ArrayList<Couple<Double, Double>>();
         for (int i = 0; i < controlPolygon.size(); i++) {
-            tVectors.add(new Couple<Double,Double>(0.0,0.0));
+            tVectors.add(new Couple<Double, Double>(0.0, 0.0));
         }
+        this.matrice = new double[controlPolygon.size()][(int)((nodeVector.get(nodeVector.size() - 1) - nodeVector.get(0)) * 100) + 1];
+        this.courbe = new Point[(int)((nodeVector.get(nodeVector.size() - 1) - nodeVector.get(0))*100) + 1];;
     }
 
     public BSpline() {
         this.deg = -1;
         this.controlPolygon = new ArrayList<Point>();
         this.nodeVector = new ArrayList<Double>();
-        this.tVectors = new ArrayList<Couple<Double,Double>>();
+        this.tVectors = new ArrayList<Couple<Double, Double>>();
         for (int i = 0; i < controlPolygon.size(); i++) {
-            tVectors.add(new Couple<Double,Double>(0.0,0.0));
+            tVectors.add(new Couple<Double, Double>(0.0, 0.0));
         }
     }
 
@@ -102,71 +104,82 @@ public class BSpline {
                 '}';
     }
 
-    
 
     /**
      * Calcule un point sur la courbe B-Spline à la valeur de paramètre t en utilisant l'algorithme de De Boor.
+     *
      * @param t La valeur du paramètre pour évaluer la courbe, où 0 <= t <= 1
      * @return Le point calculé sur la courbe B-Spline
      * @autor : Paul Usieto
      */
-    public Point calculerPoint(double t)
+
+    public Point calculerPoint(double t, boolean b)
     {
+        int n = controlPolygon.size() - 1;
         int k = trouverIntervalle(t);
+
         ArrayList<Point> d = new ArrayList<>(controlPolygon);
 
-        // Copie de points de controle
-        for (int i = 0; i <= deg; i++)
-        {
-            Point original = controlPolygon.get(k - deg + i);
-            d.add(new Point(original.getX(), original.getY()));
-        }
-
-        // Algorithme de De Boor
         for (int r = 1; r <= deg; r++)
         {
             for (int j = k; j > k - r; j--)
             {
-                int i = j - k + deg;
+                int i = j - k + deg - r;
                 double a = (t - nodeVector.get(j)) / (nodeVector.get(j + deg - r + 1) - nodeVector.get(j));
-                Point interpolated = d.get(i - 1).nextPoint(d.get(i), a);
-                d.set(i, interpolated);
+                Point p1 = d.get(i);
+                Point p2 = d.get(i + 1);
+                double x = (1 - a) * p1.getX() + a * p2.getX();
+                double y = (1 - a) * p1.getY() + a * p2.getY();
+                d.set(i, new Point((int) x, (int) y));
+
+                if (b && matrice != null && i < matrice.length)
+                {
+                    matrice[j][r] = a;
+                }
             }
         }
-        return d.get(deg);
+        return d.get(k - deg);
     }
 
     /**
      * Trouve l'intervalle dans le vecteur de noeuds qui contient le paramètre t.
+     *
      * @param t La valeur du paramètre, où 0 <= t <= 1
      * @return L'indice de l'intervalle
      * @autor : Paul Usieto
      */
-    private int trouverIntervalle(double t) {
-        int n = controlPolygon.size() - 1;
-        if (t >= nodeVector.get(n + 1)) {
-            return n;
-        }
-        int low = deg;
-        int high = n + 1;
-        int mid = (low + high) / 2;
-        while (t < nodeVector.get(mid) || t >= nodeVector.get(mid + 1))
+    private int trouverIntervalle(double t)
+    {
+        if (t == nodeVector.get(nodeVector.size() - 1))
         {
-            if (t < nodeVector.get(mid))
+            return nodeVector.size() - deg - 2;
+        }
+
+        int low = 0;
+        int high = nodeVector.size() - 1;
+
+        while (low <= high)
+        {
+            int mid = (low + high) / 2;
+            if (t >= nodeVector.get(mid) && t < nodeVector.get(mid + 1))
             {
-                high = mid;
+                return mid;
+            }
+            else if (t < nodeVector.get(mid))
+            {
+                high = mid - 1;
             }
             else
             {
-                low = mid;
+                low = mid + 1;
             }
-            mid = (low + high) / 2;
         }
-        return mid;
+        return 0;
     }
 
     /**
      * Calcule le vecteur de noeuds uniforme pour la courbe B-Spline.
+     *
      * @autor : Ryan Bouchou
      */
     public void computeUniformVector() {
@@ -187,51 +200,55 @@ public class BSpline {
     }
 
 
-    public ArrayList<Couple<Double,Double>> gettVectors() {
+    public ArrayList<Couple<Double, Double>> gettVectors() {
         return tVectors;
     }
 
-    public void settVectors(ArrayList<Couple<Double,Double>> tVectors) {
+    public void settVectors(ArrayList<Couple<Double, Double>> tVectors) {
         this.tVectors = tVectors;
     }
 
     // Modifier un vecteur t ou récupérer un vecteur t
-    public void settVector(int i, Couple<Double,Double> t) {
+    public void settVector(int i, Couple<Double, Double> t) {
         tVectors.set(i, t);
     }
 
-    public Couple<Double,Double> gettVector(int i) {
+    public Couple<Double, Double> gettVector(int i) {
         return tVectors.get(i);
     }
 
-    /*public static void main(String[] args) {
-        // Create the BSpline instance with scaled control points
-        ArrayList<Point> controlPolygon = new ArrayList<>();
-        controlPolygon.add(new Point(0, 0));    // Consider multiplying these by 100
-        controlPolygon.add(new Point(100, 200));
-        controlPolygon.add(new Point(300, -100));
-        controlPolygon.add(new Point(400, 300));
-        controlPolygon.add(new Point(700, 0));
-
-        ArrayList<Double> knotVector = new ArrayList<>();
-        knotVector.add(0.0);   // n + deg + 1 knots for n = 5, deg = 2 -> total 8 knots
-        knotVector.add(0.0);
-        knotVector.add(0.0);
-        knotVector.add(0.33);
-        knotVector.add(0.66);
-        knotVector.add(1.0);
-        knotVector.add(1.0);
-        knotVector.add(1.0);
-
-        BSpline spline = new BSpline(2, controlPolygon, knotVector);
-
-        // Output the points for t from 0 to 1
-        System.out.println("Points on the B-Spline with scaled coordinates:");
-        for (double t = 0.0; t <= 1.0; t += 0.1) {
-            Point p = spline.calculerPoint(t);
-            System.out.printf("t = %.1f -> Point(%d, %d)\n", t, p.getX(), p.getY());
+    /*public void initMatrice()
+    {
+        double tStep = 0.01;
+        for (int i = 0; i < courbe.length; i++)
+        {
+            double t = tStep * i;
+            courbe[i] = calculerPoint(t, false);
+            for (int j = 0; j < controlPolygon.size(); j++)
+            {
+                matrice[j][i] = calculN(j, deg, t);
+            }
         }
     }*/
+
+
+    /*public double calculN(int i, int p, double t)
+    {
+        if (p == 0)
+        {
+            return (t >= nodeVector.get(i) && t < nodeVector.get(i + 1)) ? 1.0 : 0.0;
+        }
+        double leftTerm = 0.0, rightTerm = 0.0;
+
+        if (nodeVector.get(i + p) != nodeVector.get(i))
+        {
+            leftTerm = ((t - nodeVector.get(i)) / (nodeVector.get(i + p) - nodeVector.get(i))) * calculN(i, p - 1, t);
+        }
+        if (nodeVector.get(i + p + 1) != nodeVector.get(i + 1))
+        {
+            rightTerm = ((nodeVector.get(i + p + 1) - t) / (nodeVector.get(i + p + 1) - nodeVector.get(i + 1))) * calculN(i + 1, p - 1, t);
+        }
+
+        return leftTerm + rightTerm;
+    }*/
 }
-
-
