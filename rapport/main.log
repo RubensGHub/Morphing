@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  30 MAY 2024 17:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  30 MAY 2024 17:31
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1246,7 +1246,7 @@ LaTeX Info: Redefining \nameref on input line 99.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count426
-<logos/logoGraphene.png, id=66, 1085.05376pt x 361.35pt>
+<logos/logoGraphene.png, id=70, 1085.05376pt x 361.35pt>
 File: logos/logoGraphene.png Graphic file (type png)
 <use logos/logoGraphene.png>
 Package pdftex.def Info: logos/logoGraphene.png  used on input line 133.
@@ -1285,12 +1285,12 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 133
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-<logos/logoCS.png, id=68, 285.065pt x 150.5625pt>
+<logos/logoCS.png, id=72, 285.065pt x 150.5625pt>
 File: logos/logoCS.png Graphic file (type png)
 <use logos/logoCS.png>
 Package pdftex.def Info: logos/logoCS.png  used on input line 133.
 (pdftex.def)             Requested size: 128.0387pt x 67.62613pt.
-<logos/bordureCS.png, id=69, 377.41pt x 184.69pt>
+<logos/bordureCS.png, id=73, 377.41pt x 184.69pt>
 File: logos/bordureCS.png Graphic file (type png)
 <use logos/bordureCS.png>
 Package pdftex.def Info: logos/bordureCS.png  used on input line 133.
@@ -1298,7 +1298,7 @@ Package pdftex.def Info: logos/bordureCS.png  used on input line 133.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logos/bordureCS.png> <./logos/logoGraphene.png> <./logos/logoCS.png>]
-<logos/CSxParisSaclay.jpg, id=83, 401.5pt x 223.83624pt>
+<logos/CSxParisSaclay.jpg, id=87, 401.5pt x 223.83624pt>
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 143.
@@ -1325,7 +1325,9 @@ Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 78.
  [3
 
 
-])
+]
+Package hyperref Info: bookmark level for unknown lemme defaults to 0 on input line 100.
+)
 File: logos/CSxParisSaclay.jpg Graphic file (type jpg)
 <use logos/CSxParisSaclay.jpg>
 Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 167.
@@ -1360,21 +1362,21 @@ Package pdftex.def Info: logos/CSxParisSaclay.jpg  used on input line 196.
 (pdftex.def)             Requested size: 80.29857pt x 44.76645pt.
  [8] (./main.aux (./src/sec2.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BD31EF33AC61B56E34A458A7AD0E6439;913.
+(rerunfilecheck)             Checksum: A5FA476CA6E8CA4DCAD1EE68035C3AC3;1124.
  ) 
 Here is how much of TeX's memory you used:
- 46172 strings out of 478287
- 983134 string characters out of 5849289
- 1491587 words of memory out of 5000000
- 63543 multiletter control sequences out of 15000+600000
+ 46178 strings out of 478287
+ 983198 string characters out of 5849289
+ 1492587 words of memory out of 5000000
+ 63547 multiletter control sequences out of 15000+600000
  542011 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,17n,120p,507b,942s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (9 pages, 420808 bytes).
+Output written on main.pdf (9 pages, 421744 bytes).
 PDF statistics:
- 230 PDF objects out of 1000 (max. 8388607)
- 154 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 225 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 
