@@ -98,7 +98,12 @@ public class ControlePointSimpleImgEnd implements Observer, EventHandler<MouseEv
         return Math.abs(point.getPoint().getX() - x) < 5 && Math.abs(point.getPoint().getY() - y) < 5;
     }
 
-    
+    /**
+     * Méthode appelée lorsqu'un événement de glissement de la souris est détecté.
+     * Elle met à jour la position du point sélectionné lors du glissement de la souris.
+     * 
+     * @param event L'événement MouseEvent associé au glissement de la souris.
+     */
     public void onMouseDragged(MouseEvent event) {
         if (selectedPoint != null) {
             selectedPoint.setPoint((int)event.getX(), (int)event.getY());

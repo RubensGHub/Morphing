@@ -22,7 +22,7 @@ public class ControlePointCourbeImgStart implements Observer, EventHandler<Mouse
     /**
      * Construit un nouveau ControlePointControleImgStart.
      *
-     * @param app2 l'instance de MorphingApp
+     * @param app l'instance de MorphingApp
      * @param leftGC le GraphicsContext pour le canevas de l'image de source
      */
     public ControlePointCourbeImgStart(morphingSpline app, GraphicsContext leftGC) {

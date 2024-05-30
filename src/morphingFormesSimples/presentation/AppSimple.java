@@ -20,13 +20,16 @@ import commun.*;
 import morphingFormesSimples.controle.*;
 import morphingFormesSimples.abstraction.FormesUniesPolygonales;
 
+/**
+ * Cette classe représente l'application de morphing de formes unies simples.
+ */
 @Deprecated
 public class AppSimple extends Application {
 
-    private int wImgMax = 550;
-    private int hImgMax = 550;
-    private ImageView ivStart = new ImageView();
-    private ImageView ivEnd = new ImageView();
+    private int wImgMax = 550; // largeur maximale des images.
+    private int hImgMax = 550; // Hauteur maximale des images.
+    private ImageView ivStart = new ImageView(); // ImageView pour l'image de départ.
+    private ImageView ivEnd = new ImageView(); // ImageView pour l'image d'arrivée.
 
     public ImageView getIvStart() {
         return this.ivStart;
@@ -52,7 +55,10 @@ public class AppSimple extends Application {
         }
     }
 
-
+    /**
+     * Point d'entrée de l'application.
+     * @param primaryStage La fenêtre principale de l'application.
+     */
     @Override
     public void start(Stage primaryStage) {
 
@@ -77,6 +83,8 @@ public class AppSimple extends Application {
         buttonAddImgEnd.getStyleClass().add("bouton");
         Button buttonGen = newButton("Morphing");
         buttonGen.getStyleClass().add("bouton");
+        Button buttonReturn = new Button("Retour à l'accueil");
+        buttonReturn.getStyleClass().add("bouton");
 
         // ZONE IMAGE LEFT
         StackPane zoneImgLeft = new StackPane();
@@ -115,6 +123,9 @@ public class AppSimple extends Application {
 
         // VBOX TOP
         VBox vBoxTop = new VBox(10);
+        VBox vBoxRetour = new VBox(10);
+        vBoxRetour.getChildren().add(buttonReturn); 
+        vBoxTop.getChildren().add(vBoxRetour);
         vBoxTop.setId("header");
         Text title = new Text("Morphing Simple");
         title.setId("h1");
@@ -123,7 +134,7 @@ public class AppSimple extends Application {
         subTitle.setId("h2");
         vBoxTop.getChildren().add(subTitle);
 
-        // VBOX TOP
+        // VBOX BOTTOM
         VBox vBoxBottom = new VBox(10);
         vBoxBottom.setId("footer");
         Text credits = new Text("Authors : Romain, Ryan, Paul, Rubens, Alexandre");
@@ -139,6 +150,7 @@ public class AppSimple extends Application {
         root.setRight(vBoxRight);
         root.setTop(vBoxTop);
         root.setBottom(vBoxBottom);
+        root.getStyleClass().add("body-AppSimple");
 
         // SCENE
         Scene scene = new Scene(root, 1500, 1500);
@@ -190,14 +202,26 @@ public class AppSimple extends Application {
         canvasRight.setOnMouseDragged(cpcie::onMouseDragged);
         canvasRight.setOnMouseReleased(cpcie::onMouseReleased);
         app.addObserver(cpcie);
-    
         
+        // CONTROLEUR RETOUR
+        buttonReturn.setOnAction(e -> {
+            AccueilApp accueilApp = new AccueilApp();
+            try {
+                accueilApp.start(new Stage());
+                primaryStage.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
     }
 
 
 
     
-
+    /**
+     * Crée un nouveau Slider avec des paramètres par défaut.
+     * @return Un nouveau Slider initialisé avec des paramètres par défaut.
+     */
     private Slider newSlider()
     {
         Slider slider = new Slider();
@@ -207,17 +231,35 @@ public class AppSimple extends Application {
         return slider;
     }
 
+     /**
+     * Crée une nouvelle étiquette pour le Slider avec un texte donné.
+     * @param slider Le Slider auquel l'étiquette est liée.
+     * @param txt    Le texte à afficher dans l'étiquette.
+     * @return Une nouvelle étiquette liée au Slider avec le texte spécifié.
+     */
     private Label newLabelSlider(Slider slider, String txt)
     {
         Label valSlider = new Label(txt + " : " + String.valueOf((int) slider.getValue()));
         return valSlider;
     }
 
+    /**
+     * Crée un nouveau bouton avec un texte donné.
+     * @param texte Le texte à afficher sur le bouton.
+     * @return Un nouveau bouton avec le texte spécifié.
+     */
     private Button newButton(String texte) {
         Button bouton = new Button(texte);
         return bouton;
     }
 
+    /**
+     * Crée un nouveau Rectangle avec une largeur, une hauteur et une couleur spécifiées.
+     * @param w     La largeur du Rectangle.
+     * @param h     La hauteur du Rectangle.
+     * @param color La couleur du Rectangle.
+     * @return Un nouveau Rectangle avec la largeur, la hauteur et la couleur spécifiées.
+     */
     private Rectangle newRectangle(int w, int h, Color color) {
         int sizeBorder = 5;
         Rectangle rectangle = new Rectangle(w+sizeBorder, h+sizeBorder);

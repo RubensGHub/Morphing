@@ -16,6 +16,7 @@
 
 .boutonBeier:hover {
     -fx-background-color: linear-gradient(#cfcccc, #e97070);
+    -fx-cursor: hand;
 }
 
 .boutonBeier:pressed {
@@ -40,6 +41,7 @@
 
 .boutonSimple:hover {
     -fx-background-color: linear-gradient(#d8d2d2, #7087e9);
+    -fx-cursor: hand;
 }
 
 .boutonSimple:pressed {
@@ -64,6 +66,7 @@
 
 .boutonCourbe:hover {
     -fx-background-color: linear-gradient(#d8d2d2, #70e97a);
+    -fx-cursor: hand;
 }
 
 .boutonCourbe:pressed {
@@ -85,8 +88,19 @@
 
 /*** MainApp.java ***/
 
-#body {
+.body-AppSimple {
+    -fx-background-color: skyblue;
     -fx-background-color: linear-gradient(white, skyblue);
+}
+
+.body-AppCourbe {
+    -fx-background-color: lightgreen;
+    -fx-background-color: linear-gradient(white, lightgreen);
+}
+
+.body-AppBeier {
+    -fx-background-color: lightcoral;
+    -fx-background-color: linear-gradient(white, lightcoral);
 }
 
 #header {

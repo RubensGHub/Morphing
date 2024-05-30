@@ -15,14 +15,28 @@ import morphingFormesSimples.abstraction.FormesUniesPolygonales;
 import commun.ImageT;
 
 @SuppressWarnings("deprecation")
+/**
+ * Contrôleur pour le bouton de sélection de l'image de départ.
+ * Il implémente l'interface Observer pour suivre les changements de l'application.
+ */
 public class ControleBoutonStartSimple implements Observer, EventHandler<ActionEvent> {
     
     private FormesUniesPolygonales app;
 
+    /**
+     * Constructeur du contrôleur.
+     * 
+     * @param app L'application à contrôler.
+     */
     public ControleBoutonStartSimple(FormesUniesPolygonales app) {
         this.app = app;
     }
 
+    /**
+     * Gère l'événement du clic sur le bouton de sélection de l'image de départ.
+     * 
+     * @param event L'événement associé au clic sur le bouton.
+     */
     @Override
     public void handle(ActionEvent event) {
         try {
@@ -32,12 +46,24 @@ public class ControleBoutonStartSimple implements Observer, EventHandler<ActionE
         }
     }
 
+    /**
+     * Méthode de mise à jour appelée lorsqu'un changement est observé dans l'application.
+     * 
+     * @param o   L'observable (l'application).
+     * @param arg L'argument (non utilisé ici).
+     */
     @Override
     public void update(Observable o, Object arg) {
         
     }
     
 
+    /**
+     * Récupère l'extension du fichier.
+     * 
+     * @param f Le fichier dont on veut récupérer l'extension.
+     * @return L'extension du fichier.
+     */
     private static String getExtension(File f) {
         int i = f.getName().lastIndexOf(".");
         if (i > 0) {
@@ -46,6 +72,12 @@ public class ControleBoutonStartSimple implements Observer, EventHandler<ActionE
         return null;
     }
 	
+    /**
+     * Sélectionne une image et l'ajoute à l'application en tant qu'image de départ.
+     * 
+     * @param app L'application à laquelle ajouter l'image.
+     * @throws IOException Si une erreur d'entrée/sortie se produit lors de la lecture de l'image.
+     */
 	private void selectImage(FormesUniesPolygonales app) throws IOException {
         // Définition des extensions acceptées
         HashSet<String> ext = new HashSet<String>();
@@ -66,8 +98,7 @@ public class ControleBoutonStartSimple implements Observer, EventHandler<ActionE
                 int w = bImg.getWidth();
                 int h = bImg.getHeight();
 
-                
-                // Ajout de l'image à notre App
+                // Ajout de l'image à l'application
                 ImageT imgT = new ImageT(bImg, w, h, getExtension(selectedFile));
                 app.setImgSrc(imgT);
             }

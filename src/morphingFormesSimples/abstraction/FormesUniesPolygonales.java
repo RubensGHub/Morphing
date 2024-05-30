@@ -2,8 +2,14 @@ package morphingFormesSimples.abstraction;
 
 import commun.*;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 import java.util.Observable;
+
+import com.squareup.gifencoder.GifEncoder;
+import com.squareup.gifencoder.ImageOptions;
 
 @SuppressWarnings("deprecation")
 
@@ -13,7 +19,7 @@ public class FormesUniesPolygonales extends Observable{
     private ImageT imgDest;
     private ImageT[] frames;
     private int nbFrames = 0;
-    private int color = 0;
+    private int color = 0xFF0000;
 
     public ImageT getImgSrc() {
         return this.imgSrc;
@@ -155,7 +161,33 @@ public class FormesUniesPolygonales extends Observable{
         for (int i = 0; i < this.nbFrames; i++) {
             this.frames[i] = newFrame(this.imgSrc, this.imgDest, i);
             remplissage(this.frames[i]);
-            this.frames[i].save("/home/cytech/projet/Morphing/test/" + i + ".png");
+            
+        }
+        generateGif("./morphing");
+
+    }
+
+    public void generateGif(String pathTarget){
+        try {
+            OutputStream outputStream = new FileOutputStream(pathTarget + ".gif");
+            ImageOptions options = new ImageOptions();
+            GifEncoder encod = new GifEncoder(outputStream, imgSrc.getWidth(), imgSrc.getHeight(), 0);
+            int[][] pixels = new int[imgSrc.getHeight()][imgSrc.getWidth()]; //Ordre de height et width très important !
+            
+            for (int i = 0; i < this.getNbFrames(); i++) {
+                for (int y = 0; y < imgSrc.getHeight(); y++) {
+                    for (int x = 0; x < imgSrc.getWidth(); x++) { 
+                        pixels[y][x] = frames[i].getImage().getRGB(x, y);
+                    }
+                }
+                encod.addImage(pixels, options);
+            }
+            
+            encod.finishEncoding();
+            outputStream.close();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

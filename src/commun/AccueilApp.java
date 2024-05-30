@@ -14,9 +14,25 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+/**
+ * Classe de la fenêtre d'accueil de l'application de morphing. On peut y choisir le mode de morphing souhaité.
+ */
 @SuppressWarnings("deprecation")
 public class AccueilApp extends Application {
-	
+    
+    /**
+     * Méthode principale qui démarre l'application.
+     * @param args Les arguments de la ligne de commande.
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+    
+    /**
+     * Méthode appelée au démarrage de l'application.
+     * @param primaryStage La scène principale de l'application.
+     * @throws Exception En cas d'erreur lors du démarrage de l'application.
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         Button boutonBeier = new Button("Morphing d'images");
@@ -25,9 +41,9 @@ public class AccueilApp extends Application {
         boutonBeier.getStyleClass().add("boutonBeier");
         boutonSimple.getStyleClass().add("boutonSimple");
         boutonCourbe.getStyleClass().add("boutonCourbe");
-        boutonBeier.setOnAction(event -> afficherSecondEcran(primaryStage));
-        boutonSimple.setOnAction(event -> afficherSecondEcran2(primaryStage));
-        boutonCourbe.setOnAction(event -> afficherSecondEcran3(primaryStage));
+        boutonSimple.setOnAction(event -> afficherAppSimple(primaryStage));
+        boutonCourbe.setOnAction(event -> afficherAppCourbe(primaryStage));
+        boutonBeier.setOnAction(event -> afficherAppBeier(primaryStage));
 
 
         Label phrase = new Label("Pour commencer le morphing, appuyez sur le morphing que vous souhaitez utiliser");
@@ -53,18 +69,11 @@ public class AccueilApp extends Application {
         primaryStage.setResizable(false);
     }
 
-    private void afficherSecondEcran(Stage primaryStage) {
-        Stage secondStage = new Stage();
-        AppBeier secondScreen = new AppBeier();
-        try {
-            secondScreen.start(secondStage);
-            primaryStage.close(); 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void afficherSecondEcran2(Stage primaryStage) {
+    /**
+     * Passe à la fenêtre du morphing simple.
+     * @param primaryStage La scène principale.
+     */
+    private void afficherAppSimple(Stage primaryStage) {
         Stage secondStage = new Stage();
         AppSimple secondScreen = new AppSimple();
         try {
@@ -75,7 +84,11 @@ public class AccueilApp extends Application {
         }
     }
 
-    private void afficherSecondEcran3(Stage primaryStage) {
+    /**
+     * Passe à la fenêtre du morphing de formes unies arrondies.
+     * @param primaryStage La scène principale.
+     */
+    private void afficherAppCourbe(Stage primaryStage) {
         Stage secondStage = new Stage();
         AppCourbe secondScreen = new AppCourbe();
         try {
@@ -86,8 +99,18 @@ public class AccueilApp extends Application {
         }
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    /**
+     * Passe à la fenêtre du morphing d'images (utilisant l'algorithme de Beier)
+     * @param primaryStage La scène principale.
+     */
+    private void afficherAppBeier(Stage primaryStage) {
+        Stage secondStage = new Stage();
+        AppBeier secondScreen = new AppBeier();
+        try {
+            secondScreen.start(secondStage);
+            primaryStage.close(); 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    
 }

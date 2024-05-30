@@ -13,16 +13,34 @@ import javafx.stage.FileChooser;
 
 import morphingFormesArrondies.abstraction.*;
 
-
+/**
+ * Cette classe représente le contrôleur du bouton pour la sélection de l'image source
+ * dans le processus de morphing de formes arrondies.
+ * Elle implémente l'interface Observer pour surveiller les changements et l'interface EventHandler
+ * pour gérer les événements du bouton.
+ * 
+ * Lorsqu'un événement de bouton est déclenché, le contrôleur ouvre une boîte de dialogue pour
+ * permettre à l'utilisateur de choisir une image. L'image sélectionnée est alors chargée et ajoutée
+ * à l'application morphingSpline comme image source.
+ */
 @SuppressWarnings("deprecation")
 public class ControleBoutonStartCourbe implements Observer, EventHandler<ActionEvent> {
     
     private morphingSpline app;
 
+    /**
+     * Constructeur de la classe ControleBoutonStartCourbe.
+     * @param app L'application morphingSpline à contrôler.
+     */
     public ControleBoutonStartCourbe(morphingSpline app) {
         this.app = app;
     }
 
+    /**
+     * Méthode de gestion des événements du bouton.
+     * Elle est appelée lorsqu'un événement de bouton est déclenché.
+     * @param event L'événement déclenché.
+     */
     @Override
     public void handle(ActionEvent event) {
         try {
@@ -32,12 +50,23 @@ public class ControleBoutonStartCourbe implements Observer, EventHandler<ActionE
         }
     }
 
+    /**
+     * Méthode appelée lorsqu'un objet observé notifie un changement.
+     * Actuellement, cette méthode est vide car elle n'est pas utilisée dans cette classe.
+     * @param o L'objet observé.
+     * @param arg L'argument (donnée) transmis par l'objet observé lors de la notification.
+     */
     @Override
     public void update(Observable o, Object arg) {
         
     }
     
 
+    /**
+     * Méthode pour récupérer l'extension d'un fichier.
+     * @param f Le fichier dont on veut récupérer l'extension.
+     * @return L'extension du fichier.
+     */
     private static String getExtension(File f) {
         int i = f.getName().lastIndexOf(".");
         if (i > 0) {
@@ -46,6 +75,11 @@ public class ControleBoutonStartCourbe implements Observer, EventHandler<ActionE
         return null;
     }
 	
+    /**
+     * Méthode pour sélectionner une image et l'ajouter à l'application comme image source.
+     * @param app L'application morphingSpline.
+     * @throws IOException En cas d'erreur d'entrée/sortie lors de la lecture de l'image.
+     */
 	private void selectImage(morphingSpline app) throws IOException {
         // Définition des extensions acceptées
         HashSet<String> ext = new HashSet<String>();
@@ -61,18 +95,15 @@ public class ControleBoutonStartCourbe implements Observer, EventHandler<ActionE
         // Vérification de la sélection et de l'extension
         if (selectedFile != null) {
             if (ext.contains(getExtension(selectedFile))) {
-                // Création de BufferedImage pour récupérer taille et construire ImageT
+                // Création de BufferedImage pour récupérer taille et construire ImageS
                 BufferedImage bImg = ImageIO.read(selectedFile);
                 int w = bImg.getWidth();
                 int h = bImg.getHeight();
 
-                
                 // Ajout de l'image à notre App
                 ImageS imgS = new ImageS(bImg, w, h, getExtension(selectedFile));
                 app.setImgSrc(imgS);
-            }
-            
-            else {
+            } else {
                 System.err.println("Seules les images sont acceptées.");
             }
         }
