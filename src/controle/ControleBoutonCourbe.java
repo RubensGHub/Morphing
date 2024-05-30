@@ -4,24 +4,20 @@ import java.util.Observable;
 import java.util.Observer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import morphing.*;
+import morphCourbe.morphingSpline;
 
 @SuppressWarnings("deprecation")
 public class ControleBoutonCourbe implements Observer, EventHandler<ActionEvent> {
-    private MorphingApp app;
+    private morphingSpline app;
 
 
-    public ControleBoutonCourbe(MorphingApp app){
+    public ControleBoutonCourbe(morphingSpline app){
         this.app = app;
     }
 
     @Override
     public void handle(ActionEvent event) {
-        /*try {
-            CourbesBezier();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+        app.calculate();
     }
 
     @Override
