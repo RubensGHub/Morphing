@@ -109,10 +109,10 @@ public class morphingSpline extends Observable {
         double tMax = spline.getNode(spline.getNodeVector().size() - 1 - spline.getDeg());
 
         g2d.setColor(Color.BLUE);
-        Point previousPoint = spline.calculerPoint(tMin);
+        Point previousPoint = spline.calculerPoint(tMin, false);
 
         for (double t = tMin + step; t <= tMax; t += step) {
-            Point point = spline.calculerPoint(t);
+            Point point = spline.calculerPoint(t, false);
             g2d.draw(new Line2D.Double(previousPoint.getX(),previousPoint.getY(),point.getX(),point.getY()));
             previousPoint = point;
         }
