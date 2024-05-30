@@ -9,6 +9,8 @@ public class BSpline {
     ArrayList<Point> controlPolygon;
     ArrayList<Double> nodeVector;
     ArrayList<Couple<Double,Double>> tVectors;
+    protected double[][] matrice; // matrice de stockage des Ni,p(u)
+    protected Point[] matriceC; // matrice de stockage des C(u)
 
     public BSpline(int deg, ArrayList<Point> controlPolygon, ArrayList<Double> nodeVector) {
         this.deg = deg;
