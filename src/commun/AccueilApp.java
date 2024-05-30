@@ -14,9 +14,25 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+/**
+ * Classe de la fenêtre d'accueil de l'application de morphing. On peut y choisir le mode de morphing souhaité.
+ */
 @SuppressWarnings("deprecation")
 public class AccueilApp extends Application {
-	
+    
+    /**
+     * Méthode principale qui démarre l'application.
+     * @param args Les arguments de la ligne de commande.
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+    
+    /**
+     * Méthode appelée au démarrage de l'application.
+     * @param primaryStage La scène principale de l'application.
+     * @throws Exception En cas d'erreur lors du démarrage de l'application.
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         Button boutonBeier = new Button("Morphing d'images");
@@ -53,6 +69,10 @@ public class AccueilApp extends Application {
         primaryStage.setResizable(false);
     }
 
+    /**
+     * Passe à la fenêtre du morphing simple.
+     * @param primaryStage La scène principale.
+     */
     private void afficherAppSimple(Stage primaryStage) {
         Stage secondStage = new Stage();
         AppSimple secondScreen = new AppSimple();
@@ -64,6 +84,10 @@ public class AccueilApp extends Application {
         }
     }
 
+    /**
+     * Passe à la fenêtre du morphing de formes unies arrondies.
+     * @param primaryStage La scène principale.
+     */
     private void afficherAppCourbe(Stage primaryStage) {
         Stage secondStage = new Stage();
         AppCourbe secondScreen = new AppCourbe();
@@ -75,6 +99,10 @@ public class AccueilApp extends Application {
         }
     }
 
+    /**
+     * Passe à la fenêtre du morphing d'images (utilisant l'algorithme de Beier)
+     * @param primaryStage La scène principale.
+     */
     private void afficherAppBeier(Stage primaryStage) {
         Stage secondStage = new Stage();
         AppBeier secondScreen = new AppBeier();
@@ -85,9 +113,4 @@ public class AccueilApp extends Application {
             e.printStackTrace();
         }
     }
-    
-    public static void main(String[] args) {
-        launch(args);
-    }
-    
 }

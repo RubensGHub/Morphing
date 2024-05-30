@@ -21,14 +21,16 @@ import morphingImages.controle.*;
 import morphingImages.abstraction.MorphingApp;
 
 
-
+/**
+ * Cette classe représente l'application de morphing d'images utilisant l'algorithme de Beier-Neely.
+ */
 @Deprecated
 public class AppBeier extends Application {
 
-    private int wImgMax = 550;
-    private int hImgMax = 550;
-    private ImageView ivStart = new ImageView();
-    private ImageView ivEnd = new ImageView();
+    private int wImgMax = 550; // largeur maximale des images.
+    private int hImgMax = 550; // Hauteur maximale des images.
+    private ImageView ivStart = new ImageView(); // ImageView pour l'image de départ.
+    private ImageView ivEnd = new ImageView(); // ImageView pour l'image d'arrivée.
 
     public ImageView getIvStart() {
         return this.ivStart;
@@ -55,9 +57,14 @@ public class AppBeier extends Application {
     }
 
 
+    /**
+     * Point d'entrée de l'application.
+     * @param primaryStage La fenêtre principale de l'application.
+     */
     @Override
     public void start(Stage primaryStage) {
 
+         // Initialisation de l'application de morphing
         MorphingApp app = new MorphingApp();
 
         // CREATION IMAGEVIEW (initialement : null)
@@ -217,7 +224,10 @@ public class AppBeier extends Application {
 
 
     
-
+    /**
+     * Crée un nouveau Slider avec des paramètres par défaut.
+     * @return Un nouveau Slider initialisé avec des paramètres par défaut.
+     */
     private Slider newSlider()
     {
         Slider slider = new Slider();
@@ -227,17 +237,35 @@ public class AppBeier extends Application {
         return slider;
     }
 
+    /**
+     * Crée une nouvelle étiquette pour le Slider avec un texte donné.
+     * @param slider Le Slider auquel l'étiquette est liée.
+     * @param txt    Le texte à afficher dans l'étiquette.
+     * @return Une nouvelle étiquette liée au Slider avec le texte spécifié.
+     */
     private Label newLabelSlider(Slider slider, String txt)
     {
         Label valSlider = new Label(txt + " : " + String.valueOf((int) slider.getValue()));
         return valSlider;
     }
 
+    /**
+     * Crée un nouveau bouton avec un texte donné.
+     * @param texte Le texte à afficher sur le bouton.
+     * @return Un nouveau bouton avec le texte spécifié.
+     */
     private Button newButton(String texte) {
         Button bouton = new Button(texte);
         return bouton;
     }
 
+    /**
+     * Crée un nouveau Rectangle avec une largeur, une hauteur et une couleur spécifiées.
+     * @param w     La largeur du Rectangle.
+     * @param h     La hauteur du Rectangle.
+     * @param color La couleur du Rectangle.
+     * @return Un nouveau Rectangle avec la largeur, la hauteur et la couleur spécifiées.
+     */
     private Rectangle newRectangle(int w, int h, Color color) {
         int sizeBorder = 5;
         Rectangle rectangle = new Rectangle(w+sizeBorder, h+sizeBorder);
@@ -247,6 +275,7 @@ public class AppBeier extends Application {
         return rectangle;
     }
 
+    
     
     public static void main(String[] args) {
         launch(args);
